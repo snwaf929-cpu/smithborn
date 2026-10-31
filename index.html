@@ -564,7 +564,9 @@ kbd { font: 600 11px/1 var(--f-display); background: var(--raise); padding: 2px 
 .know b { font: 600 var(--t-md)/1.15 var(--f-display); color: var(--ink); }
 .know .ar { grid-row: span 2; }
 .know .ar img { width: 100%; height: auto; image-rendering: pixelated; margin-bottom: 6px; }
-.settings { background: var(--panel); clip-path: var(--notch); padding: 0 16px; }
+.settings { background: var(--panel); clip-path: var(--notch); padding: 0 16px; min-width: 0; max-width: 100%; box-sizing: border-box; }
+.settings > * { max-width: 100%; box-sizing: border-box; }
+.settings::details-content { min-width: 0; max-width: 100%; }
 .settings summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; padding: 14px 0; cursor: pointer; font: 600 var(--t-md)/1.2 var(--f-display); list-style: none; }
 .settings summary::-webkit-details-marker { display: none; }
 .settings summary::before { content: "+"; display: inline-grid; place-items: center; width: 20px; height: 20px; background: var(--raise); color: var(--ember); clip-path: var(--notch); }
@@ -799,6 +801,10 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .srv-all td code { display: block; font: 400 11px/1.3 var(--f-mono); color: var(--faint); margin-top: 2px; }
 .srv-all tr.srv-hot td { color: var(--ember); }
 .srv-all tr.srv-hot td:first-child b { color: var(--ember); }
+.srv-all tr.srv-sub th { text-align: left; font: 500 var(--t-xs)/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-top: 16px; }
+.srv-addon .srv-n { display: block; font: normal 600 var(--t-xs)/1.3 var(--f-display); color: var(--ember); margin-top: 5px; letter-spacing: .02em; }
+.srv-group h3 { display: flex; align-items: center; gap: 8px; }
+.srv-group[style] h3 { color: var(--c); }
 .srv-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 18px 20px; background: var(--panel); clip-path: var(--notch); }
 .srv-cta > div { display: grid; gap: 4px; }
 .srv-cta b { font: 600 var(--t-lg)/1.2 var(--f-display); }
@@ -856,14 +862,14 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 </div>
 <main id="view" class="wrap"></main>
 <footer><div class="wrap">
-  <span data-foot="home">Numbers from Smithborn 1.6.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="home">The craft demo rolls with the mod's own rules and default settings.</span>
-  <span data-foot="abilities" hidden>Numbers from Smithborn: Abilities 1.0.0 as deployed on 30 October 2026, Minecraft 26.1.2 (Fabric).</span><span data-foot="abilities" hidden><kbd>1</kbd>–<kbd>9</kbd> pick an ability · <kbd>Space</kbd> plays or pauses · <kbd>H</kbd> switches half and fully awake</span>
-  <span data-foot="legends" hidden>Numbers from Smithborn: Legends 1.1.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="legends" hidden><kbd>1</kbd>–<kbd>6</kbd> pick a power · <kbd>Space</kbd> plays or pauses</span>
-  <span data-foot="metals" hidden>Numbers from Smithborn: Metals 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="metals" hidden><kbd>1</kbd>–<kbd>4</kbd> pick a metal · <kbd>Space</kbd> plays or pauses</span>
-  <span data-foot="enchantments" hidden>Numbers from Smithborn: Enchantments 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="enchantments" hidden><kbd>1</kbd>–<kbd>9</kbd> pick one of the first nine · <kbd>Space</kbd> plays or pauses</span>
-  <span data-foot="arena" hidden>Numbers from Smithborn: Arena 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="arena" hidden><kbd>1</kbd>–<kbd>5</kbd> pick a feature · <kbd>Space</kbd> plays or pauses</span>
-  <span data-foot="trades" hidden>Numbers from Smithborn: Trades 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="trades" hidden><kbd>1</kbd>–<kbd>4</kbd> pick a feature · <kbd>Space</kbd> plays or pauses</span>
-  <span data-foot="servers" hidden>Server pages read Smithborn 1.6.0's settings. A server link holds the whole page; nothing is stored anywhere.</span>
+  <span data-foot="home">Numbers from Smithborn 1.7.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="home">The craft demo rolls with the mod's own rules and default settings.</span>
+  <span data-foot="abilities" hidden>Numbers from Smithborn: Abilities 1.1.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="abilities" hidden><kbd>1</kbd>–<kbd>9</kbd> pick an ability · <kbd>Space</kbd> plays or pauses · <kbd>H</kbd> switches half and fully awake</span>
+  <span data-foot="legends" hidden>Numbers from Smithborn: Legends 1.2.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="legends" hidden><kbd>1</kbd>–<kbd>6</kbd> pick a power · <kbd>Space</kbd> plays or pauses</span>
+  <span data-foot="metals" hidden>Numbers from Smithborn: Metals 1.1.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="metals" hidden><kbd>1</kbd>–<kbd>4</kbd> pick a metal · <kbd>Space</kbd> plays or pauses</span>
+  <span data-foot="enchantments" hidden>Numbers from Smithborn: Enchantments 1.1.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="enchantments" hidden><kbd>1</kbd>–<kbd>9</kbd> pick one of the first nine · <kbd>Space</kbd> plays or pauses</span>
+  <span data-foot="arena" hidden>Numbers from Smithborn: Arena 1.1.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="arena" hidden><kbd>1</kbd>–<kbd>5</kbd> pick a feature · <kbd>Space</kbd> plays or pauses</span>
+  <span data-foot="trades" hidden>Numbers from Smithborn: Trades 1.1.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="trades" hidden><kbd>1</kbd>–<kbd>4</kbd> pick a feature · <kbd>Space</kbd> plays or pauses</span>
+  <span data-foot="servers" hidden>Server pages read the settings of Smithborn 1.7.0 and its addons. A server link holds the whole page; nothing is stored anywhere.</span>
 </div></footer>
 <script>
 // ==== core.js ====
@@ -7721,7 +7727,7 @@ function showAbilitiesHome() {
   $('#view').innerHTML = `
   <section class="hero-home">
     <div class="hh-text">
-      <p class="eyebrow">Smithborn addon · Abilities 1.0.0 · Minecraft 26.1.2</p>
+      <p class="eyebrow">Smithborn addon · Abilities 1.1.0 · Minecraft 26.1.2</p>
       <h1><span class="lh-mark inl" style="background-image:url(data:image/png;base64,${LOGO.abilities})" aria-hidden="true"></span>Abilities <span>Codex</span></h1>
       <p class="lede">Nine sigils, nine weapon abilities. Watch each one in action, then see where to find its sigil, how to wake it, and how to test it in your world.</p>
       <div class="cta"><a class="btn" href="#volatile-orb" id="cta-watch">Watch Volatile Orb</a><button type="button" class="btn ghost" id="to-nine">See all nine</button></div>
@@ -7783,7 +7789,8 @@ function showAbilitiesHome() {
     <div class="sec-head"><h2 id="h-kit">Commands for testing</h2><p>Paste into chat in a creative or cheats-on world.</p></div>
     ${cmdPanel(KIT)}
     <div class="dl-row" data-dl><span class="lbl">Files</span><button type="button" class="btn" id="save-textures">Save all sigil textures (zip)</button><span class="dl-status" role="status" aria-live="polite"></span></div>
-  </section>`;
+  </section>
+  ${addonSettingsPanel('abilities')}`;
   bindCards();
   $('#to-nine').addEventListener('click', () => $('#nine').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }));
   $('#save-textures').addEventListener('click', saveTextures);
@@ -8173,7 +8180,7 @@ function saveTextures() {
 }
 function infoText(a) {
   const L = [];
-  L.push(`${a.name} (${a.weapon} ability), Smithborn: Abilities 1.0.0`, '', a.hook, '', 'WHAT IT DOES');
+  L.push(`${a.name} (${a.weapon} ability), Smithborn: Abilities 1.1.0`, '', a.hook, '', 'WHAT IT DOES');
   a.steps.forEach((s, i) => L.push(`${i + 1}. ${s}`));
   if (a.extra) { L.push('', a.extra.title.toUpperCase(), a.extra.head.join(' | ')); a.extra.rows.forEach(r => L.push(r.join(' | '))); L.push(a.extra.note); }
   L.push('', 'FULLY AWAKE / HALF AWAKE'); a.table.forEach(r => L.push(`${r[0]}: ${r[1]} / ${r[2]}`));
@@ -8509,7 +8516,7 @@ function showHome() {
   $('#view').innerHTML = `
   <section class="sb-hero">
     <div class="sbh-text">
-      <p class="eyebrow">Smithborn 1.6.0 · Minecraft 26.1.2 · Fabric</p>
+      <p class="eyebrow">Smithborn 1.7.0 · Minecraft 26.1.2 · Fabric</p>
       <h1><span class="sbh-mark" style="background-image:${sbUrl(SB.icon)}" aria-hidden="true"></span>Smithborn</h1>
       <p class="lede">Every piece of vanilla gear you craft comes out of the forge a little different: <b>random stats</b> and a <b>quality tier</b>. Lock the stats you like at the <b>Reforging Table</b> and reroll the rest, or raise one with a rare <b>Forge Ember</b>.</p>
       <p class="sbh-quote">No new swords, armor or ores. Your iron sword is still an iron sword, it is just <em>your</em> iron sword.</p>
@@ -8637,12 +8644,12 @@ function showHome() {
   </section>
 
   <section aria-labelledby="h-addons" id="addons">
-    <div class="sec-head"><h2 id="h-addons">Addons</h2><p>Each one needs Smithborn 1.6.0 or newer.</p></div>
+    <div class="sec-head"><h2 id="h-addons">Addons</h2><p>Each one needs Smithborn 1.7.0 or newer.</p></div>
     <div class="addons">
       <a class="addon" href="#abilities">
         <span class="addon-shot"><canvas id="show" width="256" height="160" aria-label="Each ability in action, one after another"></canvas><span class="show-cap"><span class="sig sm" id="show-sig"></span><span><b id="show-name"></b><small id="show-hook"></small></span></span></span>
         <span class="addon-body">
-          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(LOGO.abilities)}"></span><span><small>Addon</small><b>Smithborn: Abilities</b></span><span class="chip">1.0.0</span></span>
+          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(LOGO.abilities)}"></span><span><small>Addon</small><b>Smithborn: Abilities</b></span><span class="chip">1.1.0</span></span>
           <span class="addon-text">Sigils hidden in chests and vaults around the world, each one a weapon ability. Find one dormant, wake it with kills, and forge it onto your weapon at the Sigil Forge.</span>
           <span class="sig-row">${ABILITIES.map(a => `<span class="sig sm" style="background-image:url(${sigUrl(a)})" title="${esc(a.name)}"></span>`).join('')}</span>
           <span class="addon-facts"><span><b>${ABILITIES.length}</b> abilities</span><span><b>${new Set(ABILITIES.map(a => a.weapon)).size}</b> weapons</span><span><b>${ABILITIES.reduce((n, a) => n + a.variants.length, 0)}</b> animated scenes</span></span>
@@ -8652,7 +8659,7 @@ function showHome() {
       <a class="addon leg" href="#legends">
         <span class="addon-shot"><canvas id="lshow" width="256" height="160" aria-label="Each Legends power in action, one after another"></canvas><span class="show-cap"><span class="sig sm still" id="lshow-sig"></span><span><b id="lshow-name"></b><small id="lshow-hook"></small></span></span></span>
         <span class="addon-body">
-          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(LEG.icon)}"></span><span><small>Addon</small><b>Smithborn: Legends</b></span><span class="chip">1.1.0</span></span>
+          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(LEG.icon)}"></span><span><small>Addon</small><b>Smithborn: Legends</b></span><span class="chip">1.2.0</span></span>
           <span class="addon-text">Hidden stats your Masterworks reveal over time, six forgings that make gear stronger and give weapons a power, a way to move a stat from one item to another, and the rare Reforge Template.</span>
           <span class="sig-row">${POWERS.map(a => `<span class="sig sm still" style="background-image:url(${picUrl(a)})" title="${esc(a.name)}"></span>`).join('')}</span>
           <span class="addon-facts"><span><b>${POWERS.length}</b> powers</span><span><b>4</b> stars</span><span><b>11</b> advancements</span><span><b>${POWERS.reduce((n, a) => n + a.variants.length, 0)}</b> animated scenes</span></span>
@@ -8662,7 +8669,7 @@ function showHome() {
       <a class="addon met" href="#metals">
         <span class="addon-shot"><canvas id="mshow" width="256" height="160" aria-label="Each metal's full set at work, one after another"></canvas><span class="show-cap"><span class="sig sm still" id="mshow-sig"></span><span><b id="mshow-name"></b><small id="mshow-hook"></small></span></span></span>
         <span class="addon-body">
-          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(MET.icon)}"></span><span><small>Addon</small><b>Smithborn: Metals</b></span><span class="chip">1.0.0</span></span>
+          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(MET.icon)}"></span><span><small>Addon</small><b>Smithborn: Metals</b></span><span class="chip">1.1.0</span></span>
           <span class="addon-text">Four new metals from four corners of the world: Frostite, Cinnabar, Galena and Amberite. Gear made like netherite and never weaker than it, each metal better at one thing, each armor set with a full-set ability and a small weakness.</span>
           <span class="sig-row">${METALS.map(a => `<span class="sig sm still" style="background-image:url(${picUrl(a)})" title="${esc(a.name)}"></span>`).join('')}</span>
           <span class="addon-facts"><span><b>4</b> metals</span><span><b>36</b> pieces of gear</span><span><b>4</b> full-set abilities</span><span><b>${METALS.reduce((n, a) => n + a.variants.length, 0)}</b> animated scenes</span></span>
@@ -8672,7 +8679,7 @@ function showHome() {
       <a class="addon ench" href="#enchantments">
         <span class="addon-shot"><canvas id="eshow" width="256" height="160" aria-label="Each enchantment at work, one after another"></canvas><span class="show-cap"><span class="sig sm gl" id="eshow-sig"></span><span><b id="eshow-name"></b><small id="eshow-hook"></small></span></span></span>
         <span class="addon-body">
-          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(ENC.icon)}"></span><span><small>Addon</small><b>Smithborn: Enchantments</b></span><span class="chip">1.0.0</span></span>
+          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(ENC.icon)}"></span><span><small>Addon</small><b>Smithborn: Enchantments</b></span><span class="chip">1.1.0</span></span>
           <span class="addon-text">Seventeen new enchantments, each taking a vanilla enchantment's place instead of stacking on top of it: one or the other, never both, so nothing turns into a must-have. Found the vanilla way, and every book explains itself in one line.</span>
           <span class="sig-row">${ENCHANTS.map(a => `<span class="sig sm gl" style="background-image:url(${picUrl(a)})" title="${esc(a.name)}"></span>`).join('')}</span>
           <span class="addon-facts"><span><b>17</b> enchantments</span><span><b>2</b> new effects</span><span><b>2</b> treasures</span><span><b>${ENCHANTS.length}</b> animated scenes</span></span>
@@ -8682,7 +8689,7 @@ function showHome() {
       <a class="addon arena" href="#arena">
         <span class="addon-shot"><canvas id="ashow" width="256" height="160" aria-label="Each Arena feature at work, one after another"></canvas><span class="show-cap"><span class="sig sm still" id="ashow-sig"></span><span><b id="ashow-name"></b><small id="ashow-hook"></small></span></span></span>
         <span class="addon-body">
-          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(ATX.arena.icon)}"></span><span><small>Addon</small><b>Smithborn: Arena</b></span><span class="chip">1.0.0</span></span>
+          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(ATX.arena.icon)}"></span><span><small>Addon</small><b>Smithborn: Arena</b></span><span class="chip">1.1.0</span></span>
           <span class="addon-text">Made for PvP: Shift on a player to see their gear's tiers, a gold glint on a full Masterwork set, a small perk for every armor trim, and rolled stats for bows, crossbows and elytra.</span>
           <span class="sig-row">${ARENA.map(a => `<span class="sig sm${picCls(a)}" style="background-image:url(${picUrl(a)})" title="${esc(a.name)}"></span>`).join('')}</span>
           <span class="addon-facts"><span><b>5</b> features</span><span><b>5</b> new stats</span><span><b>18</b> trim perks</span><span><b>${ARENA.length}</b> animated scenes</span></span>
@@ -8692,7 +8699,7 @@ function showHome() {
       <a class="addon trades" href="#trades">
         <span class="addon-shot"><canvas id="tshow" width="256" height="160" aria-label="Each Trades feature at work, one after another"></canvas><span class="show-cap"><span class="sig sm still" id="tshow-sig"></span><span><b id="tshow-name"></b><small id="tshow-hook"></small></span></span></span>
         <span class="addon-body">
-          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(ATX.trades.icon)}"></span><span><small>Addon</small><b>Smithborn: Trades</b></span><span class="chip">1.0.0</span></span>
+          <span class="addon-top"><span class="pic lg" style="background-image:${sbUrl(ATX.trades.icon)}"></span><span><small>Addon</small><b>Smithborn: Trades</b></span><span class="chip">1.1.0</span></span>
           <span class="addon-text">Rolled gear joins the world's economy: Expert smiths reroll your gear for emeralds, vaults, strongholds and mobs carry rolled gear, and the grindstone gives materials back.</span>
           <span class="sig-row">${TRADES.map(a => `<span class="sig sm${picCls(a)}" style="background-image:url(${picUrl(a)})" title="${esc(a.name)}"></span>`).join('')}</span>
           <span class="addon-facts"><span><b>1</b> new trade</span><span><b>3</b> places to find gear</span><span><b>9</b> kinds of gear to salvage</span><span><b>${TRADES.length}</b> animated scenes</span></span>
@@ -8717,7 +8724,7 @@ function showHome() {
       <div><b>Older gear catches up</b><span>Gear from an older version follows the current rules once it is equipped.</span></div>
     </div>
     <details class="settings"><summary>Server settings <span class="dim">config/smithborn.json</span></summary>
-      <p class="fine">Made with these defaults the first time the server starts. Change it and run <code>/reload</code>: the server reads it again and sends it to every player.</p>
+      <p class="fine">Made with these defaults the first time the server starts. Change it and run <code>/reload</code>: the server reads it again and sends it to every player. Each installed addon adds its own block to the same file (its settings are at the bottom of its page), and <code>"installed"</code> at the top lists every Smithborn mod in the game. A <a href="#servers">server page</a> shows your players what you changed.</p>
       <div class="scroll"><table class="grid"><thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead><tbody>${SETTINGS.map(s => `<tr><td><code>${esc(s[0])}</code></td><td><code>${esc(s[1])}</code></td><td>${esc(s[2])}</td></tr>`).join('')}</tbody></table></div>
     </details>
   </section>
@@ -9201,11 +9208,11 @@ function showLegendsHome() {
   $('#view').innerHTML = `
   <section class="hero-home leg-hero">
     <div class="hh-text">
-      <p class="eyebrow">Smithborn addon · Legends 1.1.0 · Minecraft 26.1.2</p>
+      <p class="eyebrow">Smithborn addon · Legends 1.2.0 · Minecraft 26.1.2</p>
       <h1><span class="lh-mark" style="background-image:${legBg(LEG.icon)}" aria-hidden="true"></span><span>Legends</span></h1>
       <p class="lede">Turn your best gear into legends. Masterworks reveal a <b>hidden stat</b> over time, <b>six forgings</b> make gear stronger and give weapons a <b>power</b>, and an Echo Shard or the rare Reforge Template fixes the one stat you still don't like.</p>
       <div class="cta"><a class="btn" href="#chain-lightning">Watch Chain Lightning</a><button type="button" class="btn ghost" id="to-six">See all six powers</button></div>
-      <p class="fine">No new blocks: everything happens at Smithborn's Reforging Table or in normal play. Needs Smithborn 1.6.0 or newer. ${scenes} scenes of pixel art, 10 seconds each.</p>
+      <p class="fine">No new blocks: everything happens at Smithborn's Reforging Table or in normal play. Needs Smithborn 1.7.0 or newer. ${scenes} scenes of pixel art, 10 seconds each.</p>
     </div>
     <figure class="showcase">
       <div class="screen-frame"><a class="show-screen" id="show-link" href="#chain-lightning">
@@ -9332,7 +9339,8 @@ function showLegendsHome() {
     <div class="sec-head"><h2 id="h-kit">Commands for testing</h2><p>Paste into chat in a creative or cheats-on world.</p></div>
     ${cmdPanel(LEGEND_KIT)}
     <div class="dl-row" data-dl><span class="lbl">Files</span><button type="button" class="btn" id="save-leg-textures">Save the Legends textures (zip)</button><span class="dl-status" role="status" aria-live="polite"></span></div>
-  </section>`;
+  </section>
+  ${addonSettingsPanel('legends')}`;
   bindCards();
   $('#to-six').addEventListener('click', () => $('#six').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }));
   $('#save-leg-textures').addEventListener('click', saveLegTextures);
@@ -9454,7 +9462,7 @@ function saveLegTextures() {
 }
 function powerInfoText(a) {
   const L = [];
-  L.push(`${a.name} (${a.forging.toLowerCase()}), Smithborn: Legends 1.1.0`, '', a.hook, '', 'WHAT IT DOES');
+  L.push(`${a.name} (${a.forging.toLowerCase()}), Smithborn: Legends 1.2.0`, '', a.hook, '', 'WHAT IT DOES');
   a.steps.forEach((s, i) => L.push(`${i + 1}. ${s}`));
   L.push('', 'NUMBERS'); a.numbers.forEach(r => L.push(`${r[0]}: ${r[1]}`));
   L.push('', 'GOOD TO KNOW'); a.notes.forEach(n => L.push('- ' + n));
@@ -9681,11 +9689,11 @@ function showMetalsHome() {
   $('#view').innerHTML = `
   <section class="hero-home met-hero">
     <div class="hh-text">
-      <p class="eyebrow">Smithborn addon · Metals 1.0.0 · Minecraft 26.1.2</p>
+      <p class="eyebrow">Smithborn addon · Metals 1.1.0 · Minecraft 26.1.2</p>
       <h1><span class="lh-mark" style="background-image:${sbUrl(MET.icon)}" aria-hidden="true"></span><span>Metals</span></h1>
       <p class="lede">Four new metals, each from its own corner of the world. Their gear is made <b>like netherite</b> and is <b>never weaker than netherite</b>: each metal is better at one thing, and each armor set has a <b>full-set ability</b> and a small weakness.</p>
       <div class="cta"><a class="btn" href="#frostite">Watch Frostite</a><button type="button" class="btn ghost" id="to-four">See all four</button></div>
-      <p class="fine">All of it rolls stats and reforges with Smithborn like vanilla gear. Needs Smithborn 1.6.0 or newer. ${scenes} scenes of pixel art, 10 seconds each.</p>
+      <p class="fine">All of it rolls stats and reforges with Smithborn like vanilla gear. Needs Smithborn 1.7.0 or newer. ${scenes} scenes of pixel art, 10 seconds each.</p>
     </div>
     <figure class="showcase">
       <div class="screen-frame"><a class="show-screen" id="show-link" href="#frostite">
@@ -9783,7 +9791,8 @@ function showMetalsHome() {
     <div class="sec-head"><h2 id="h-kit">Commands for testing</h2><p>Paste into chat in a creative or cheats-on world.</p></div>
     ${cmdPanel(METAL_KIT)}
     <div class="dl-row" data-dl><span class="lbl">Files</span><button type="button" class="btn" id="save-met-textures">Save the Metals textures (zip)</button><span class="dl-status" role="status" aria-live="polite"></span></div>
-  </section>`;
+  </section>
+  ${addonSettingsPanel('metals')}`;
   bindCards();
   $('#to-four').addEventListener('click', () => $('#four').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }));
   $('#save-met-textures').addEventListener('click', saveMetTextures);
@@ -9893,7 +9902,7 @@ function saveMetTextures() {
 }
 function metalInfoText(a) {
   const L = [], m = a.key;
-  L.push(`${a.name}, Smithborn: Metals 1.0.0`, '', a.hook, '', 'WHERE IT IS FOUND', a.whereLong, `Height: ${a.height}. About: ${a.amount}. Mine it with a netherite pickaxe (or a metal one); it drops Raw ${a.name}.`);
+  L.push(`${a.name}, Smithborn: Metals 1.1.0`, '', a.hook, '', 'WHERE IT IS FOUND', a.whereLong, `Height: ${a.height}. About: ${a.amount}. Mine it with a netherite pickaxe (or a metal one); it drops Raw ${a.name}.`);
   L.push('', 'WEAPONS AND TOOLS (netherite / ' + a.name.toLowerCase() + ')');
   [['Sword', 'sword'], ['Axe', 'axe'], ['Durability', 'dur'], ['Mining speed', 'speed']].forEach(([l, k]) => L.push(`${l}: ${NETH[k]} / ${a.tool[k]}`));
   L.push(a.tool.note);
@@ -10398,11 +10407,11 @@ function showEnchantsHome() {
   $('#view').innerHTML = `
   <section class="hero-home ench-hero">
     <div class="hh-text">
-      <p class="eyebrow">Smithborn addon · Enchantments 1.0.0 · Minecraft 26.1.2</p>
+      <p class="eyebrow">Smithborn addon · Enchantments 1.1.0 · Minecraft 26.1.2</p>
       <h1><span class="lh-mark" style="background-image:${sbUrl(ENC.icon)}" aria-hidden="true"></span><span>Enchantments</span></h1>
       <p class="lede">Seventeen new enchantments. Each one <b>takes a vanilla enchantment's place</b> instead of stacking on top of it: an item can have one or the other, <b>never both</b>, so nothing turns into a must-have.</p>
       <div class="cta"><a class="btn" href="#bulwark">Watch Bulwark</a><button type="button" class="btn ghost" id="to-all">See all seventeen</button></div>
-      <p class="fine">Found the vanilla way: the enchanting table, librarians and loot chests. Every book explains its enchantment in one line. Needs Smithborn 1.6.0 or newer. ${n} scenes of pixel art, 10 seconds each.</p>
+      <p class="fine">Found the vanilla way: the enchanting table, librarians and loot chests. Every book explains its enchantment in one line. Needs Smithborn 1.7.0 or newer. ${n} scenes of pixel art, 10 seconds each.</p>
     </div>
     <figure class="showcase">
       <div class="screen-frame"><a class="show-screen" id="show-link" href="#bulwark">
@@ -10485,7 +10494,8 @@ function showEnchantsHome() {
     ${cmdPanel(ENC_KIT)}
     <p class="fine">The test room has an enchanting table with its bookshelves and an anvil, a chest of every book at its best level and one of the vanilla books they can't go with, gear to enchant, chests of gear already enchanted, blocks to mine with Smelting Touch, a small farm for Harvester and a pen of husks. Its chat buttons bring more husks, a tight crowd (for Cleave), a vindicator with an axe (for Riposte's catch), a fresh farm, and the hits and effects for Warding, Second Wind and Clarity.</p>
     <div class="dl-row" data-dl><span class="lbl">Files</span><button type="button" class="btn" id="save-enc-textures">Save the Enchantments textures (zip)</button><span class="dl-status" role="status" aria-live="polite"></span></div>
-  </section>`;
+  </section>
+  ${addonSettingsPanel('enchantments')}`;
   bindCards();
   $('#to-all').addEventListener('click', () => $('#all').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }));
   $('#save-enc-textures').addEventListener('click', saveEncTextures);
@@ -10597,7 +10607,7 @@ function saveEncTextures() {
 }
 function encInfoText(a) {
   const L = [];
-  L.push(`${a.name}, Smithborn: Enchantments 1.0.0`, '', a.hook, '', `Goes on: ${a.goes}. Levels: ${a.range}. Can't be with: ${notText(a)}.`, `The book says: "${a.desc}"`);
+  L.push(`${a.name}, Smithborn: Enchantments 1.1.0`, '', a.hook, '', `Goes on: ${a.goes}. Levels: ${a.range}. Can't be with: ${notText(a)}.`, `The book says: "${a.desc}"`);
   L.push('', 'WHAT IT DOES'); a.does.forEach(d => L.push('- ' + d));
   const [heads, rows] = a.levels;
   L.push('', a.max > 1 ? 'EACH LEVEL' : 'AT A GLANCE');
@@ -11041,12 +11051,12 @@ function showFeatHome(sec) {
   $('#view').innerHTML = `
   <section class="hero-home feat-hero ${sec}-hero">
     <div class="hh-text">
-      <p class="eyebrow">Smithborn addon · ${F.short} 1.0.0 · Minecraft 26.1.2</p>
+      <p class="eyebrow">Smithborn addon · ${F.short} 1.1.0 · Minecraft 26.1.2</p>
       <h1><span class="lh-mark" style="background-image:${sbUrl(F.icon())}" aria-hidden="true"></span><span>${F.short}</span></h1>
       <p class="lede">${arena ? 'Made for PvP: see what your opponent is wearing, show off a full Masterwork set, get a little something from <b>every armor trim</b>, and roll stats on <b>bows, crossbows and elytra</b>.'
         : 'Rolled gear joins the world\'s economy: <b>villagers reroll</b> your gear, <b>chests and mobs</b> carry rolled gear, and the <b>grindstone</b> gives materials back.'}</p>
       <div class="cta"><a class="btn" href="#${L[0].id}">Watch ${esc(L[0].name)}</a><button type="button" class="btn ghost" id="to-all">See all ${F.n}</button></div>
-      <p class="fine">Needs Smithborn 1.6.0 or newer, on the server and on every player's game. In English and Arabic. ${L.length} scenes of pixel art, 10 seconds each.</p>
+      <p class="fine">Needs Smithborn 1.7.0 or newer, on the server and on every player's game. In English and Arabic. ${L.length} scenes of pixel art, 10 seconds each.</p>
     </div>
     <figure class="showcase">
       <div class="screen-frame"><a class="show-screen" id="show-link" href="#${L[0].id}">
@@ -11104,7 +11114,8 @@ function showFeatHome(sec) {
   <section aria-labelledby="h-kit">
     <div class="sec-head"><h2 id="h-kit">Commands for testing</h2><p>Paste into chat in a creative or cheats-on world.</p></div>
     ${cmdPanel(arena ? ARENA_KIT : TRADES_KIT)}
-  </section>`;
+  </section>
+  ${addonSettingsPanel(sec)}`;
   bindCards();
   $('#to-all').addEventListener('click', () => $('#all').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }));
   addShow('show', L);
@@ -11166,7 +11177,7 @@ function showFeature(a) {
 async function featFiles() { return []; }
 function featInfoText(a) {
   const F = FEAT[a.sec], plainTxt = s => s.replace(/<[^>]+>/g, '');
-  const L = [`${a.name}, ${F.title} 1.0.0`, '', a.hook, ''];
+  const L = [`${a.name}, ${F.title} 1.1.0`, '', a.hook, ''];
   a.facts.forEach(([dt, big, sm]) => L.push(`${dt}: ${big} (${sm})`));
   L.push('', 'WHAT IT DOES'); a.does.forEach(d => L.push('- ' + plainTxt(d)));
   if (a.id === 'trim-perks') { L.push('', 'THE PERKS (ONE PIECE / ALL FOUR)'); TRIM_PERKS.forEach(([k, one, four]) => L.push(`${TRIM_NAMES[k]}: ${one} / ${four}`)); }
@@ -11188,63 +11199,162 @@ const SITE_URL = 'https://snwaf929-cpu.github.io/smithborn/';
 const SRV_MAX = { n: 40, a: 60, t: 200 };
 
 // ---- the addons a server can run ----
+const SB_VER = '1.7.0';
 const SRV_ADDONS = [
-  { id: 'abilities', name: 'Smithborn: Abilities', ver: '1.0.0', c: 'var(--amethyst)', pic: () => LOGO.abilities, line: 'Weapon abilities from sigils found in chests and vaults.' },
-  { id: 'legends', name: 'Smithborn: Legends', ver: '1.1.0', c: 'var(--legend)', pic: () => LEG.icon, line: 'Hidden stats, six forgings with powers, stat transfer.' },
-  { id: 'metals', name: 'Smithborn: Metals', ver: '1.0.0', c: 'var(--metals)', pic: () => MET.icon, line: 'Four new metals as strong as netherite, each better at one thing.' },
-  { id: 'enchantments', name: 'Smithborn: Enchantments', ver: '1.0.0', c: 'var(--ench)', pic: () => ENC.icon, line: '17 enchantments that take a vanilla enchantment\'s place.' },
-  { id: 'arena', name: 'Smithborn: Arena', ver: '1.0.0', c: 'var(--arena)', pic: () => ATX.arena.icon, line: 'PvP extras: inspect opponents, a gold glint, trim perks, bow and elytra stats.' },
-  { id: 'trades', name: 'Smithborn: Trades', ver: '1.0.0', c: 'var(--trades)', pic: () => ATX.trades.icon, line: 'Villager rerolls, rolled gear in chests and on mobs, grindstone salvage.' },
+  { id: 'abilities', name: 'Smithborn: Abilities', ver: '1.1.0', c: 'var(--amethyst)', pic: () => LOGO.abilities, line: 'Weapon abilities from sigils found in chests and vaults.' },
+  { id: 'legends', name: 'Smithborn: Legends', ver: '1.2.0', c: 'var(--legend)', pic: () => LEG.icon, line: 'Hidden stats, six forgings with powers, stat transfer.' },
+  { id: 'metals', name: 'Smithborn: Metals', ver: '1.1.0', c: 'var(--metals)', pic: () => MET.icon, line: 'Four new metals as strong as netherite, each better at one thing.' },
+  { id: 'enchantments', name: 'Smithborn: Enchantments', ver: '1.1.0', c: 'var(--ench)', pic: () => ENC.icon, line: '17 enchantments that take a vanilla enchantment\'s place.' },
+  { id: 'arena', name: 'Smithborn: Arena', ver: '1.1.0', c: 'var(--arena)', pic: () => ATX.arena.icon, line: 'PvP extras: inspect opponents, a gold glint, trim perks, bow and elytra stats.' },
+  { id: 'trades', name: 'Smithborn: Trades', ver: '1.1.0', c: 'var(--trades)', pic: () => ATX.trades.icon, line: 'Villager rerolls, rolled gear in chests and on mobs, grindstone salvage.' },
 ];
 const SRV_IDS = SRV_ADDONS.map(x => x.id);
+const SRV_BY = Object.fromEntries(SRV_ADDONS.map(x => [x.id, x]));
+const shortName = id => SRV_BY[id] ? SRV_BY[id].name.replace('Smithborn: ', '') : 'Smithborn';
 const addonPic = x => `<span class="sig md${x.anim ? '' : ' still'}" style="background-image:url(data:image/png;base64,${x.pic()})" aria-hidden="true"></span>`;
 
-// ---- Smithborn's settings (config/smithborn.json, Smithborn 1.6.0): key, group, name, kind, default, clamp ----
-// kinds: bool (on/off), int, num (a multiplier), pct (a share shown as %). Clamps are the mod's own (SmithbornConfig.validated)
-const SET_DEFS = [
-  ['rolls.enabled', 'Rolling', 'Rolling', 'bool', true],
-  ['rolls.stats_per_item', 'Rolling', 'Stats per item', 'int', 2, 1, 10],
-  ['rolls.range_multiplier', 'Rolling', 'Stat ranges', 'num', 1, 0, 10],
-  ['rolls.pvp_mode', 'Rolling', 'PvP mode', 'bool', false],
-  ['rolls.pvp_range_multiplier', 'Rolling', 'PvP mode ranges', 'num', 0.5, 0, 10],
-  ['rolls.tools_enabled', 'Rolling', 'Tools roll', 'bool', true],
-  ['rolls.max_negative_stats', 'Rolling', 'Bad stats allowed', 'int', 1, 0, 10],
-  ['tiers.standard_min', 'Tiers', 'Standard tier', 'pct', 0.25, 0, 1],
-  ['tiers.fine_min', 'Tiers', 'Fine tier', 'pct', 0.6, 0, 1],
-  ['tiers.masterwork_min', 'Tiers', 'Masterwork tier', 'pct', 0.95, 0, 1],
-  ['reforging.base_material', 'Reforging', 'Material, nothing locked', 'int', 1, 0, 1e9],
-  ['reforging.material_per_lock', 'Reforging', 'Material per lock', 'int', 1, 0, 1e9],
-  ['reforging.material_per_reforge', 'Reforging', 'Material per earlier reforge', 'int', 1, 0, 1e9],
-  ['reforging.max_material', 'Reforging', 'Most material per press', 'int', 8, 1, 64],
-  ['reforging.base_xp', 'Reforging', 'Levels, nothing locked', 'int', 3, 0, 1e9],
-  ['reforging.xp_per_lock', 'Reforging', 'Levels per lock', 'int', 2, 0, 1e9],
-  ['reforging.rabbit_foot_luck', 'Reforging', 'Rabbit\'s Foot luck', 'bool', true],
-  ['reforging.upgrade_step', 'Reforging', 'Forge Ember upgrade', 'pct', 0.2, 0.01, 1],
-  ['masterwork_effects', 'Effects', 'Masterwork sound and sparkles', 'bool', true],
-].map(([key, group, name, kind, def, min, max]) => ({ key, group, name, kind, def, min, max, path: key.split('.') }));
+// ---- the settings in config/smithborn.json (Smithborn 1.7.0 and its addons): key, group, name, kind, default, clamp, extras ----
+// kinds: bool (on/off), int, num (a multiplier), pct (a share shown as %), sec (seconds), enum (one of x.opts).
+// Clamps are the mods' own. Smithborn's keys sit at the top of the file; each addon has its own block under its id.
+const TIER_OPTS = ['crude', 'standard', 'fine', 'masterwork'];
+const SET_ROWS = [
+  ['rolls.enabled', 'Rolling', 'Rolling', 'bool', true, 0, 0, { desc: 'Gear rolls stats and a tier.' }],
+  ['rolls.stats_per_item', 'Rolling', 'Stats per item', 'int', 2, 1, 10, { desc: 'Stats on each item (one more on a Masterwork).' }],
+  ['rolls.range_multiplier', 'Rolling', 'Stat ranges', 'num', 1, 0, 10, { desc: 'Scales every stat range.' }],
+  ['rolls.pvp_mode', 'Rolling', 'PvP mode', 'bool', false, 0, 0, { desc: 'Shrinks every range by the PvP multiplier.' }],
+  ['rolls.pvp_range_multiplier', 'Rolling', 'PvP mode ranges', 'num', 0.5, 0, 10, { desc: 'How much PvP mode shrinks ranges.' }],
+  ['rolls.tools_enabled', 'Rolling', 'Tools roll', 'bool', true, 0, 0, { desc: 'Pickaxes, shovels and hoes roll stats.' }],
+  ['rolls.max_negative_stats', 'Rolling', 'Bad stats allowed', 'int', 1, 0, 10, { desc: 'Most bad stats on one item.' }],
+  ['tiers.standard_min', 'Tiers', 'Standard tier', 'pct', 0.25, 0, 1, { desc: 'Roll quality needed for Standard.' }],
+  ['tiers.fine_min', 'Tiers', 'Fine tier', 'pct', 0.6, 0, 1, { desc: 'Roll quality needed for Fine.' }],
+  ['tiers.masterwork_min', 'Tiers', 'Masterwork tier', 'pct', 0.95, 0, 1, { desc: 'Roll quality needed for Masterwork.' }],
+  ['reforging.base_material', 'Reforging', 'Material, nothing locked', 'int', 1, 0, 1e9, { desc: 'Material for a reforge with no locks.' }],
+  ['reforging.material_per_lock', 'Reforging', 'Material per lock', 'int', 1, 0, 1e9, { desc: 'Extra material per locked stat.' }],
+  ['reforging.material_per_reforge', 'Reforging', 'Material per earlier reforge', 'int', 1, 0, 1e9, { desc: 'Extra material per earlier reforge.' }],
+  ['reforging.max_material', 'Reforging', 'Most material per press', 'int', 8, 1, 64, { desc: 'Most material one reforge costs.' }],
+  ['reforging.base_xp', 'Reforging', 'Levels, nothing locked', 'int', 3, 0, 1e9, { desc: 'Levels for a reforge with no locks.' }],
+  ['reforging.xp_per_lock', 'Reforging', 'Levels per lock', 'int', 2, 0, 1e9, { desc: 'Extra levels per locked stat.' }],
+  ['reforging.rabbit_foot_luck', 'Reforging', 'Rabbit\'s Foot luck', 'bool', true, 0, 0, { desc: 'A Rabbit\'s Foot gives luck at the table.' }],
+  ['reforging.upgrade_step', 'Reforging', 'Forge Ember upgrade', 'pct', 0.2, 0.01, 1, { desc: 'How far a Forge Ember raises a stat (share of its range).' }],
+  ['masterwork_effects', 'Effects', 'Masterwork sound and sparkles', 'bool', true, 0, 0, { desc: 'Masterworks play a sound and sparkle.' }],
+];
+(function addonRows() {
+  const r = (addon, key, name, kind, def, min, max, x = {}) => SET_ROWS.push([addon + '.' + key, addon, name, kind, def, min, max, Object.assign({ addon }, x)]);
+  // Abilities: one switch per ability, and its wait when fully awake (its other waits scale with it)
+  const AW = { prism_shot: 4, echo_slash: 3, splitter: 3, payback: 10, chain_orb: 15, guided_bolt: 14, pierce_flow: 7, seismic_slam: 4 };
+  for (const a of ABILITIES) {
+    r('abilities', a.key + '.enabled', a.name, 'bool', true, 0, 0, { feat: a.name, desc: `${a.weapon}: ${a.name}. Off: it never fires, its sigils leave the loot and the Sigil Forge refuses it.` });
+    if (AW[a.key] != null) r('abilities', a.key + '.cooldown_seconds', a.name + ' wait', 'sec', AW[a.key], 0, 3600, { feat: a.name, desc: `Seconds between uses, fully awake (its other waits scale with it).` });
+  }
+  // Legends: one switch per power, and its wait
+  const LW = { chain_lightning: 3, moon_lift: 10, fire_wave: 10, frost_nova: 15, sonic_boom: 12.5, dragon_breath: 15 };
+  for (const p of POWERS) {
+    r('legends', p.key + '.enabled', p.name, 'bool', true, 0, 0, { feat: p.name, desc: `${p.forging}: ${p.name}. Off: it never fires and the forging can't be made.` });
+    if (LW[p.key] != null) r('legends', p.key + '.cooldown_seconds', p.name + ' wait', 'sec', LW[p.key], 0, 3600, { feat: p.name, desc: 'Seconds between uses.' });
+  }
+  // Metals: each full-set bonus (the armor itself never changes)
+  const MB = { frostite: 'melee attackers are slowed', cinnabar: 'sprint 2 s for a harder-knockback hit', galena: 'a longer wait before you can be hurt again', amberite: 'an absorption shield after 8 calm seconds' };
+  for (const m of METALS) r('metals', 'set_bonus.' + m.key, m.name + ' set bonus', 'bool', true, 0, 0, { feat: m.name + ' set bonus', bonus: MB[m.key], desc: `Full ${m.name} set: ${MB[m.key] || 'its set bonus'}.` });
+  // Enchantments: one switch each
+  for (const e of ENCHANTS) if (e.key && e.name) r('enchantments', e.key, e.name, 'bool', true, 0, 0, { feat: e.name, desc: `Off: ${e.name} does nothing, and the table, loot and librarians never give it.` });
+  // Arena
+  r('arena', 'inspect_opponent.enabled', 'Inspect Opponent', 'bool', true, 0, 0, { desc: 'Shift and look at a player to see their gear\'s tiers.' });
+  r('arena', 'inspect_opponent.range_blocks', 'Inspect range', 'int', 32, 1, 128, { desc: 'How far Inspect Opponent reaches, in blocks.' });
+  r('arena', 'masterwork_glint.enabled', 'Masterwork glint', 'bool', true, 0, 0, { desc: 'A full Masterwork set gets a gold glint.' });
+  r('arena', 'trim_perks.enabled', 'Trim perks', 'bool', true, 0, 0, { desc: 'Armor trims give their small perks.' });
+  r('arena', 'bow_stats.enabled', 'Bow and crossbow stats', 'bool', true, 0, 0, { desc: 'Bows and crossbows roll stats.' });
+  r('arena', 'elytra_stats.enabled', 'Elytra stats', 'bool', true, 0, 0, { desc: 'Elytras roll Glide Speed and Rocket Boost.' });
+  // Trades
+  r('trades', 'villager_reroll.enabled', 'Villager reroll', 'bool', true, 0, 0, { desc: 'Expert Weaponsmiths and Armorers reroll gear for emeralds.' });
+  r('trades', 'villager_reroll.cost_emeralds', 'Reroll price', 'int', 8, 1, 64, { desc: 'Emeralds per reroll.' });
+  r('trades', 'villager_reroll.uses', 'Rerolls per restock', 'int', 3, 1, 99, { desc: 'Rerolls a smith allows before restocking.' });
+  r('trades', 'loot_gear.enabled', 'Rolled gear in chests', 'bool', true, 0, 0, { desc: 'Vaults and stronghold chests can hold rolled gear.' });
+  for (const [k, place, c, mw] of [['vault', 'Vault', 0.25, 0.15], ['ominous_vault', 'Ominous vault', 0.4, 0.3], ['stronghold', 'Stronghold chest', 0.15, 0.1]]) {
+    r('trades', `loot_gear.${k}.chance`, place + ' chance', 'pct', c, 0, 1, { place, desc: `Chance ${(/^[aeiou]/i.test(place) ? 'an ' : 'a ') + place.toLowerCase()} holds a rolled piece.` });
+    r('trades', `loot_gear.${k}.masterwork_chance`, place + ' Masterwork aim', 'pct', mw, 0, 1, { place, desc: `How often that piece aims for Masterwork.` });
+  }
+  r('trades', 'mob_gear.enabled', 'Rolled gear on mobs', 'bool', true, 0, 0, { desc: 'Zombies\' and skeletons\' armor rolls stats.' });
+  r('trades', 'mob_gear.best_tier', 'Best tier on mobs', 'enum', 'fine', 0, 0, { opts: TIER_OPTS, desc: 'The best tier mob armor can have.' });
+  r('trades', 'salvage.enabled', 'Grindstone salvage', 'bool', true, 0, 0, { desc: 'The grindstone gives materials back.' });
+  r('trades', 'salvage.share', 'Salvage share', 'pct', 0.25, 0, 1, { desc: 'Share of the materials given back (at least 1).' });
+})();
+const SET_DEFS = SET_ROWS.map(([key, group, name, kind, def, min, max, x]) => Object.assign({ key, group, name, kind, def, min, max, path: key.split('.'), addon: null }, x || {}));
 const SET_BY = Object.fromEntries(SET_DEFS.map(d => [d.key, d]));
 const SET_GROUPS = ['Rolling', 'Tiers', 'Reforging', 'Effects'];
-const SET_PARENTS = new Set(['rolls', 'tiers', 'reforging']);
+// every object on the way to a known setting, so a walk over a pasted file can tell unknown keys from known groups
+const SET_PREFIX = new Set(SET_DEFS.flatMap(d => d.path.slice(0, -1).map((_, i) => d.path.slice(0, i + 1).join('.'))));
+const defsFor = id => SET_DEFS.filter(d => d.addon === id);
 
-const fmtSet = (d, v) => d.kind === 'bool' ? (v ? 'On' : 'Off') : d.kind === 'pct' ? trim(v * 100, 1) + '%' : d.kind === 'num' ? '×' + trim(v, 2) : String(v);
+const fmtSet = (d, v) => d.kind === 'bool' ? (v ? 'On' : 'Off') : d.kind === 'pct' ? trim(v * 100, 1) + '%' : d.kind === 'num' ? '×' + trim(v, 2) : d.kind === 'sec' ? trim(v, 2) + ' s' : d.kind === 'enum' ? cap(v) : String(v);
 const defaults = () => Object.fromEntries(SET_DEFS.map(d => [d.key, d.def]));
-// the values the mod ends up using: the file's values clamped the way Smithborn clamps them, tiers kept in order
+// the values the mods end up using: the file's values clamped the way the mods clamp them, tiers kept in order
 function settle(vals) {
   const V = Object.assign(defaults(), vals);
-  for (const d of SET_DEFS) if (d.kind !== 'bool') { V[d.key] = Math.min(d.max, Math.max(d.min, V[d.key])); if (d.kind === 'int') V[d.key] = Math.round(V[d.key]); }
+  for (const d of SET_DEFS) {
+    if (d.kind === 'bool') continue;
+    if (d.kind === 'enum') { if (!d.opts.includes(V[d.key])) V[d.key] = d.def; continue; }
+    V[d.key] = Math.min(d.max, Math.max(d.min, V[d.key])); if (d.kind === 'int') V[d.key] = Math.round(V[d.key]);
+  }
   V['tiers.fine_min'] = Math.min(1, Math.max(V['tiers.standard_min'], V['tiers.fine_min']));
   V['tiers.masterwork_min'] = Math.min(1, Math.max(V['tiers.fine_min'], V['tiers.masterwork_min']));
   return V;
 }
 const changedKeys = V => SET_DEFS.filter(d => V[d.key] !== d.def).map(d => d.key);
+// the switch a number belongs to (trades.loot_gear.vault.chance -> trades.loot_gear.enabled), if that switch is off
+function offSwitch(key, V) {
+  const p = key.split('.');
+  for (let i = p.length - 1; i > 0; i--) { const k = p.slice(0, i).join('.') + '.enabled'; if (k !== key && SET_BY[k] && V[k] === false) return SET_BY[k]; }
+  return null;
+}
 
 // ---- what a changed setting means, in plain words ----
 function swordDamage(m) {
   const r = POOLS.sword[0];
   return m === 0 ? 'no bonus at all' : `${signed(r.w * m, 1)}% to ${signed(r.b * m, 1)}%`;
 }
+const an = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+const secs = v => v === 0 ? 'no wait at all' : trim(v, 2) + ' s';
+function addonEffect(d, V) {
+  const v = V[d.key], was = fmtSet(d, d.def), k = d.key;
+  const off = offSwitch(k, V);
+  const tail = off ? ` ${off.name} is switched off, so this changes nothing for now.` : '';
+  if (d.kind === 'bool' && !v) switch (d.addon) {
+    case 'abilities': return `${d.feat} is switched off: it never fires, its sigils stop turning up in loot and the Sigil Forge won't take it.`;
+    case 'legends': return `${d.feat} is switched off: it never fires and its forging can't be made.`;
+    case 'enchantments': return `${d.feat} is switched off: it does nothing, and the enchanting table, loot and librarians never give it.`;
+    case 'metals': return `A full ${d.feat.replace(' set bonus', '')} set gives no bonus (normally ${d.bonus}). The armor itself is unchanged.`;
+    case 'arena': return ({
+      'arena.inspect_opponent.enabled': 'Shift on a player no longer shows their gear\'s tiers.',
+      'arena.masterwork_glint.enabled': 'A full Masterwork set gets no gold glint.',
+      'arena.trim_perks.enabled': 'Armor trims give no perks.',
+      'arena.bow_stats.enabled': 'Bows and crossbows don\'t roll stats, and bow stats already rolled do nothing.',
+      'arena.elytra_stats.enabled': 'Elytras don\'t roll Glide Speed or Rocket Boost, and those already rolled do nothing.',
+    })[k] || `${d.name} is switched off.`;
+    case 'trades': return ({
+      'trades.villager_reroll.enabled': 'Smiths don\'t offer the reroll trade.',
+      'trades.loot_gear.enabled': 'Vaults and stronghold chests don\'t hold rolled gear.',
+      'trades.mob_gear.enabled': 'Zombies\' and skeletons\' armor doesn\'t roll stats.',
+      'trades.salvage.enabled': 'The grindstone gives no materials back.',
+    })[k] || `${d.name} is switched off.`;
+  }
+  if (d.kind === 'bool') return `${d.name} is switched on.`;
+  if (d.kind === 'sec') return `${d.feat} waits ${secs(v)} between uses (normally ${was}).` + tail;
+  switch (k) {
+    case 'arena.inspect_opponent.range_blocks': return `Inspect Opponent reaches ${v} block${v === 1 ? '' : 's'} (normally 32).` + tail;
+    case 'trades.villager_reroll.cost_emeralds': return `A reroll costs ${v} emerald${v === 1 ? '' : 's'} (normally 8).` + tail;
+    case 'trades.villager_reroll.uses': return `A smith allows ${v} reroll${v === 1 ? '' : 's'} before restocking (normally 3).` + tail;
+    case 'trades.mob_gear.best_tier': return `Mob armor can be up to ${cap(v)} (normally Fine).` + tail;
+    case 'trades.salvage.share': return `The grindstone gives back ${fmtSet(d, v)} of the materials (normally 25%).` + tail;
+  }
+  if (d.place) return k.endsWith('masterwork_chance')
+    ? `A piece in ${an(d.place.toLowerCase())} aims for Masterwork ${fmtSet(d, v)} of the time (normally ${was}).` + tail
+    : `${cap(an(d.place.toLowerCase()))} holds a rolled piece ${fmtSet(d, v)} of the time (normally ${was}).` + tail;
+  return `${d.name}: ${fmtSet(d, v)} (normally ${was}).` + tail;
+}
 function effectText(key, V) {
-  const v = V[key], d = SET_BY[key], was = fmtSet(d, d.def), m = V['rolls.range_multiplier'] * (V['rolls.pvp_mode'] ? V['rolls.pvp_range_multiplier'] : 1);
+  const d = SET_BY[key];
+  if (d.addon) return addonEffect(d, V);
+  const v = V[key], was = fmtSet(d, d.def), m = V['rolls.range_multiplier'] * (V['rolls.pvp_mode'] ? V['rolls.pvp_range_multiplier'] : 1);
   switch (key) {
     case 'rolls.enabled': return 'Rolling is off: new gear gets no stats and no tier.';
     case 'rolls.stats_per_item': return `Each item rolls ${v} stat${v === 1 ? '' : 's'} (normally 2). A Masterwork gets ${v + 1}.`;
@@ -11271,6 +11381,8 @@ function effectText(key, V) {
 
 // ---- reading a pasted config/smithborn.json ----
 function readPath(o, path) { return path.reduce((x, k) => x && typeof x === 'object' && !Array.isArray(x) ? x[k] : undefined, o); }
+const typeOk = (d, v) => d.kind === 'bool' ? typeof v === 'boolean' : d.kind === 'enum' ? typeof v === 'string' && d.opts.includes(v.toLowerCase()) : typeof v === 'number' && isFinite(v) && (d.kind !== 'int' || Number.isInteger(v));
+const cleanVer = v => typeof v === 'string' && /^[0-9A-Za-z.+-]{1,24}$/.test(v) ? v : null;
 function parseConfig(text) {
   text = String(text || '').replace(/^﻿/, '').trim();
   if (!text) return null;
@@ -11284,20 +11396,25 @@ function parseConfig(text) {
   for (const d of SET_DEFS) {
     const v = readPath(o, d.path);
     if (v === undefined) continue;
-    const ok = d.kind === 'bool' ? typeof v === 'boolean' : typeof v === 'number' && isFinite(v) && (d.kind !== 'int' || Number.isInteger(v));
-    if (ok) raw[d.key] = v; else wrong.push(d.key);
+    if (typeOk(d, v)) raw[d.key] = d.kind === 'enum' ? v.toLowerCase() : v; else wrong.push(d.key);
   }
   (function walk(x, pre) {
     for (const k of Object.keys(x)) {
       const key = pre ? pre + '.' + k : k;
       if (!pre && k === 'installed') continue;
-      if (!pre && SET_PARENTS.has(k) && x[k] && typeof x[k] === 'object' && !Array.isArray(x[k])) walk(x[k], k);
-      else if (!SET_BY[key]) unknown.push(key);
+      if (SET_BY[key]) continue;
+      if (SET_PREFIX.has(key) && x[k] && typeof x[k] === 'object' && !Array.isArray(x[k])) walk(x[k], key);
+      else unknown.push(key);
     }
   })(o, '');
   const V = settle(raw), clamped = Object.keys(raw).filter(k => raw[k] !== V[k]);
-  const installed = o.installed && typeof o.installed === 'object' ? Object.keys(o.installed).filter(k => SRV_IDS.includes(k)) : null;
-  return { V, read: Object.keys(raw).length, wrong, unknown, clamped, raw, installed };
+  let installed = null, versions = null;
+  if (o.installed && typeof o.installed === 'object' && !Array.isArray(o.installed)) {
+    installed = Object.keys(o.installed).filter(k => SRV_IDS.includes(k));
+    versions = {};
+    for (const k of ['smithborn', ...SRV_IDS]) { const v = cleanVer(o.installed[k]); if (v) versions[k] = v; }
+  }
+  return { V, read: Object.keys(raw).length, wrong, unknown, clamped, raw, installed, versions };
 }
 
 // ---- the link: a small JSON, deflated, in base64url ----
@@ -11305,8 +11422,9 @@ const b64u = bytes => { let s = ''; for (let i = 0; i < bytes.length; i++) s += 
 const unb64u = s => { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const b = atob(s); return Uint8Array.from(b, c => c.charCodeAt(0)); };
 const pipeBytes = async (bytes, stream) => new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
 async function packServer(srv) {
-  const c = {}; for (const k of changedKeys(srv.V)) c[k] = srv.V[k];
-  const o = { v: 1, n: srv.n, a: srv.a || undefined, d: srv.d || undefined, t: srv.t || undefined, m: srv.m.length ? srv.m : undefined, c: Object.keys(c).length ? c : undefined };
+  const c = {}; for (const k of changedKeys(srv.V)) if (!SET_BY[k].addon || srv.m.includes(SET_BY[k].addon)) c[k] = srv.V[k];
+  const w = {}; if (srv.w) for (const k of ['smithborn', ...srv.m]) if (srv.w[k]) w[k] = srv.w[k];
+  const o = { v: 1, n: srv.n, a: srv.a || undefined, d: srv.d || undefined, t: srv.t || undefined, m: srv.m.length ? srv.m : undefined, c: Object.keys(c).length ? c : undefined, w: Object.keys(w).length ? w : undefined };
   const bytes = new TextEncoder().encode(JSON.stringify(o));
   if (typeof CompressionStream === 'function') { try { return 'z' + b64u(await pipeBytes(bytes, new CompressionStream('deflate-raw'))); } catch (e) { /* plain below */ } }
   return 'j' + b64u(bytes);
@@ -11335,9 +11453,11 @@ function cleanServer(o) {
   const raw = {};
   if (o.c && typeof o.c === 'object') for (const [k, v] of Object.entries(o.c)) {
     const d = SET_BY[k]; if (!d) continue;
-    if (d.kind === 'bool' ? typeof v === 'boolean' : typeof v === 'number' && isFinite(v)) raw[k] = v;
+    if (d.kind === 'bool' ? typeof v === 'boolean' : d.kind === 'enum' ? typeof v === 'string' && d.opts.includes(v) : typeof v === 'number' && isFinite(v)) raw[k] = v;
   }
-  return { n, a: cleanText(o.a, SRV_MAX.a), d: cleanDiscord(o.d), t: cleanText(o.t, SRV_MAX.t), m: Array.isArray(o.m) ? SRV_IDS.filter(id => o.m.includes(id)) : [], V: settle(raw) };
+  const w = {};
+  if (o.w && typeof o.w === 'object') for (const k of ['smithborn', ...SRV_IDS]) { const v = cleanVer(o.w[k]); if (v) w[k] = v; }
+  return { n, a: cleanText(o.a, SRV_MAX.a), d: cleanDiscord(o.d), t: cleanText(o.t, SRV_MAX.t), m: Array.isArray(o.m) ? SRV_IDS.filter(id => o.m.includes(id)) : [], V: settle(raw), w };
 }
 const serverUrl = packed => SITE_URL + '#server=' + packed;
 
@@ -11357,8 +11477,19 @@ async function copyText(txt, btn) {
 // ---- the server page itself (also the live preview on the Servers page) ----
 function serverBody(srv, preview) {
   const on = SRV_ADDONS.filter(x => srv.m.includes(x.id)), off = SRV_ADDONS.filter(x => !srv.m.includes(x.id));
-  const ch = changedKeys(srv.V);
-  const card = (href, pic, name, ver, line, c) => `<a class="srv-addon" href="${href}" style="--c:${c}">${pic}<span><b>${esc(name)}</b><small>${esc(line)}</small></span><span class="chip">${ver}</span></a>`;
+  const vis = SET_DEFS.filter(d => !d.addon || srv.m.includes(d.addon));     // the settings that matter here: Smithborn's and the installed addons'
+  const ch = vis.filter(d => srv.V[d.key] !== d.def).map(d => d.key);
+  const nCh = id => ch.filter(k => SET_BY[k].addon === id).length;
+  const w = srv.w || {};
+  const card = (href, pic, name, ver, line, c, n) => `<a class="srv-addon" href="${href}" style="--c:${c}">${pic}<span><b>${esc(name)}</b><small>${esc(line)}</small>${n ? `<em class="srv-n">${n} setting${n === 1 ? '' : 's'} changed here</em>` : ''}</span><span class="chip">${esc(ver)}</span></a>`;
+  // the changes, Smithborn's in its four groups, then one group per addon
+  const groups = [
+    ...SET_GROUPS.map(g => ({ id: g, label: g, keys: ch.filter(k => !SET_BY[k].addon && SET_BY[k].group === g) })),
+    ...on.map(x => ({ id: x.id, label: shortName(x.id), pic: x, keys: ch.filter(k => SET_BY[k].addon === x.id) })),
+  ].filter(g => g.keys.length);
+  const row = k => { const d = SET_BY[k]; return `
+        <li><span class="srv-what"><b>${esc(d.name)}</b><span>${esc(effectText(k, srv.V))}</span></span><span class="srv-vals"><s>${fmtSet(d, d.def)}</s><i aria-hidden="true">›</i><em>${fmtSet(d, srv.V[k])}</em></span></li>`; };
+  const table = (title, defs) => `<tr class="srv-sub"><th colspan="3">${esc(title)}</th></tr>` + defs.map(d => `<tr${srv.V[d.key] !== d.def ? ' class="srv-hot"' : ''}><td><b>${esc(d.name)}</b><code>${d.key}</code></td><td>${fmtSet(d, srv.V[d.key])}</td><td>${fmtSet(d, d.def)}</td></tr>`).join('');
   return `
   <section class="srv-hero" aria-labelledby="srv-name">
     <p class="eyebrow"><span class="chip">Server</span>Runs Smithborn${on.length ? ' and ' + on.length + ' addon' + (on.length === 1 ? '' : 's') : ''}</p>
@@ -11373,26 +11504,39 @@ function serverBody(srv, preview) {
   <section aria-labelledby="srv-h-mods">
     <div class="sec-head"><h2 id="srv-h-mods">On this server</h2><p>Open one to see what it adds.</p></div>
     <div class="srv-addons">
-      ${card('#home', `<span class="sig md still" style="background-image:url(data:image/png;base64,${SB.icon})" aria-hidden="true"></span>`, 'Smithborn', '1.6.0', 'Random stats and quality tiers on vanilla gear, and the Reforging Table.', 'var(--ember)')}
-      ${on.map(x => card('#' + x.id, addonPic(x), x.name, x.ver, x.line, x.c)).join('')}
+      ${card('#home', `<span class="sig md still" style="background-image:url(data:image/png;base64,${SB.icon})" aria-hidden="true"></span>`, 'Smithborn', w.smithborn || SB_VER, 'Random stats and quality tiers on vanilla gear, and the Reforging Table.', 'var(--ember)', ch.filter(k => !SET_BY[k].addon).length)}
+      ${on.map(x => card('#' + x.id, addonPic(x), x.name, w[x.id] || x.ver, x.line, x.c, nCh(x.id))).join('')}
     </div>
-    ${off.length ? `<p class="srv-off"><span>Not on this server:</span> ${off.map(x => `<span class="srv-off-name">${esc(x.name.replace('Smithborn: ', ''))}</span>`).join('')}</p>` : ''}
+    ${off.length ? `<p class="srv-off"><span>Not on this server:</span> ${off.map(x => `<span class="srv-off-name">${esc(shortName(x.id))}</span>`).join('')}</p>` : ''}
   </section>
 
   <section aria-labelledby="srv-h-changes">
-    <div class="sec-head"><h2 id="srv-h-changes">What's different here</h2><p>${ch.length ? `${ch.length} of ${SET_DEFS.length} settings changed from Smithborn's defaults.` : 'Compared with Smithborn\'s default settings.'}</p></div>
-    ${ch.length ? `<div class="srv-groups">${SET_GROUPS.filter(g => ch.some(k => SET_BY[k].group === g)).map(g => `
-      <div class="srv-group"><h3>${g}</h3><ul class="srv-changes">${ch.filter(k => SET_BY[k].group === g).map(k => { const d = SET_BY[k]; return `
-        <li><span class="srv-what"><b>${esc(d.name)}</b><span>${esc(effectText(k, srv.V))}</span></span><span class="srv-vals"><s>${fmtSet(d, d.def)}</s><i aria-hidden="true">›</i><em>${fmtSet(d, srv.V[k])}</em></span></li>`; }).join('')}</ul></div>`).join('')}</div>`
-      : `<p class="srv-same">Every setting is at Smithborn's default, so everything works the way this site shows it.</p>`}
-    <p class="fine">The addons have no settings of their own yet, so they work exactly as their pages here show.</p>
-    <details class="srv-all"><summary>All ${SET_DEFS.length} settings</summary>
+    <div class="sec-head"><h2 id="srv-h-changes">What's different here</h2><p>${ch.length ? `${ch.length} of ${vis.length} settings changed from the defaults.` : 'Compared with the default settings.'}</p></div>
+    ${groups.length ? `<div class="srv-groups">${groups.map(g => `
+      <div class="srv-group"${g.pic ? ` style="--c:${g.pic.c}"` : ''}><h3>${g.pic ? `<span class="pic xs" style="background-image:url(data:image/png;base64,${g.pic.pic()})" aria-hidden="true"></span>` : ''}${esc(g.label)}</h3><ul class="srv-changes">${g.keys.map(row).join('')}</ul></div>`).join('')}</div>`
+      : `<p class="srv-same">Every setting is at its default, so everything works the way this site shows it.</p>`}
+    ${groups.length ? '<p class="fine">Anything not listed works exactly as this site shows it.</p>' : ''}
+    <details class="srv-all"><summary>All ${vis.length} settings</summary>
       <div class="scroll"><table class="grid"><thead><tr><th>Setting</th><th>Here</th><th>Default</th></tr></thead><tbody>
-        ${SET_DEFS.map(d => `<tr${srv.V[d.key] !== d.def ? ' class="srv-hot"' : ''}><td><b>${esc(d.name)}</b><code>${d.key}</code></td><td>${fmtSet(d, srv.V[d.key])}</td><td>${fmtSet(d, d.def)}</td></tr>`).join('')}
+        ${table('Smithborn', vis.filter(d => !d.addon))}${on.map(x => table(shortName(x.id), defsFor(x.id))).join('')}
       </tbody></table></div>
     </details>
   </section>
   ${preview ? '' : `<section class="srv-cta"><div><b>Run a server with Smithborn?</b><span>Make a page like this for your players in a minute.</span></div><a class="btn ghost" href="#servers">Make a server page</a></section>`}`;
+}
+
+// ---- an addon's settings, for the bottom of its own page ----
+function addonSettingsPanel(id) {
+  const defs = defsFor(id);
+  if (!defs.length) return '';
+  return `
+  <section aria-labelledby="h-set-${id}">
+    <div class="sec-head"><h2 id="h-set-${id}">Server settings</h2><p>In <code>config/smithborn.json</code>, under <code>"${id}"</code>.</p></div>
+    <details class="settings"><summary>All ${defs.length} settings <span class="dim">and their defaults</span></summary>
+      <p class="fine">Smithborn ${SB_VER} writes them with these defaults the first time the server starts. Change one and run <code>/reload</code>: the server reads the file again and sends it to every player. A <a href="#servers">server page</a> shows your players what you changed.</p>
+      <div class="scroll"><table class="grid"><thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead><tbody>${defs.map(d => `<tr><td><code>${esc(d.path.slice(1).join('.'))}</code></td><td><code>${d.kind === 'enum' ? '"' + d.def + '"' : d.kind === 'pct' || d.kind === 'sec' || d.kind === 'num' ? trim(d.def, 3) : String(d.def)}</code>${d.kind !== 'bool' && d.kind !== 'enum' ? `<small class="dim"> ${d.kind === 'pct' ? trim(d.min, 3) + '–' + trim(d.max, 3) : d.min + '–' + d.max}${d.kind === 'sec' ? ' s' : ''}</small>` : d.kind === 'enum' ? `<small class="dim"> ${d.opts.join(', ')}</small>` : ''}</td><td>${esc(d.desc || d.name)}</td></tr>`).join('')}</tbody></table></div>
+    </details>
+  </section>`;
 }
 function bindCopies(root = document) { $$('[data-copy]', root).forEach(b => { b.onclick = () => copyText(b.dataset.copy, b); }); }
 
@@ -11416,7 +11560,8 @@ async function showServer(packed) {
 
 // ---- the Servers page: make a server page ----
 const SRV_EXAMPLE = { n: 'Smithborn SMP', a: 'play.smithborn-smp.net', d: '', t: 'A survival server with rolled gear, abilities and PvP.', m: ['abilities', 'arena', 'trades'],
-  V: settle({ 'rolls.stats_per_item': 3, 'tiers.masterwork_min': 0.9, 'reforging.max_material': 12 }) };
+  V: settle({ 'rolls.stats_per_item': 3, 'tiers.masterwork_min': 0.9, 'reforging.max_material': 12, 'arena.inspect_opponent.enabled': false, 'trades.villager_reroll.cost_emeralds': 12, 'abilities.chain_orb.cooldown_seconds': 20 }),
+  w: { smithborn: '1.7.0', abilities: '1.1.0', arena: '1.1.0', trades: '1.1.0' } };
 const FORM = { n: '', a: '', d: '', t: '', m: [], cfg: null, text: '' };
 function showServersHome() {
   S.ab = null; S.sc = null; stage = null; HOVER = null;
@@ -11441,7 +11586,7 @@ function showServersHome() {
         <div class="srv-ticks">${SRV_ADDONS.map(x => `<label class="srv-tick" style="--c:${x.c}"><input type="checkbox" value="${x.id}">${addonPic(x)}<span>${esc(x.name.replace('Smithborn: ', ''))}</span></label>`).join('')}</div>
       </fieldset>
       <div class="srv-field wide"><span id="f-cfg-l">Your config/smithborn.json <small>it's in the server folder; the server writes it on first start</small></span>
-        <textarea id="f-cfg" rows="7" spellcheck="false" aria-labelledby="f-cfg-l" placeholder='Paste the whole file here, or drop it on this box. It starts with { "rolls": ...'></textarea>
+        <textarea id="f-cfg" rows="7" spellcheck="false" aria-labelledby="f-cfg-l" placeholder='Paste the whole file here, or drop it on this box. It starts with { "installed": ...'></textarea>
         <div class="srv-cfg-row"><label class="btn ghost srv-file">Choose the file<input type="file" id="f-file" accept=".json,application/json,text/plain"></label><span class="srv-status" id="f-status" role="status">No config yet: the page shows Smithborn's defaults.</span></div>
       </div>
     </form>
@@ -11473,13 +11618,14 @@ function showServersHome() {
       const ch = changedKeys(c.V).length, notes = [];
       if (c.wrong.length) notes.push(`${c.wrong.length} with a value Smithborn can't read (${c.wrong.join(', ')}): it may use its defaults`);
       if (c.clamped.length) notes.push(`${c.clamped.length} out of range, shown as the mod uses ${c.clamped.length === 1 ? 'it' : 'them'} (${c.clamped.join(', ')})`);
-      if (c.unknown.length) notes.push(`${c.unknown.length} not a Smithborn 1.6.0 setting, left out (${c.unknown.slice(0, 4).join(', ')}${c.unknown.length > 4 ? '…' : ''})`);
+      if (c.unknown.length) notes.push(`${c.unknown.length} not a setting of Smithborn ${SB_VER} or its addons, left out (${c.unknown.slice(0, 4).join(', ')}${c.unknown.length > 4 ? '…' : ''})`);
+      if (!c.installed) notes.push('No "installed" list, so this file is from Smithborn 1.6.0 or older: tick the addons by hand');
       st.textContent = `Read ${c.read} of ${SET_DEFS.length} settings: ${ch} changed.` + (notes.length ? ' ' + notes.join('. ') + '.' : '');
       st.className = 'srv-status ' + (c.wrong.length || c.clamped.length ? 'warn' : 'good');
       if (c.installed && !FORM.m.length) { FORM.m = c.installed; $$('.srv-tick input').forEach(x => { x.checked = FORM.m.includes(x.value); }); }
     }
     const disc = cleanDiscord(FORM.d); f('f-d-err').hidden = !FORM.d.trim() || !!disc;
-    const srv = { n: cleanText(FORM.n, SRV_MAX.n), a: cleanText(FORM.a, SRV_MAX.a), d: disc, t: cleanText(FORM.t, SRV_MAX.t), m: SRV_IDS.filter(id => FORM.m.includes(id)), V: c && !c.error ? c.V : settle({}) };
+    const srv = { n: cleanText(FORM.n, SRV_MAX.n), a: cleanText(FORM.a, SRV_MAX.a), d: disc, t: cleanText(FORM.t, SRV_MAX.t), m: SRV_IDS.filter(id => FORM.m.includes(id)), V: c && !c.error ? c.V : settle({}), w: c && !c.error && c.versions ? c.versions : {} };
     f('srv-preview').innerHTML = serverBody(Object.assign({}, srv, { n: srv.n || 'Your server' }), true);
     bindCopies(f('srv-preview'));
     const seq = (update.seq = (update.seq || 0) + 1);
