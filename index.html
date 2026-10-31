@@ -850,59 +850,82 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .srv-link { display: flex; flex-wrap: wrap; gap: 8px; }
 .srv-link input { flex: 1 1 260px; font: 400 var(--t-sm)/1.4 var(--f-mono); }
 .srv-link a[aria-disabled="true"] { opacity: .5; pointer-events: none; }
-.srv-import { display: grid; gap: 10px; }
-.srv-import > summary { cursor: pointer; font: 600 var(--t-sm)/1.4 var(--f-display); color: var(--ink); }
-.srv-import > summary .dim { font: 400 var(--t-sm)/1.4 var(--f-body); color: var(--muted); margin-left: 6px; }
-.srv-import::details-content { min-width: 0; }
-.srv-import[open] > summary { margin-bottom: 8px; }
-.se-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 16px 0 12px; }
-.se-bar input[type=search] { flex: 1 1 240px; min-width: 0; background: var(--night); border: 1px solid var(--line); color: var(--ink); font: 400 var(--t-md)/1.4 var(--f-body); padding: 10px 12px; }
+.srv-num { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em; margin-right: 12px; vertical-align: 0.1em; font-size: .7em; color: #120f18; background: var(--ember); clip-path: var(--notch); }
+.srv-step .srv-form { margin-top: 12px; }
+.srv-ticks.big { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 10px; margin-top: 12px; }
+.srv-ticks.big .srv-tick { padding: 10px 12px; gap: 12px; }
+.srv-ticks.big .srv-tick .sig.md { width: 40px; height: 40px; }
+.srv-tick > span:last-child { display: grid; gap: 3px; }
+.srv-tick small { font: 400 var(--t-xs)/1 var(--f-body); color: var(--faint); }
+.srv-tick.fixed { cursor: default; color: var(--c); background: color-mix(in srgb, var(--c) 10%, var(--raise)); }
+.srv-tick.fixed input { opacity: .6; }
+.srv-import { display: grid; gap: 10px; margin: 0 0 14px; padding: 14px; background: var(--panel); clip-path: var(--notch); }
+.se-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin: 14px 0 12px; }
+.se-bar input[type=search] { flex: 1 1 260px; min-width: 0; background: var(--night); border: 1px solid var(--line); color: var(--ink); font: 400 var(--t-md)/1.4 var(--f-body); padding: 10px 12px; }
 .se-bar input[type=search]:focus { outline: 2px solid var(--ember); outline-offset: 0; border-color: transparent; }
-.se-only { display: inline-flex; align-items: center; gap: 8px; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); cursor: pointer; }
+.se-only { display: inline-flex; align-items: center; gap: 8px; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); cursor: pointer; padding: 0 4px; }
 .se-only input { accent-color: var(--ember); width: 18px; height: 18px; margin: 0; }
-.se-groups { display: grid; gap: 10px; }
-.se-group { background: var(--panel); clip-path: var(--notch); min-width: 0; }
-.se-group::details-content { min-width: 0; }
-.se-group > summary { display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer; list-style: none; font: 600 var(--t-md)/1.2 var(--f-display); color: var(--c); }
-.se-group > summary::-webkit-details-marker { display: none; }
-.se-group > summary::after { content: '+'; width: 14px; text-align: center; color: var(--muted); font: 600 var(--t-lg)/1 var(--f-display); }
-.se-group[open] > summary::after { content: '−'; }
-.se-group > summary:hover::after { color: var(--ink); }
-.se-count { margin-left: auto; font: 600 var(--t-xs)/1.3 var(--f-display); color: var(--faint); text-align: right; }
-.se-rows { display: grid; padding: 0 16px 10px; }
-.se-sub { margin: 16px 0 6px; font: 500 var(--t-xs)/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.se-row { --chg: var(--ember); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 16px; padding: 12px 12px 12px 14px; border-top: 1px solid var(--line); border-left: 3px solid transparent; }
-.se-row.on { border-left-color: var(--chg); background: color-mix(in srgb, var(--chg) 6%, transparent); }
+.se-mods { display: grid; gap: 10px; }
+.se-mod { background: var(--panel); clip-path: var(--notch); min-width: 0; border-left: 3px solid var(--c); }
+.se-mod::details-content { min-width: 0; }
+.se-mod > summary { display: flex; align-items: center; gap: 14px; padding: 14px 18px; cursor: pointer; list-style: none; }
+.se-mod > summary::-webkit-details-marker { display: none; }
+.se-mod > summary:hover { background: color-mix(in srgb, var(--c) 6%, transparent); }
+.se-mt { display: grid; gap: 4px; min-width: 0; flex: 1; }
+.se-mt b { font: 600 var(--t-lg)/1.2 var(--f-display); color: var(--c); }
+.se-mt small { font-size: var(--t-sm); color: var(--muted); line-height: 1.4; }
+.se-count { font: 600 var(--t-xs)/1.3 var(--f-display); text-align: right; flex: none; max-width: 40%; }
+.se-chev { flex: none; width: 10px; height: 10px; border-right: 3px solid var(--muted); border-bottom: 3px solid var(--muted); transform: rotate(45deg); margin: -4px 4px 0 6px; transition: transform .15s; }
+.se-mod[open] .se-chev { transform: rotate(225deg); margin-top: 4px; }
+.se-secs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 10px; padding: 4px 16px 16px; }
+.se-sec { --fc: var(--ember); display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px; background: var(--night); border: 1px solid var(--line); min-width: 0; }
+.se-sec.wide { grid-column: 1 / -1; }
+.se-sec.on { border-color: color-mix(in srgb, var(--fc) 45%, var(--line)); }
+.se-ic { display: grid; place-items: center; width: 52px; height: 52px; background: var(--raise); box-shadow: inset 0 0 0 2px #0b0910, inset 2px 2px 0 2px #2f2a3b; }
+.se-ic .sig { width: 36px; height: 36px; }
+.se-body { min-width: 0; display: grid; gap: 4px; }
+.se-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.se-head b { font: 600 var(--t-md)/1.25 var(--f-display); color: var(--fc); }
+.se-subt { font-size: var(--t-xs); color: var(--muted); }
+.se-scount { margin-left: auto; font: 600 var(--t-xs)/1.3 var(--f-display); }
+.se-snote { margin: 0; font-size: var(--t-xs); color: var(--faint); line-height: 1.45; }
+.se-rows { display: grid; margin-top: 4px; }
+.se-sec.wide .se-rows { grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); column-gap: 28px; }
+.se-row { --chg: var(--ember); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 9px 0 9px 10px; margin-left: -10px; border-top: 1px solid var(--line); border-left: 2px solid transparent; }
+.se-row.on { border-left-color: var(--chg); }
 .se-row.srv-buff { --chg: var(--buff); } .se-row.srv-nerf { --chg: var(--nerf); }
-.se-what { grid-row: span 2; display: grid; gap: 3px; min-width: 0; }
-.se-name label { font: 600 var(--t-md)/1.25 var(--f-display); color: var(--ink); cursor: pointer; }
-.se-what small { font-size: var(--t-sm); color: var(--muted); line-height: 1.45; }
+.se-what { flex: 1 1 150px; display: grid; gap: 2px; min-width: 0; }
+.se-name label { font: 600 var(--t-sm)/1.3 var(--f-display); color: var(--ink); cursor: pointer; }
+.se-what small { font-size: var(--t-xs); color: var(--muted); line-height: 1.4; }
 .se-what .se-note { font-style: normal; font-size: var(--t-xs); color: var(--legend); }
-.se-row.se-idle .se-ctl { opacity: .55; }
-.se-ctl { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
-.se-def { justify-self: end; font-size: var(--t-xs); color: var(--faint); }
-.se-row.on .se-def { color: var(--muted); }
-.se-undo { background: none; border: 0; color: var(--muted); font: 600 var(--t-xs)/1 var(--f-display); padding: 6px 2px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.se-row.se-idle .se-ctl { opacity: .5; }
+.se-ctl { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-left: auto; }
+.se-undo { background: none; border: 0; color: var(--muted); font: 500 var(--t-xs)/1 var(--f-body); padding: 6px 2px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .se-undo:hover { color: var(--ink); }
-.se-sw { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); }
-.se-sw input { appearance: none; -webkit-appearance: none; flex: none; width: 42px; height: 24px; margin: 0; position: relative; cursor: pointer; background: var(--night); border: 2px solid var(--line); }
-.se-sw input::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; background: var(--faint); transition: transform .12s; }
-.se-sw input:checked { background: color-mix(in srgb, var(--ember) 22%, var(--night)); border-color: var(--ember); }
+.se-sw { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); }
+.se-sw input { appearance: none; -webkit-appearance: none; flex: none; width: 40px; height: 22px; margin: 0; position: relative; cursor: pointer; background: var(--panel); border: 2px solid var(--line); }
+.se-sw input::after { content: ''; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; background: var(--faint); transition: transform .12s; }
+.se-sw input:checked { background: color-mix(in srgb, var(--ember) 22%, var(--panel)); border-color: var(--ember); }
 .se-sw input:checked::after { transform: translateX(18px); background: var(--ember); }
 .se-sw input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .se-sw:has(input:checked) { color: var(--ink); }
-.se-sw-t { min-width: 28px; }
-.se-num { display: inline-flex; align-items: center; background: var(--night); border: 1px solid var(--line); }
+.se-sw-t { min-width: 26px; }
+.se-num { display: inline-flex; align-items: center; background: var(--panel); border: 1px solid var(--line); }
 .se-num:focus-within { outline: 2px solid var(--ember); border-color: transparent; }
-.se-num input { width: 88px; background: transparent; border: 0; color: var(--ink); font: 600 var(--t-md)/1.4 var(--f-body); padding: 8px 4px 8px 10px; text-align: right; -moz-appearance: textfield; appearance: textfield; }
+.se-num input { width: 70px; background: transparent; border: 0; color: var(--ink); font: 600 var(--t-sm)/1.4 var(--f-body); padding: 7px 4px 7px 8px; text-align: right; -moz-appearance: textfield; appearance: textfield; }
 .se-num input::-webkit-inner-spin-button, .se-num input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 .se-num input:focus { outline: none; }
-.se-num i { font-style: normal; color: var(--muted); padding: 0 10px 0 2px; font-size: var(--t-sm); }
-.se-num i.pre { padding: 0 0 0 10px; font-size: var(--t-md); }
-.se-ctl select { background: var(--night); border: 1px solid var(--line); color: var(--ink); font: 600 var(--t-sm)/1.4 var(--f-body); padding: 8px 10px; }
+.se-num i { font-style: normal; color: var(--muted); padding: 0 9px 0 2px; font-size: var(--t-sm); }
+.se-num i.pre { padding: 0 0 0 9px; font-size: var(--t-md); }
+.se-ctl select { background: var(--panel); border: 1px solid var(--line); color: var(--ink); font: 600 var(--t-sm)/1.4 var(--f-body); padding: 7px 8px; }
 .se-ctl select:focus { outline: 2px solid var(--ember); border-color: transparent; }
-.se-more { margin-top: 4px; }
-@media (max-width: 560px) { .se-row { grid-template-columns: 1fr; } .se-what { grid-row: auto; } .se-ctl { justify-content: flex-start; } .se-undo { order: 1; } .se-def { justify-self: start; } }
+.se-legend { margin-top: 10px; }
+.se-mnote { grid-column: 1 / -1; margin: 0 0 2px; font-size: var(--t-sm); color: var(--muted); line-height: 1.5; }
+@media (max-width: 560px) {
+  .se-mod > summary { padding: 12px 12px; gap: 10px; } .se-mod > summary .sig.md { width: 36px; height: 36px; } .se-mt small { display: none; }
+  .se-secs { padding: 2px 8px 10px; } .se-sec { grid-template-columns: 40px minmax(0, 1fr); gap: 10px; padding: 12px 10px; }
+  .se-ic { width: 40px; height: 40px; } .se-ic .sig { width: 28px; height: 28px; }
+}
 .srv-two { display: grid; gap: 14px; margin-top: 16px; }
 @media (min-width: 900px) { .srv-two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 .srv-two .srv-out { margin-top: 0; align-content: start; min-width: 0; }
@@ -11661,7 +11684,7 @@ const SRV_EXAMPLE = { n: 'Smithborn SMP', a: 'play.smithborn-smp.net', d: '', t:
   w: { smithborn: '1.7.0', abilities: '1.1.0', arena: '1.1.0', trades: '1.1.0' } };
 // the server being set up: kept while the visitor looks at other pages, and in this browser between visits
 // (V = every setting's value, w = versions from a loaded file, extra = the loaded file itself, so keys this site doesn't know stay)
-const FORM = { init: false, n: '', a: '', d: '', t: '', m: [], V: settle({}), w: {}, extra: null, text: '', q: '', only: false, open: new Set(['smithborn']) };
+const FORM = { init: false, n: '', a: '', d: '', t: '', m: [], V: settle({}), w: {}, extra: null, text: '', q: '', only: false, open: new Set() };
 const SRV_DRAFT = 'smithborn.server-draft.v1';
 function saveDraft() {
   try { localStorage.setItem(SRV_DRAFT, JSON.stringify({ n: FORM.n, a: FORM.a, d: FORM.d, t: FORM.t, m: FORM.m, c: Object.fromEntries(changedKeys(FORM.V).map(k => [k, FORM.V[k]])), w: FORM.w })); } catch (e) { /* no storage here: the draft lives until the tab closes */ }
@@ -11698,9 +11721,42 @@ function configObject() {
 }
 const configText = () => JSON.stringify(configObject(), null, 2) + '\n';
 
-// ---- the settings editor ----
+// ---- the settings editor: a dropdown per mod; inside, a card per feature (an ability, a power, a metal...) with its picture ----
 const seId = key => 'e-' + key.replace(/[^a-z0-9]+/gi, '-');
 const SE_TAG = { buff: 'Buff', nerf: 'Nerf', tweak: 'Change' };
+const SE_MODS = () => [{ id: null, name: 'Smithborn', c: 'var(--ember)', pic: () => SB.icon, line: 'Random stats and quality tiers on vanilla gear, and the Reforging Table.' }, ...SRV_ADDONS];
+const SE_SB_PIC = { Rolling: () => SB.items.iron_sword, Tiers: () => SB.items.diamond, Reforging: () => SB.blocks.reforging_table['2'], Effects: () => SB.items.amethyst_shard };
+const SE_SB_SUB = { Rolling: 'How gear rolls its stats', Tiers: 'Roll quality each tier needs', Reforging: 'What the Reforging Table costs', Effects: 'Masterwork moments' };
+// a mod's settings, sorted into its features
+function seSections(id) {
+  const out = [], by = {};
+  const add = (sid, meta, d) => { if (!by[sid]) out.push(by[sid] = Object.assign({ id: sid, keys: [] }, meta)); by[sid].keys.push(d.key); };
+  for (const d of defsFor(id)) {
+    const p = d.path;
+    if (!id) { add(d.group, { name: d.group, sub: SE_SB_SUB[d.group], pic: legUrl(SE_SB_PIC[d.group]()), cls: ' still', c: 'var(--ember)', wide: true }, d); continue; }
+    const x = id === 'abilities' ? ABILITIES.find(y => y.key === p[1]) : id === 'legends' ? POWERS.find(y => y.key === p[1]) : id === 'metals' ? METALS.find(y => y.key === p[2])
+      : id === 'enchantments' ? ENCHANTS.find(y => y.key === p[1]) : listOf(id).find(y => y.id === p[1].replace(/_/g, '-'));
+    if (!x) { add('other', { name: 'Other', pic: legUrl(SE_SB_PIC.Effects()), cls: ' still', c: 'var(--ember)' }, d); continue; }
+    const note = id === 'metals' ? cap(d.bonus || 'its set bonus') + '.' : '';
+    add(x.id || x.key, { name: x.name, sub: id === 'metals' ? 'Full set bonus' : slotWhat(x), pic: picUrl(x), cls: picCls(x), c: x.color, note, wide: id === 'trades' && p[1] === 'loot_gear' }, d);
+  }
+  return out;
+}
+// the short label a setting gets inside its feature's card
+function seLabel(d) {
+  if (!d.addon) return d.name;
+  const last = d.path[d.path.length - 1];
+  if (d.kind === 'bool' && (last === 'enabled' || d.addon === 'enchantments' || d.addon === 'metals')) return 'Enabled';
+  return { cooldown_seconds: 'Wait between uses', range_blocks: 'Range in blocks', cost_emeralds: 'Price in emeralds', uses: 'Rerolls before a restock', best_tier: 'Best tier', share: 'Share given back' }[last] || d.name;
+}
+const seHint = d => !d.addon ? d.desc || '' : (d.kind === 'bool' && seLabel(d) === 'Enabled') || d.kind === 'sec' ? '' : d.desc || '';
+// what every switch (and wait) of an addon means, said once at the top of its dropdown
+const SE_MOD_NOTE = {
+  abilities: 'An ability switched off never fires, its sigils leave the loot and the Sigil Forge refuses it. Waits are for a fully awake sigil; its other waits scale with them.',
+  legends: 'A power switched off never fires and its forging can\'t be made.',
+  metals: 'These switch the full-set bonuses. The gear itself never changes.',
+  enchantments: 'An enchantment switched off does nothing, and the enchanting table, loot and librarians never give it.',
+};
 function seControl(d) {
   const v = FORM.V[d.key], id = seId(d.key);
   if (d.kind === 'bool') return `<label class="se-sw"><input type="checkbox" role="switch" id="${id}" data-k="${d.key}"${v ? ' checked' : ''}><span class="se-sw-t">${v ? 'On' : 'Off'}</span></label>`;
@@ -11708,20 +11764,24 @@ function seControl(d) {
   const k = d.kind === 'pct' ? 100 : 1;
   return `<span class="se-num">${d.kind === 'num' ? '<i class="pre">×</i>' : ''}<input type="number" id="${id}" data-k="${d.key}" inputmode="decimal" min="${trim(d.min * k, 2)}" max="${trim(d.max * k, 2)}" step="${d.kind === 'int' ? 1 : 'any'}" value="${trim(v * k, 3)}">${d.kind === 'pct' ? '<i>%</i>' : d.kind === 'sec' ? '<i>s</i>' : ''}</span>`;
 }
-const seRow = d => `
-        <div class="se-row" data-row="${d.key}"><div class="se-what"><span class="se-name"><label for="${seId(d.key)}">${esc(d.name)}</label><span class="srv-tag" hidden></span></span><small>${esc(d.desc || '')}</small><em class="se-note" hidden></em></div>
-          <div class="se-ctl"><button type="button" class="se-undo" data-undo="${d.key}" aria-label="Back to the default for ${esc(d.name)}" hidden>Reset</button>${seControl(d)}</div>
-          <small class="se-def">Default: ${esc(fmtSet(d, d.def))}</small></div>`;
+const seRow = d => { const h = seHint(d); return `
+            <div class="se-row" data-row="${d.key}"><div class="se-what"><span class="se-name"><label for="${seId(d.key)}">${esc(seLabel(d))}</label><span class="srv-tag" hidden></span></span>${h ? `<small>${esc(h)}</small>` : ''}<em class="se-note" hidden></em></div>
+              <div class="se-ctl"><button type="button" class="se-undo" data-undo="${d.key}" aria-label="Back to the default for ${esc(d.name)}, ${esc(fmtSet(d, d.def))}" hidden>Reset to ${esc(fmtSet(d, d.def))}</button>${seControl(d)}</div></div>`; };
+const seSec = s => `
+          <div class="se-sec${s.wide ? ' wide' : ''}" data-sec="${esc(s.id)}" style="--fc:${s.c}">
+            <span class="se-ic" aria-hidden="true"><span class="sig${s.cls}" style="background-image:url(${s.pic})"></span></span>
+            <div class="se-body"><div class="se-head"><b>${esc(s.name)}</b>${s.sub ? `<span class="se-subt">${esc(s.sub)}</span>` : ''}<span class="se-scount"></span></div>${s.note ? `<p class="se-snote">${esc(s.note)}</p>` : ''}
+            <div class="se-rows">${s.keys.map(k => seRow(SET_BY[k])).join('')}</div></div>
+          </div>`;
 function seGroups() {
-  const mods = [{ id: null, c: 'var(--ember)', pic: () => SB.icon }, ...SRV_ADDONS.filter(x => FORM.m.includes(x.id))];
-  return mods.map(x => {
-    const g = x.id || 'smithborn'; let sub = '';
-    return `
-      <details class="se-group" data-g="${g}" style="--c:${x.c}"${FORM.open.has(g) ? ' open' : ''}><summary><span class="pic xs" style="background-image:url(data:image/png;base64,${x.pic()})" aria-hidden="true"></span><b>${esc(shortName(x.id))}</b><span class="se-count"></span></summary>
-        <div class="se-rows">${defsFor(x.id).map(d => { let h = ''; if (!x.id && d.group !== sub) { sub = d.group; h = `<p class="se-sub">${esc(sub)}</p>`; } return h + seRow(d); }).join('')}</div></details>`;
-  }).join('') + (FORM.m.length < SRV_ADDONS.length ? `<p class="fine se-more">Tick an addon under "Addons on the server" to change its settings too.</p>` : '');
+  const mods = SE_MODS().filter(x => !x.id || FORM.m.includes(x.id));
+  return mods.map(x => { const g = x.id || 'smithborn', n = defsFor(x.id).length; return `
+      <details class="se-mod" data-g="${g}" style="--c:${x.c}"${FORM.open.has(g) ? ' open' : ''}>
+        <summary><span class="sig md${x.anim ? '' : ' still'}" style="background-image:url(data:image/png;base64,${x.pic()})" aria-hidden="true"></span><span class="se-mt"><b>${esc(x.name)}</b><small>${esc(x.line)}</small></span><span class="se-count"></span><span class="se-chev" aria-hidden="true"></span></summary>
+        <div class="se-secs">${SE_MOD_NOTE[x.id] ? `<p class="se-mnote">${esc(SE_MOD_NOTE[x.id])}</p>` : ''}${seSections(x.id).map(seSec).join('')}</div>
+      </details>`; }).join('');
 }
-// every row's look from FORM.V: changed or not, buff or nerf, the On/Off word, "no effect while ... is off"
+// every row's look from FORM.V: changed or not, buff or nerf, the On/Off word, "no effect while ... is off"; then the counts
 function seRefresh() {
   for (const row of $$('.se-row')) {
     const d = SET_BY[row.dataset.row], v = FORM.V[d.key], ch = v !== d.def, vd = VERDICT[verdict(d, v)];
@@ -11730,14 +11790,13 @@ function seRefresh() {
     $('.se-undo', row).hidden = !ch;
     const sw = $('.se-sw-t', row); if (sw) sw.textContent = v ? 'On' : 'Off';
     const off = offSwitch(d.key, FORM.V), note = $('.se-note', row);
-    row.classList.toggle('se-idle', !!off); note.hidden = !off; if (off) note.textContent = `No effect while ${off.name} is off.`;
+    row.classList.toggle('se-idle', !!off); note.hidden = !off; if (off) note.textContent = `No effect while ${seLabel(off) === 'Enabled' ? off.name : seLabel(off)} is off.`;
   }
-  for (const g of $$('.se-group')) {
-    const keys = defsFor(g.dataset.g === 'smithborn' ? null : g.dataset.g).map(d => d.key).filter(k => FORM.V[k] !== SET_BY[k].def);
-    $('.se-count', g).innerHTML = keys.length ? tally(keys, FORM.V) : 'Defaults';
-  }
+  const changed = keys => keys.filter(k => FORM.V[k] !== SET_BY[k].def);
+  for (const s of $$('.se-sec')) { const ch = changed($$('.se-row', s).map(r => r.dataset.row)); s.classList.toggle('on', !!ch.length); $('.se-scount', s).innerHTML = ch.length ? tally(ch, FORM.V) : ''; }
+  for (const g of $$('.se-mod')) { const ch = changed(defsFor(g.dataset.g === 'smithborn' ? null : g.dataset.g).map(d => d.key)); $('.se-count', g).innerHTML = ch.length ? tally(ch, FORM.V) : '<span class="dim">Defaults</span>'; }
   const vis = SET_DEFS.filter(d => !d.addon || FORM.m.includes(d.addon)), ch = vis.filter(d => FORM.V[d.key] !== d.def).map(d => d.key);
-  const s = $('#e-sum'); if (s) s.innerHTML = ch.length ? `${ch.length} of ${vis.length} changed: ${tally(ch, FORM.V)}.` : `All ${vis.length} at their defaults.`;
+  const s = $('#e-sum'); if (s) s.innerHTML = ch.length ? `${ch.length} of ${vis.length} settings changed: ${tally(ch, FORM.V)}.` : `All ${vis.length} settings at their defaults.`;
 }
 // put FORM.V back into the controls (after a reset, a clamp, or tiers pushed into order), except the box being typed in
 function seSync() {
@@ -11749,16 +11808,20 @@ function seSync() {
 }
 function seFilter() {
   const q = FORM.q.trim().toLowerCase(); let total = 0;
-  for (const g of $$('.se-group')) {
-    let any = 0;
-    for (const r of $$('.se-row', g)) {
-      const d = SET_BY[r.dataset.row];
-      const hit = (!q || `${d.name} ${d.desc || ''} ${d.key}`.toLowerCase().includes(q)) && (!FORM.only || FORM.V[d.key] !== d.def);
-      r.hidden = !hit; any += hit;
+  for (const g of $$('.se-mod')) {
+    let inMod = 0;
+    for (const s of $$('.se-sec', g)) {
+      const secHit = !!q && $('.se-head', s).textContent.toLowerCase().includes(q);
+      let inSec = 0;
+      for (const r of $$('.se-row', s)) {
+        const d = SET_BY[r.dataset.row];
+        const hit = (!q || secHit || `${seLabel(d)} ${d.name} ${d.desc || ''} ${d.key}`.toLowerCase().includes(q)) && (!FORM.only || FORM.V[d.key] !== d.def);
+        r.hidden = !hit; inSec += hit;
+      }
+      s.hidden = !inSec; inMod += inSec;
     }
-    for (const s of $$('.se-sub', g)) { let n = s.nextElementSibling, seen = false; while (n && !n.classList.contains('se-sub')) { if (!n.hidden) seen = true; n = n.nextElementSibling; } s.hidden = !seen; }
-    g.hidden = !any; if (any && (q || FORM.only)) g.open = true;
-    total += any;
+    g.hidden = !inMod; if (inMod && (q || FORM.only)) g.open = true;
+    total += inMod;
   }
   const none = $('#e-none'); if (none) { none.hidden = !!total; none.textContent = FORM.only && !q ? 'Nothing changed yet: every setting is at its default.' : 'No setting matches that.'; }
 }
@@ -11772,51 +11835,57 @@ function showServersHome() {
   <section class="srv-hero" aria-labelledby="h-servers">
     <p class="eyebrow"><span class="chip">Servers</span>For server owners</p>
     <h1 id="h-servers">Set up your server</h1>
-    <p class="lede">Tick the addons you run and change any setting. Then put the config file on your server and share the link: your players see every addon and every change, in plain words.</p>
-    <div class="srv-join"><a class="btn ghost" id="srv-example" href="#servers">See an example</a></div>
+    <p class="lede">Fill in your server, pick its mods and configure them. You get the config file for your server and a page for your players.</p>
+    <div class="srv-join"><a class="btn ghost" id="srv-example" href="#servers">See an example page</a></div>
   </section>
 
-  <section class="srv-make" aria-labelledby="h-make">
-    <div class="sec-head"><h2 id="h-make">Your server</h2><p>Kept in this browser, so it's here when you come back.</p></div>
+  <section class="srv-step" aria-labelledby="h-info">
+    <div class="sec-head"><h2 id="h-info"><span class="srv-num">1</span>Server info</h2><p>Kept in this browser, so it's here when you come back.</p></div>
     <form class="srv-form" id="srv-form" autocomplete="off" onsubmit="return false">
       <label class="srv-field"><span>Server name</span><input id="f-n" maxlength="${SRV_MAX.n}" placeholder="Smithborn SMP" required></label>
       <label class="srv-field"><span>Address <small>optional</small></span><input id="f-a" maxlength="${SRV_MAX.a}" placeholder="play.example.com" spellcheck="false"></label>
       <label class="srv-field"><span>Discord invite <small>optional</small></span><span class="srv-pre"><span class="srv-pre-t" aria-hidden="true">https://discord.gg/</span><input id="f-d" maxlength="40" placeholder="your-invite" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Discord invite code, after https://discord.gg/"></span><em class="srv-err" id="f-d-err" hidden>Only the invite code: letters, numbers and dashes.</em></label>
       <label class="srv-field wide"><span>About <small>optional, ${SRV_MAX.t} letters</small></span><textarea id="f-t" maxlength="${SRV_MAX.t}" rows="2" placeholder="What kind of server it is"></textarea></label>
-      <fieldset class="srv-field wide"><legend>Addons on the server</legend>
-        <div class="srv-ticks">${SRV_ADDONS.map(x => `<label class="srv-tick" style="--c:${x.c}"><input type="checkbox" value="${x.id}">${addonPic(x)}<span>${esc(x.name.replace('Smithborn: ', ''))}</span></label>`).join('')}</div>
-      </fieldset>
-      <details class="srv-field wide srv-import"${FORM.text ? ' open' : ''}><summary>Already have a config/smithborn.json? <span class="dim">Load it and every setting below fills in.</span></summary>
-        <textarea id="f-cfg" rows="6" spellcheck="false" aria-label="Your config/smithborn.json" placeholder='Paste the whole file here, or drop it on this box. It starts with { "installed": ...'></textarea>
-        <div class="srv-cfg-row"><label class="btn ghost srv-file">Choose the file<input type="file" id="f-file" accept=".json,application/json,text/plain"></label><span class="srv-status" id="f-status" role="status">It's in the server's config folder; the server writes it on first start.</span></div>
-      </details>
     </form>
   </section>
 
-  <section class="srv-edit" aria-labelledby="h-set">
-    <div class="sec-head"><h2 id="h-set">Settings</h2><p id="e-sum"></p></div>
-    <div class="se-bar">
-      <input type="search" id="e-q" placeholder="Find a setting" aria-label="Find a setting" spellcheck="false">
-      <label class="se-only"><input type="checkbox" id="e-only"> Only changed</label>
-      <button class="btn ghost" type="button" id="e-reset">Reset all</button>
+  <section class="srv-step" aria-labelledby="h-mods">
+    <div class="sec-head"><h2 id="h-mods"><span class="srv-num">2</span>Mods</h2><p>Smithborn and the addons your server runs.</p></div>
+    <div class="srv-ticks big">
+      <label class="srv-tick fixed" style="--c:var(--ember)"><input type="checkbox" checked disabled><span class="sig md still" style="background-image:url(data:image/png;base64,${SB.icon})" aria-hidden="true"></span><span>Smithborn<small>Always on</small></span></label>
+      ${SRV_ADDONS.map(x => `<label class="srv-tick" style="--c:${x.c}"><input type="checkbox" value="${x.id}">${addonPic(x)}<span>${esc(x.name.replace('Smithborn: ', ''))}<small>${esc(SRV_BY[x.id].ver)}</small></span></label>`).join('')}
     </div>
-    <div class="se-groups" id="e-groups"></div>
-    <p class="srv-same" id="e-none" hidden></p>
-    <p class="fine"><span class="srv-up">Green</span> is better for players than the default, <span class="srv-down">red</span> is worse.</p>
   </section>
 
-  <section aria-labelledby="h-use">
-    <div class="sec-head"><h2 id="h-use">Use it</h2><p>One file for the server, one link for your players.</p></div>
+  <section class="srv-step srv-edit" aria-labelledby="h-set">
+    <div class="sec-head"><h2 id="h-set"><span class="srv-num">3</span>Configuration</h2><p id="e-sum"></p></div>
+    <div class="se-bar">
+      <input type="search" id="e-q" placeholder="Find a setting, like Pierce Flow or price" aria-label="Find a setting" spellcheck="false">
+      <label class="se-only"><input type="checkbox" id="e-only"> Only changed</label>
+      <button class="btn ghost" type="button" id="e-load" aria-expanded="false" aria-controls="e-import">Load my config</button>
+      <button class="btn ghost" type="button" id="e-reset">Reset all</button>
+    </div>
+    <div class="srv-import" id="e-import" hidden>
+      <textarea id="f-cfg" rows="5" spellcheck="false" aria-label="Your config/smithborn.json" placeholder='Paste your whole config/smithborn.json here, or drop the file on this box. It starts with { "installed": ...'></textarea>
+      <div class="srv-cfg-row"><label class="btn ghost srv-file">Choose the file<input type="file" id="f-file" accept=".json,application/json,text/plain"></label><span class="srv-status" id="f-status" role="status">It's in your server's config folder. Loading it fills in every setting and ticks your addons.</span></div>
+    </div>
+    <div class="se-mods" id="e-groups"></div>
+    <p class="srv-same" id="e-none" hidden></p>
+    <p class="fine se-legend"><span class="srv-up">Buff</span>: better for players than the default. <span class="srv-down">Nerf</span>: worse.</p>
+  </section>
+
+  <section class="srv-step" aria-labelledby="h-use">
+    <div class="sec-head"><h2 id="h-use"><span class="srv-num">4</span>Use it</h2><p>One file for the server, one link for your players.</p></div>
     <div class="srv-two">
       <div class="srv-out">
-        <span class="srv-out-l">1. Your config file</span>
-        <p class="fine">Put it in your server's <code>config</code> folder as <code>smithborn.json</code>, in place of the old one, then run <code>/reload</code>: the server reads it again and sends it to every player. The addons themselves still go in the mods folder.</p>
+        <span class="srv-out-l">Your config file</span>
+        <p class="fine">Put it in your server's <code>config</code> folder as <code>smithborn.json</code>, in place of the old one, then run <code>/reload</code>. The addons themselves still go in the mods folder.</p>
         <div class="srv-link"><button class="btn" type="button" id="f-ccopy">Copy the file</button><button class="btn ghost" type="button" id="f-cdl" data-dl>Download smithborn.json</button></div>
         <span class="fine" id="f-cstat" role="status"></span>
         <details class="srv-cfg-view"><summary>Show the file <span class="dim" id="f-clines"></span></summary><pre id="f-ctext"></pre></details>
       </div>
       <div class="srv-out" id="srv-out">
-        <span class="srv-out-l">2. Your server page</span>
+        <span class="srv-out-l">Your server page</span>
         <div class="srv-link"><input id="f-link" readonly value="" aria-label="Your server link" placeholder="Give your server a name first"><button class="btn" type="button" id="f-copy" disabled>Copy link</button><a class="btn ghost" id="f-open" href="#servers" aria-disabled="true">Open</a></div>
         <span class="fine" id="f-len"></span>
       </div>
@@ -11832,7 +11901,7 @@ function showServersHome() {
   const f = id => $('#' + id);
   f('f-n').value = FORM.n; f('f-a').value = FORM.a; f('f-d').value = FORM.d; f('f-t').value = FORM.t; f('f-cfg').value = FORM.text;
   f('e-q').value = FORM.q; f('e-only').checked = FORM.only;
-  const ticks = () => $$('.srv-tick input').forEach(c => { c.checked = FORM.m.includes(c.value); });
+  const ticks = () => $$('.srv-tick input[value]').forEach(c => { c.checked = FORM.m.includes(c.value); });
   ticks();
   const drawEditor = () => { f('e-groups').innerHTML = seGroups(); seRefresh(); seFilter(); };
 
@@ -11851,11 +11920,11 @@ function showServersHome() {
       if (seq !== commit.seq || !f('f-link')) return;
       const url = serverUrl(p);
       f('f-link').value = url; f('f-copy').disabled = false; f('f-open').removeAttribute('aria-disabled'); f('f-open').href = '#server=' + p;
-      f('f-len').textContent = `${url.length} characters. Share it in your Discord or wherever your players are. Change anything and the link changes too.`;
+      f('f-len').textContent = 'Share it in your Discord or wherever your players are. Change anything and the link changes too.';
     });
   };
 
-  // the name, address, Discord and about boxes
+  // server info
   f('f-n').oninput = () => { FORM.n = f('f-n').value; commit(); };
   f('f-a').oninput = () => { FORM.a = f('f-a').value; commit(); };
   f('f-t').oninput = () => { FORM.t = f('f-t').value; commit(); };
@@ -11865,20 +11934,25 @@ function showServersHome() {
     if (code !== v && /^[A-Za-z0-9-]*$/.test(code)) f('f-d').value = code;
     FORM.d = f('f-d').value; commit();
   };
-  $$('.srv-tick input').forEach(c => { c.onchange = () => { FORM.m = $$('.srv-tick input').filter(x => x.checked).map(x => x.value); if (c.checked) FORM.open.add(c.value); drawEditor(); commit(); }; });
+  // mods
+  $$('.srv-tick input[value]').forEach(c => { c.onchange = () => { FORM.m = $$('.srv-tick input[value]').filter(x => x.checked).map(x => x.value); drawEditor(); commit(); }; });
 
   // loading a config file: it replaces every setting, and its "installed" list ticks the addons
+  const imp = f('e-import'), lb = f('e-load');
+  const showImport = on => { imp.hidden = !on; lb.setAttribute('aria-expanded', String(on)); lb.textContent = on ? 'Hide' : 'Load my config'; };
+  showImport(!!FORM.text);
+  lb.onclick = () => { showImport(imp.hidden); if (!imp.hidden) f('f-cfg').focus(); };
   const load = () => {
     FORM.text = f('f-cfg').value;
     const st = f('f-status'), c = parseConfig(FORM.text);
-    if (!c) { st.textContent = 'It\'s in the server\'s config folder; the server writes it on first start.'; st.className = 'srv-status'; return; }
+    if (!c) { st.textContent = 'It\'s in your server\'s config folder. Loading it fills in every setting and ticks your addons.'; st.className = 'srv-status'; return; }
     if (c.error) { st.textContent = c.error; st.className = 'srv-status bad'; return; }
     const chk = changedKeys(c.V), notes = [];
     if (c.wrong.length) notes.push(`${c.wrong.length} with a value Smithborn can't read (${c.wrong.join(', ')}): set to the default`);
     if (c.clamped.length) notes.push(`${c.clamped.length} out of range, set to what the mod uses (${c.clamped.join(', ')})`);
     if (c.unknown.length) notes.push(`${c.unknown.length} not a setting of Smithborn ${SB_VER} or its addons, kept in the file as they are (${c.unknown.slice(0, 4).join(', ')}${c.unknown.length > 4 ? '…' : ''})`);
-    if (!c.installed) notes.push('No "installed" list, so this file is from Smithborn 1.6.0 or older: tick the addons by hand');
-    st.textContent = `Loaded ${c.read} of ${SET_DEFS.length} settings: ${chk.length ? `${chk.length} changed (${tally(chk, c.V).replace(/<[^>]+>/g, '')})` : 'none changed'}. Change any of them below.` + (notes.length ? ' ' + notes.join('. ') + '.' : '');
+    if (!c.installed) notes.push('No "installed" list, so this file is from Smithborn 1.6.0 or older: tick your addons by hand');
+    st.textContent = `Loaded ${c.read} of ${SET_DEFS.length} settings: ${chk.length ? `${chk.length} changed (${tally(chk, c.V).replace(/<[^>]+>/g, '')})` : 'none changed'}.` + (notes.length ? ' ' + notes.join('. ') + '.' : '');
     st.className = 'srv-status ' + (c.wrong.length || c.clamped.length ? 'warn' : 'good');
     FORM.V = c.V; FORM.extra = c.obj; FORM.w = c.versions || {};
     if (c.installed) { FORM.m = c.installed; ticks(); }
@@ -11892,7 +11966,7 @@ function showServersHome() {
   box.addEventListener('dragleave', () => box.classList.remove('drop'));
   box.addEventListener('drop', e => { e.preventDefault(); box.classList.remove('drop'); readFile(e.dataTransfer.files[0]); });
 
-  // the settings editor
+  // the settings
   const set = (key, v) => { FORM.V = settle(Object.assign({}, FORM.V, { [key]: v })); seSync(); seRefresh(); if (FORM.only) seFilter(); commit(); };
   const eg = f('e-groups');
   eg.addEventListener('input', e => {
@@ -11902,8 +11976,8 @@ function showServersHome() {
     const x = parseFloat(el.value); if (!isFinite(x)) return;
     set(d.key, d.kind === 'pct' ? x / 100 : d.kind === 'int' ? Math.round(x) : x);
   });
-  eg.addEventListener('change', e => { if (e.target.type === 'number') { const el = e.target; const d = SET_BY[el.dataset.k]; el.value = trim(FORM.V[d.key] * (d.kind === 'pct' ? 100 : 1), 3); } });
-  eg.addEventListener('click', e => { const b = e.target.closest('[data-undo]'); if (b) { set(b.dataset.undo, SET_BY[b.dataset.undo].def); const el = f(seId(b.dataset.undo)); if (el) el.focus(); } });
+  eg.addEventListener('change', e => { const el = e.target; if (el.type === 'number') { const d = SET_BY[el.dataset.k]; el.value = trim(FORM.V[d.key] * (d.kind === 'pct' ? 100 : 1), 3); } });
+  eg.addEventListener('click', e => { const b = e.target.closest('[data-undo]'); if (b) { const k = b.dataset.undo; set(k, SET_BY[k].def); const el = f(seId(k)); if (el) el.focus(); } });
   eg.addEventListener('toggle', e => { const g = e.target.dataset && e.target.dataset.g; if (g) { if (e.target.open) FORM.open.add(g); else FORM.open.delete(g); } }, true);
   f('e-q').oninput = () => { FORM.q = f('e-q').value; seFilter(); };
   f('e-only').onchange = () => { FORM.only = f('e-only').checked; seFilter(); };
