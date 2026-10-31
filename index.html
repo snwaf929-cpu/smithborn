@@ -926,6 +926,17 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
   .se-secs { padding: 2px 8px 10px; } .se-sec { grid-template-columns: 40px minmax(0, 1fr); gap: 10px; padding: 12px 10px; }
   .se-ic { width: 40px; height: 40px; } .se-ic .sig { width: 28px; height: 28px; }
 }
+.sl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 10px; margin-top: 14px; }
+.sl-card { display: grid; gap: 8px; align-content: start; padding: 16px 18px; background: var(--panel); clip-path: var(--notch); text-decoration: none; color: var(--ink); border-left: 3px solid var(--ember); transition: background .15s; }
+.sl-card:hover { background: color-mix(in srgb, var(--ember) 8%, var(--panel)); }
+.sl-card > b { font: 600 var(--t-lg)/1.2 var(--f-display); color: var(--ember); }
+.sl-about { font-size: var(--t-sm); color: var(--muted); line-height: 1.45; }
+.sl-mods { display: flex; flex-wrap: wrap; gap: 6px; }
+.sl-mods .pic.xs { width: 24px; height: 24px; }
+.sl-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; font: 600 var(--t-xs)/1.3 var(--f-display); color: var(--muted); }
+.sl-meta code { font: 400 var(--t-xs)/1.3 var(--f-mono); color: var(--ink); }
+.srv-listit { display: grid; gap: 8px; margin-top: 10px; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--ember) 25%, transparent); }
+.srv-listit p { margin: 0; }
 .srv-two { display: grid; gap: 14px; margin-top: 16px; }
 @media (min-width: 900px) { .srv-two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 .srv-two .srv-out { margin-top: 0; align-content: start; min-width: 0; }
@@ -11579,6 +11590,33 @@ function cleanServer(o) {
 }
 const serverUrl = packed => SITE_URL + '#server=' + packed;
 
+// ---- the public server list: GitHub issues on the site's repo that SpArK has labelled "listed" ----
+// An owner adds a server by opening an issue with its link; the list reads the issues back (GitHub's public API, no login).
+// Only the link in an issue is used, unpacked and cleaned like any other link, so an issue can't put anything else on the page.
+const SRV_REPO = 'snwaf929-cpu/smithborn', SRV_LABEL = 'listed';
+const addServerUrl = (url, name) => `https://github.com/${SRV_REPO}/issues/new?title=${encodeURIComponent('Server: ' + name)}&body=${encodeURIComponent(`Server page: ${url}\n\nKeep the link above in this issue. To change your server later, edit this issue and paste your new link in place of the old one.`)}`;
+let SRV_LIST = null; // the listed servers, read once per visit
+async function serverList() {
+  if (SRV_LIST) return SRV_LIST;
+  const r = await fetch(`https://api.github.com/repos/${SRV_REPO}/issues?labels=${SRV_LABEL}&state=open&per_page=100`, { headers: { Accept: 'application/vnd.github+json' } });
+  if (!r.ok) throw new Error('list ' + r.status);
+  const out = [];
+  for (const it of await r.json()) {
+    const m = /#server=([zj][A-Za-z0-9_-]{4,6000})/.exec(String(it.body || ''));
+    if (!m) continue;
+    try { out.push({ packed: m[1], srv: await unpackServer(m[1]) }); } catch (e) { /* a broken link: left out */ }
+  }
+  return (SRV_LIST = out);
+}
+function listCard(x) {
+  const s = x.srv, ch = changedKeys(s.V).filter(k => !SET_BY[k].addon || s.m.includes(SET_BY[k].addon));
+  return `<a class="sl-card" href="#server=${x.packed}">
+    <b>${esc(s.n)}</b>${s.t ? `<span class="sl-about">${esc(s.t)}</span>` : ''}
+    <span class="sl-mods"><span class="pic xs" style="background-image:url(data:image/png;base64,${SB.icon})" title="Smithborn"></span>${SRV_ADDONS.filter(a => s.m.includes(a.id)).map(a => `<span class="pic xs" style="background-image:url(data:image/png;base64,${a.pic()})" title="${esc(a.name)}"></span>`).join('')}</span>
+    <span class="sl-meta">${s.a ? `<code>${esc(s.a)}</code>` : ''}<span>${ch.length ? tally(ch, s.V) : 'Default settings'}</span></span>
+  </a>`;
+}
+
 // ---- copying text (the clipboard can be blocked inside other pages: fall back to a selection copy) ----
 async function copyText(txt, btn) {
   let ok = false;
@@ -11839,6 +11877,11 @@ function showServersHome() {
     <div class="srv-join"><a class="btn ghost" id="srv-example" href="#servers">See an example page</a></div>
   </section>
 
+  <section aria-labelledby="h-list">
+    <div class="sec-head"><h2 id="h-list">Servers running Smithborn</h2><p>Approved servers. Add yours in step 4.</p></div>
+    <div class="sl-grid" id="srv-list"><p class="srv-same">Loading the list…</p></div>
+  </section>
+
   <section class="srv-step" aria-labelledby="h-info">
     <div class="sec-head"><h2 id="h-info"><span class="srv-num">1</span>Server info</h2><p>Kept in this browser, so it's here when you come back.</p></div>
     <form class="srv-form" id="srv-form" autocomplete="off" onsubmit="return false">
@@ -11888,6 +11931,11 @@ function showServersHome() {
         <span class="srv-out-l">Your server page</span>
         <div class="srv-link"><input id="f-link" readonly value="" aria-label="Your server link" placeholder="Give your server a name first"><button class="btn" type="button" id="f-copy" disabled>Copy link</button><a class="btn ghost" id="f-open" href="#servers" aria-disabled="true">Open</a></div>
         <span class="fine" id="f-len"></span>
+        <div class="srv-listit">
+          <span class="srv-out-l">Put it on the server list</span>
+          <p class="fine">Opens GitHub with your link filled in (you need a free GitHub account). Once it's approved, your server shows up in the list above. To change it later, edit that issue with your new link.</p>
+          <div class="srv-link"><a class="btn ghost" id="f-list" href="#servers" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add my server</a></div>
+        </div>
       </div>
     </div>
   </section>
@@ -11915,11 +11963,12 @@ function showServersHome() {
     const txt = configText(); f('f-ctext').textContent = txt; f('f-clines').textContent = `(${txt.split('\n').length - 1} lines)`;
     saveDraft();
     const seq = (commit.seq = (commit.seq || 0) + 1);
-    if (!srv.n) { f('f-link').value = ''; f('f-copy').disabled = true; f('f-open').setAttribute('aria-disabled', 'true'); f('f-open').href = '#servers'; f('f-len').textContent = ''; return; }
+    if (!srv.n) { f('f-link').value = ''; f('f-copy').disabled = true; f('f-open').setAttribute('aria-disabled', 'true'); f('f-open').href = '#servers'; f('f-len').textContent = ''; f('f-list').setAttribute('aria-disabled', 'true'); f('f-list').href = '#servers'; return; }
     packServer(srv).then(p => {
       if (seq !== commit.seq || !f('f-link')) return;
       const url = serverUrl(p);
       f('f-link').value = url; f('f-copy').disabled = false; f('f-open').removeAttribute('aria-disabled'); f('f-open').href = '#server=' + p;
+      f('f-list').removeAttribute('aria-disabled'); f('f-list').href = addServerUrl(url, srv.n);
       f('f-len').textContent = 'Share it in your Discord or wherever your players are. Change anything and the link changes too.';
     });
   };
@@ -12000,6 +12049,11 @@ function showServersHome() {
   f('f-copy').onclick = () => copyText(f('f-link').value, f('f-copy'));
   f('f-link').onfocus = e => e.target.select();
   drawEditor(); commit();
+  // the server list
+  serverList().then(list => {
+    const el = f('srv-list'); if (!el) return;
+    el.innerHTML = list.length ? list.map(listCard).join('') : '<p class="srv-same">No servers on the list yet. Be the first: add yours in step 4.</p>';
+  }).catch(() => { const el = f('srv-list'); if (el) el.innerHTML = '<p class="srv-same">The server list couldn\'t load right now. Try again in a minute.</p>'; });
 }
 
 // start: every file is loaded now
