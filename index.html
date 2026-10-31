@@ -785,7 +785,9 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .srv-groups { display: grid; gap: 22px; margin: 16px 0 14px; }
 .srv-group h3 { font: 500 var(--t-xs)/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 .srv-changes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.srv-changes li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 18px; padding: 14px 16px; background: var(--panel); clip-path: var(--notch); border-left: 3px solid var(--ember); }
+.srv-changes li { --chg: var(--ember); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 18px; padding: 14px 16px; background: var(--panel); clip-path: var(--notch); border-left: 3px solid var(--chg); }
+.srv-changes li.srv-buff { --chg: var(--buff); } .srv-changes li.srv-nerf { --chg: var(--nerf); }
+.srv-what .srv-tag { display: inline-block; vertical-align: 2px; margin-left: 10px; padding: 3px 6px 2px; font: 500 10px/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--chg); background: color-mix(in srgb, var(--chg) 14%, transparent); border: 1px solid color-mix(in srgb, var(--chg) 45%, transparent); }
 .srv-what { display: grid; gap: 4px; min-width: 0; }
 .srv-what b { font: 600 var(--t-md)/1.2 var(--f-display); }
 .srv-what span { font-size: var(--t-sm); color: var(--muted); line-height: 1.5; }
@@ -793,9 +795,9 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .srv-v { display: grid; gap: 6px; justify-items: center; min-width: 66px; padding: 8px 10px 9px; background: color-mix(in srgb, var(--ink) 5%, transparent); border: 1px solid var(--line); }
 .srv-v small { font: 500 var(--t-xs)/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .srv-v b { font: 600 var(--t-md)/1 var(--f-display); color: var(--ink); }
-.srv-v.now { background: color-mix(in srgb, var(--ember) 12%, transparent); border-color: color-mix(in srgb, var(--ember) 45%, transparent); }
-.srv-v.now small { color: color-mix(in srgb, var(--ember) 70%, var(--muted)); }
-.srv-v.now b { color: var(--ember); }
+.srv-v.now { background: color-mix(in srgb, var(--chg) 12%, transparent); border-color: color-mix(in srgb, var(--chg) 45%, transparent); }
+.srv-v.now small { color: color-mix(in srgb, var(--chg) 70%, var(--muted)); }
+.srv-v.now b { color: var(--chg); }
 .srv-vals i { align-self: center; font-style: normal; color: var(--muted); }
 @media (max-width: 560px) { .srv-changes li { grid-template-columns: 1fr; } }
 .srv-same { margin: 16px 0 12px; padding: 16px; background: var(--panel); clip-path: var(--notch); color: var(--muted); }
@@ -803,10 +805,13 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .srv-all summary { cursor: pointer; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); padding: 10px 0; }
 .srv-all summary:hover { color: var(--ink); }
 .srv-all td code { display: block; font: 400 11px/1.3 var(--f-mono); color: var(--faint); margin-top: 2px; }
-.srv-all tr.srv-hot td { color: var(--ember); }
-.srv-all tr.srv-hot td:first-child b { color: var(--ember); }
+.srv-all tr.srv-hot td:nth-child(2), .srv-all tr.srv-hot td:first-child b { color: var(--chg); }
+.srv-all tr.srv-buff { --chg: var(--buff); } .srv-all tr.srv-nerf { --chg: var(--nerf); } .srv-all tr.srv-tweak { --chg: var(--ember); }
 .srv-all tr.srv-sub th { text-align: left; font: 500 var(--t-xs)/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-top: 16px; }
-.srv-addon .srv-n { display: block; font: normal 600 var(--t-xs)/1.3 var(--f-display); color: var(--ember); margin-top: 5px; letter-spacing: .02em; }
+.srv-addon .srv-n { display: block; font: normal 600 var(--t-xs)/1.3 var(--f-display); color: var(--muted); margin-top: 5px; letter-spacing: .02em; }
+:root { --buff: #5fe38a; --nerf: #ff6b6b; }
+.srv-up { color: var(--buff); } .srv-down { color: var(--nerf); } .srv-same-c { color: var(--ember); }
+.srv-up, .srv-down, .srv-same-c { white-space: nowrap; }
 .srv-group h3 { display: flex; align-items: center; gap: 8px; }
 .srv-group[style] h3 { color: var(--c); }
 .srv-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 18px 20px; background: var(--panel); clip-path: var(--notch); }
@@ -823,6 +828,11 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 #f-cfg { font: 400 var(--t-sm)/1.5 var(--f-mono); }
 #f-cfg.drop { border-color: var(--ember); background: color-mix(in srgb, var(--ember) 8%, var(--night)); }
 .srv-field input:focus, .srv-field textarea:focus, .srv-link input:focus { outline: 2px solid var(--ember); outline-offset: 0; border-color: transparent; }
+.srv-pre { display: flex; align-items: stretch; min-width: 0; background: var(--night); border: 1px solid var(--line); }
+.srv-pre:focus-within { outline: 2px solid var(--ember); border-color: transparent; }
+.srv-pre-t { display: flex; align-items: center; flex: none; padding-left: 12px; color: var(--muted); font: 400 var(--t-md)/1.4 var(--f-body); white-space: nowrap; user-select: none; cursor: text; }
+.srv-field .srv-pre input { border: 0; background: transparent; padding-left: 1px; }
+.srv-field .srv-pre input:focus { outline: none; }
 .srv-err { font-style: normal; font-size: var(--t-xs); color: #ff8a8a; }
 .srv-ticks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: 8px; margin-top: 4px; }
 .srv-tick { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--raise); clip-path: var(--notch); cursor: pointer; font: 600 var(--t-sm)/1.2 var(--f-display); color: var(--muted); }
@@ -11284,6 +11294,24 @@ const SET_ROWS = [
 })();
 const SET_DEFS = SET_ROWS.map(([key, group, name, kind, def, min, max, x]) => Object.assign({ key, group, name, kind, def, min, max, path: key.split('.'), addon: null }, x || {}));
 const SET_BY = Object.fromEntries(SET_DEFS.map(d => [d.key, d]));
+// which way is better for players: up 1 = more is better (and On beats Off), -1 = less is better (costs, waits, tier bars,
+// bad stats, PvP mode's shrink), 0 = looks only. A change is then a buff (green) or a nerf (red) on the server pages.
+const SET_LESS_BETTER = /^(rolls\.max_negative_stats|rolls\.pvp_mode|tiers\..+|reforging\.(base_material|material_per_lock|material_per_reforge|max_material|base_xp|xp_per_lock)|trades\.villager_reroll\.cost_emeralds)$|\.cooldown_seconds$/;
+const SET_LOOKS = new Set(['masterwork_effects', 'arena.masterwork_glint.enabled']);
+for (const d of SET_DEFS) d.up = SET_LOOKS.has(d.key) ? 0 : SET_LESS_BETTER.test(d.key) ? -1 : 1;
+// 1 buff, -1 nerf, 0 neither (unchanged, or looks only)
+function verdict(d, v) {
+  if (!d.up || v === d.def) return 0;
+  const n = x => d.kind === 'bool' ? (x ? 1 : 0) : d.kind === 'enum' ? d.opts.indexOf(x) : +x;
+  return Math.sign(n(v) - n(d.def)) * d.up;
+}
+const VERDICT = { '1': 'buff', '-1': 'nerf', '0': 'tweak' };
+const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+// "2 buffs, 1 nerf" for a list of changed keys, coloured
+function tally(keys, V) {
+  const t = { 1: 0, '-1': 0, 0: 0 }; for (const k of keys) t[verdict(SET_BY[k], V[k])]++;
+  return [t[1] && `<span class="srv-up">${plural(t[1], 'buff')}</span>`, t[-1] && `<span class="srv-down">${plural(t[-1], 'nerf')}</span>`, t[0] && `<span class="srv-same-c">${plural(t[0], 'other change')}</span>`].filter(Boolean).join(', ');
+}
 const SET_GROUPS = ['Rolling', 'Tiers', 'Reforging', 'Effects'];
 // every object on the way to a known setting, so a walk over a pasted file can tell unknown keys from known groups
 const SET_PREFIX = new Set(SET_DEFS.flatMap(d => d.path.slice(0, -1).map((_, i) => d.path.slice(0, i + 1).join('.'))));
@@ -11483,17 +11511,18 @@ function serverBody(srv, preview) {
   const on = SRV_ADDONS.filter(x => srv.m.includes(x.id)), off = SRV_ADDONS.filter(x => !srv.m.includes(x.id));
   const vis = SET_DEFS.filter(d => !d.addon || srv.m.includes(d.addon));     // the settings that matter here: Smithborn's and the installed addons'
   const ch = vis.filter(d => srv.V[d.key] !== d.def).map(d => d.key);
-  const nCh = id => ch.filter(k => SET_BY[k].addon === id).length;
+  const nCh = id => tally(ch.filter(k => SET_BY[k].addon === id), srv.V);
   const w = srv.w || {};
-  const card = (href, pic, name, ver, line, c, n) => `<a class="srv-addon" href="${href}" style="--c:${c}">${pic}<span><b>${esc(name)}</b><small>${esc(line)}</small>${n ? `<em class="srv-n">${n} setting${n === 1 ? '' : 's'} changed here</em>` : ''}</span><span class="chip">${esc(ver)}</span></a>`;
+  const card = (href, pic, name, ver, line, c, n) => `<a class="srv-addon" href="${href}" style="--c:${c}">${pic}<span><b>${esc(name)}</b><small>${esc(line)}</small>${n ? `<em class="srv-n">${n}</em>` : ''}</span><span class="chip">${esc(ver)}</span></a>`;
   // the changes, Smithborn's in its four groups, then one group per addon
   const groups = [
     ...SET_GROUPS.map(g => ({ id: g, label: g, keys: ch.filter(k => !SET_BY[k].addon && SET_BY[k].group === g) })),
     ...on.map(x => ({ id: x.id, label: shortName(x.id), pic: x, keys: ch.filter(k => SET_BY[k].addon === x.id) })),
   ].filter(g => g.keys.length);
-  const row = k => { const d = SET_BY[k]; return `
-        <li><span class="srv-what"><b>${esc(d.name)}</b><span>${esc(effectText(k, srv.V))}</span></span><span class="srv-vals"><span class="srv-v was"><small>Default</small><b>${fmtSet(d, d.def)}</b></span><i aria-hidden="true">›</i><span class="srv-v now"><small>Here</small><b>${fmtSet(d, srv.V[k])}</b></span></span></li>`; };
-  const table = (title, defs) => `<tr class="srv-sub"><th colspan="3">${esc(title)}</th></tr>` + defs.map(d => `<tr${srv.V[d.key] !== d.def ? ' class="srv-hot"' : ''}><td><b>${esc(d.name)}</b><code>${d.key}</code></td><td>${fmtSet(d, srv.V[d.key])}</td><td>${fmtSet(d, d.def)}</td></tr>`).join('');
+  const tag = { buff: 'Buff', nerf: 'Nerf', tweak: 'Change' };
+  const row = k => { const d = SET_BY[k], vd = VERDICT[verdict(d, srv.V[k])]; return `
+        <li class="srv-${vd}"><span class="srv-what"><b>${esc(d.name)}<span class="srv-tag">${tag[vd]}</span></b><span>${esc(effectText(k, srv.V))}</span></span><span class="srv-vals"><span class="srv-v was"><small>Default</small><b>${fmtSet(d, d.def)}</b></span><i aria-hidden="true">›</i><span class="srv-v now"><small>Here</small><b>${fmtSet(d, srv.V[k])}</b></span></span></li>`; };
+  const table = (title, defs) => `<tr class="srv-sub"><th colspan="3">${esc(title)}</th></tr>` + defs.map(d => `<tr${srv.V[d.key] !== d.def ? ` class="srv-hot srv-${VERDICT[verdict(d, srv.V[d.key])]}"` : ''}><td><b>${esc(d.name)}</b><code>${d.key}</code></td><td>${fmtSet(d, srv.V[d.key])}</td><td>${fmtSet(d, d.def)}</td></tr>`).join('');
   return `
   <section class="srv-hero" aria-labelledby="srv-name">
     <p class="eyebrow"><span class="chip">Server</span>Runs Smithborn${on.length ? ' and ' + on.length + ' addon' + (on.length === 1 ? '' : 's') : ''}</p>
@@ -11508,18 +11537,18 @@ function serverBody(srv, preview) {
   <section aria-labelledby="srv-h-mods">
     <div class="sec-head"><h2 id="srv-h-mods">On this server</h2><p>Open one to see what it adds.</p></div>
     <div class="srv-addons">
-      ${card('#home', `<span class="sig md still" style="background-image:url(data:image/png;base64,${SB.icon})" aria-hidden="true"></span>`, 'Smithborn', w.smithborn || SB_VER, 'Random stats and quality tiers on vanilla gear, and the Reforging Table.', 'var(--ember)', ch.filter(k => !SET_BY[k].addon).length)}
+      ${card('#home', `<span class="sig md still" style="background-image:url(data:image/png;base64,${SB.icon})" aria-hidden="true"></span>`, 'Smithborn', w.smithborn || SB_VER, 'Random stats and quality tiers on vanilla gear, and the Reforging Table.', 'var(--ember)', tally(ch.filter(k => !SET_BY[k].addon), srv.V))}
       ${on.map(x => card('#' + x.id, addonPic(x), x.name, w[x.id] || x.ver, x.line, x.c, nCh(x.id))).join('')}
     </div>
     ${off.length ? `<p class="srv-off"><span>Not on this server:</span> ${off.map(x => `<span class="srv-off-name">${esc(shortName(x.id))}</span>`).join('')}</p>` : ''}
   </section>
 
   <section aria-labelledby="srv-h-changes">
-    <div class="sec-head"><h2 id="srv-h-changes">What's different here</h2><p>${ch.length ? `${ch.length} of ${vis.length} settings changed from the defaults.` : 'Compared with the default settings.'}</p></div>
+    <div class="sec-head"><h2 id="srv-h-changes">What's different here</h2><p>${ch.length ? `${ch.length} of ${vis.length} settings changed from the defaults: ${tally(ch, srv.V)}.` : 'Compared with the default settings.'}</p></div>
     ${groups.length ? `<div class="srv-groups">${groups.map(g => `
       <div class="srv-group"${g.pic ? ` style="--c:${g.pic.c}"` : ''}><h3>${g.pic ? `<span class="pic xs" style="background-image:url(data:image/png;base64,${g.pic.pic()})" aria-hidden="true"></span>` : ''}${esc(g.label)}</h3><ul class="srv-changes">${g.keys.map(row).join('')}</ul></div>`).join('')}</div>`
       : `<p class="srv-same">Every setting is at its default, so everything works the way this site shows it.</p>`}
-    ${groups.length ? '<p class="fine">Anything not listed works exactly as this site shows it.</p>' : ''}
+    ${groups.length ? '<p class="fine"><span class="srv-up">Green</span> is better for players than the default, <span class="srv-down">red</span> is worse. Anything not listed works exactly as this site shows it.</p>' : ''}
     <details class="srv-all"><summary>All ${vis.length} settings</summary>
       <div class="scroll"><table class="grid"><thead><tr><th>Setting</th><th>Here</th><th>Default</th></tr></thead><tbody>
         ${table('Smithborn', vis.filter(d => !d.addon))}${on.map(x => table(shortName(x.id), defsFor(x.id))).join('')}
@@ -11584,7 +11613,7 @@ function showServersHome() {
     <form class="srv-form" id="srv-form" autocomplete="off" onsubmit="return false">
       <label class="srv-field"><span>Server name</span><input id="f-n" maxlength="${SRV_MAX.n}" placeholder="Smithborn SMP" required></label>
       <label class="srv-field"><span>Address <small>optional</small></span><input id="f-a" maxlength="${SRV_MAX.a}" placeholder="play.example.com" spellcheck="false"></label>
-      <label class="srv-field"><span>Discord invite <small>optional</small></span><input id="f-d" maxlength="80" placeholder="https://discord.gg/..." spellcheck="false"><em class="srv-err" id="f-d-err" hidden>Only discord.gg or discord.com/invite links.</em></label>
+      <label class="srv-field"><span>Discord invite <small>optional</small></span><span class="srv-pre"><span class="srv-pre-t" aria-hidden="true">https://discord.gg/</span><input id="f-d" maxlength="40" placeholder="your-invite" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Discord invite code, after https://discord.gg/"></span><em class="srv-err" id="f-d-err" hidden>Only the invite code: letters, numbers and dashes.</em></label>
       <label class="srv-field wide"><span>About <small>optional, ${SRV_MAX.t} letters</small></span><textarea id="f-t" maxlength="${SRV_MAX.t}" rows="2" placeholder="What kind of server it is"></textarea></label>
       <fieldset class="srv-field wide"><legend>Addons on the server</legend>
         <div class="srv-ticks">${SRV_ADDONS.map(x => `<label class="srv-tick" style="--c:${x.c}"><input type="checkbox" value="${x.id}">${addonPic(x)}<span>${esc(x.name.replace('Smithborn: ', ''))}</span></label>`).join('')}</div>
@@ -11619,16 +11648,19 @@ function showServersHome() {
     if (!c) { st.textContent = 'No config yet: the page shows Smithborn\'s defaults.'; st.className = 'srv-status'; }
     else if (c.error) { st.textContent = c.error; st.className = 'srv-status bad'; }
     else {
-      const ch = changedKeys(c.V).length, notes = [];
+      const chk = changedKeys(c.V), ch = chk.length ? `${chk.length} changed (${tally(chk, c.V).replace(/<[^>]+>/g, '')})` : 'none changed', notes = [];
       if (c.wrong.length) notes.push(`${c.wrong.length} with a value Smithborn can't read (${c.wrong.join(', ')}): it may use its defaults`);
       if (c.clamped.length) notes.push(`${c.clamped.length} out of range, shown as the mod uses ${c.clamped.length === 1 ? 'it' : 'them'} (${c.clamped.join(', ')})`);
       if (c.unknown.length) notes.push(`${c.unknown.length} not a setting of Smithborn ${SB_VER} or its addons, left out (${c.unknown.slice(0, 4).join(', ')}${c.unknown.length > 4 ? '…' : ''})`);
       if (!c.installed) notes.push('No "installed" list, so this file is from Smithborn 1.6.0 or older: tick the addons by hand');
-      st.textContent = `Read ${c.read} of ${SET_DEFS.length} settings: ${ch} changed.` + (notes.length ? ' ' + notes.join('. ') + '.' : '');
+      st.textContent = `Read ${c.read} of ${SET_DEFS.length} settings: ${ch}.` + (notes.length ? ' ' + notes.join('. ') + '.' : '');
       st.className = 'srv-status ' + (c.wrong.length || c.clamped.length ? 'warn' : 'good');
       if (c.installed && !FORM.m.length) { FORM.m = c.installed; $$('.srv-tick input').forEach(x => { x.checked = FORM.m.includes(x.value); }); }
     }
-    const disc = cleanDiscord(FORM.d); f('f-d-err').hidden = !FORM.d.trim() || !!disc;
+    // a pasted full link keeps only its code
+    const code = FORM.d.trim().replace(/^(https?:\/\/)?(www\.)?(discord\.gg|discord\.com\/invite)\//i, '').replace(/\/$/, '');
+    if (code !== FORM.d.trim() && /^[A-Za-z0-9-]*$/.test(code)) { FORM.d = code; f('f-d').value = code; }
+    const disc = code ? cleanDiscord('https://discord.gg/' + code) : ''; f('f-d-err').hidden = !code || !!disc;
     const srv = { n: cleanText(FORM.n, SRV_MAX.n), a: cleanText(FORM.a, SRV_MAX.a), d: disc, t: cleanText(FORM.t, SRV_MAX.t), m: SRV_IDS.filter(id => FORM.m.includes(id)), V: c && !c.error ? c.V : settle({}), w: c && !c.error && c.versions ? c.versions : {} };
     f('srv-preview').innerHTML = serverBody(Object.assign({}, srv, { n: srv.n || 'Your server' }), true);
     bindCopies(f('srv-preview'));
