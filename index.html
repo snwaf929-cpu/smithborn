@@ -761,6 +761,74 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .mc-c { transform: translateX(-50%); }
 .mc-img { width: calc(var(--iw) * var(--u)); height: calc(var(--ih) * var(--u)); background-size: 100% 100%; background-repeat: no-repeat; image-rendering: pixelated; }
 .mc-n { font: 500 calc(var(--u) * 8)/1 var(--f-display); color: #fff; text-shadow: var(--u) var(--u) 0 #3f3f3f; transform: translateX(-100%); }
+
+/* ---- server pages ---- */
+.srv-hero { display: grid; gap: 16px; justify-items: start; }
+.srv-hero h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1; text-shadow: 4px 4px 0 color-mix(in srgb, var(--ember) 30%, #000); overflow-wrap: anywhere; }
+.srv-hero .lede { overflow-wrap: anywhere; }
+.srv-join { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.srv-addr { display: inline-flex; align-items: center; gap: 10px; padding: 6px 6px 6px 14px; background: var(--panel); clip-path: var(--notch); max-width: 100%; }
+.srv-addr small { font: 500 10px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.srv-addr code { font: 500 var(--t-md)/1.2 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; min-width: 0; }
+.srv-addr .btn { padding: 8px 12px; }
+.srv-addons { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 10px; margin-top: 16px; }
+.srv-addon { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 14px 16px; background: var(--panel); clip-path: var(--notch); text-decoration: none; transition: background .15s; }
+.srv-addon:hover { background: color-mix(in srgb, var(--c) 12%, var(--panel)); }
+.srv-addon b { display: block; font: 600 var(--t-md)/1.2 var(--f-display); color: var(--c); }
+.srv-addon small { display: block; font-size: var(--t-sm); line-height: 1.4; color: var(--muted); margin-top: 3px; }
+.srv-addon .chip { --ab: var(--c); align-self: start; }
+.srv-off { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-top: 12px; font-size: var(--t-sm); color: var(--faint); }
+.srv-off-name { padding: 3px 8px; background: var(--panel); color: var(--faint); clip-path: var(--notch); }
+.srv-groups { display: grid; gap: 22px; margin: 16px 0 14px; }
+.srv-group h3 { font: 500 var(--t-xs)/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.srv-changes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.srv-changes li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 18px; padding: 14px 16px; background: var(--panel); clip-path: var(--notch); border-left: 3px solid var(--ember); }
+.srv-what { display: grid; gap: 4px; min-width: 0; }
+.srv-what b { font: 600 var(--t-md)/1.2 var(--f-display); }
+.srv-what span { font-size: var(--t-sm); color: var(--muted); line-height: 1.5; }
+.srv-vals { display: inline-flex; align-items: center; gap: 8px; font: 600 var(--t-md)/1 var(--f-display); white-space: nowrap; }
+.srv-vals s { color: var(--faint); text-decoration-thickness: 2px; }
+.srv-vals i { font-style: normal; color: var(--faint); }
+.srv-vals em { font-style: normal; color: var(--ember); }
+@media (max-width: 560px) { .srv-changes li { grid-template-columns: 1fr; } }
+.srv-same { margin: 16px 0 12px; padding: 16px; background: var(--panel); clip-path: var(--notch); color: var(--muted); }
+.srv-all { margin-top: 18px; }
+.srv-all summary { cursor: pointer; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); padding: 10px 0; }
+.srv-all summary:hover { color: var(--ink); }
+.srv-all td code { display: block; font: 400 11px/1.3 var(--f-mono); color: var(--faint); margin-top: 2px; }
+.srv-all tr.srv-hot td { color: var(--ember); }
+.srv-all tr.srv-hot td:first-child b { color: var(--ember); }
+.srv-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 18px 20px; background: var(--panel); clip-path: var(--notch); }
+.srv-cta > div { display: grid; gap: 4px; }
+.srv-cta b { font: 600 var(--t-lg)/1.2 var(--f-display); }
+.srv-cta span { font-size: var(--t-sm); color: var(--muted); }
+.srv-form { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; padding: 20px; background: var(--panel); clip-path: var(--notch); border: 0; }
+@media (min-width: 800px) { .srv-form { grid-template-columns: repeat(3, minmax(0, 1fr)); } .srv-field.wide { grid-column: 1 / -1; } }
+.srv-field { display: grid; gap: 6px; align-content: start; min-width: 0; margin: 0; padding: 0; border: 0; }
+.srv-field > span, .srv-field legend { font: 600 var(--t-sm)/1.2 var(--f-display); color: var(--ink); padding: 0; margin-bottom: 0; }
+.srv-field small { font: 400 var(--t-xs)/1.3 var(--f-body); color: var(--muted); margin-left: 6px; }
+.srv-field input, .srv-field textarea, .srv-link input { width: 100%; min-width: 0; background: var(--night); border: 1px solid var(--line); color: var(--ink); font: 400 var(--t-md)/1.4 var(--f-body); padding: 10px 12px; }
+.srv-field textarea { resize: vertical; }
+#f-cfg { font: 400 var(--t-sm)/1.5 var(--f-mono); }
+#f-cfg.drop { border-color: var(--ember); background: color-mix(in srgb, var(--ember) 8%, var(--night)); }
+.srv-field input:focus, .srv-field textarea:focus, .srv-link input:focus { outline: 2px solid var(--ember); outline-offset: 0; border-color: transparent; }
+.srv-err { font-style: normal; font-size: var(--t-xs); color: #ff8a8a; }
+.srv-ticks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: 8px; margin-top: 4px; }
+.srv-tick { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--raise); clip-path: var(--notch); cursor: pointer; font: 600 var(--t-sm)/1.2 var(--f-display); color: var(--muted); }
+.srv-tick .sig.md { width: 32px; height: 32px; }
+.srv-tick input { accent-color: var(--ember); width: 18px; height: 18px; margin: 0; flex: none; }
+.srv-tick:has(input:checked) { color: var(--c); background: color-mix(in srgb, var(--c) 14%, var(--raise)); }
+.srv-cfg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.srv-file { position: relative; overflow: hidden; }
+.srv-file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.srv-status { font-size: var(--t-sm); color: var(--muted); flex: 1 1 260px; }
+.srv-status.good { color: #7fe39a; } .srv-status.warn { color: var(--legend); } .srv-status.bad { color: #ff8a8a; }
+.srv-out { display: grid; gap: 8px; margin-top: 14px; padding: 18px 20px; background: color-mix(in srgb, var(--ember) 9%, var(--panel)); clip-path: var(--notch); }
+.srv-out-l { font: 600 var(--t-sm)/1 var(--f-display); }
+.srv-link { display: flex; flex-wrap: wrap; gap: 8px; }
+.srv-link input { flex: 1 1 260px; font: 400 var(--t-sm)/1.4 var(--f-mono); }
+.srv-link a[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+.srv-preview { display: grid; gap: 48px; margin-top: 16px; padding: clamp(16px, 3vw, 32px); border: 1px dashed var(--line); }
 </style>
 
 <header class="top">
@@ -769,6 +837,7 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
     <nav class="nav" aria-label="Site">
       <a href="#home" data-nav="home">Smithborn</a>
       <a href="#addons" data-nav="addons">Addons</a>
+      <a href="#servers" data-nav="servers">Servers</a>
       <a href="#abilities" data-nav="abilities" class="nav-addon"><span class="sig xs" id="nav-sig" aria-hidden="true"></span>Abilities</a>
       <a href="#legends" data-nav="legends" class="nav-addon"><span class="sig xs still" id="nav-leg" aria-hidden="true"></span>Legends</a>
       <a href="#metals" data-nav="metals" class="nav-addon"><span class="sig xs still" id="nav-met" aria-hidden="true"></span>Metals</a>
@@ -793,6 +862,7 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
   <span data-foot="enchantments" hidden>Numbers from Smithborn: Enchantments 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="enchantments" hidden><kbd>1</kbd>–<kbd>9</kbd> pick one of the first nine · <kbd>Space</kbd> plays or pauses</span>
   <span data-foot="arena" hidden>Numbers from Smithborn: Arena 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="arena" hidden><kbd>1</kbd>–<kbd>5</kbd> pick a feature · <kbd>Space</kbd> plays or pauses</span>
   <span data-foot="trades" hidden>Numbers from Smithborn: Trades 1.0.0, Minecraft 26.1.2 (Fabric).</span><span data-foot="trades" hidden><kbd>1</kbd>–<kbd>4</kbd> pick a feature · <kbd>Space</kbd> plays or pauses</span>
+  <span data-foot="servers" hidden>Server pages read Smithborn 1.6.0's settings. A server link holds the whole page; nothing is stored anywhere.</span>
 </div></footer>
 <script>
 // ==== core.js ====
@@ -8120,20 +8190,22 @@ document.addEventListener('keydown', e => {
 // #<power>: its page.
 const CRUMB = { abilities: 'Smithborn: Abilities', legends: 'Smithborn: Legends', metals: 'Smithborn: Metals', enchantments: 'Smithborn: Enchantments', arena: 'Smithborn: Arena', trades: 'Smithborn: Trades' };
 function route() {
-  const h = location.hash.slice(1), a = entryById(h);
-  const page = a ? a.id : SECTIONS.includes(h) ? h : 'home', was = S.page;
+  const h = location.hash.slice(1), a = entryById(h), srvLink = h.startsWith('server=');
+  const page = a ? a.id : SECTIONS.includes(h) || h === 'servers' || srvLink ? h : 'home', was = S.page;
   if (page !== was) {
     S.page = page; SHOWS.length = 0; HOVER = null;
     if (a) (a.feat ? showFeature : a.ench ? showEnchant : a.metal ? showMetal : a.power ? showPower : showAbility)(a);
+    else if (srvLink) showServer(h.slice(7)); else if (page === 'servers') showServersHome();
     else if (page === 'abilities') showAbilitiesHome(); else if (page === 'legends') showLegendsHome(); else if (page === 'metals') showMetalsHome(); else if (page === 'enchantments') showEnchantsHome(); else if (page === 'arena' || page === 'trades') showFeatHome(page); else showHome();
   }
-  const sec = page === 'home' ? 'home' : a ? (a.feat ? a.sec : a.ench ? 'enchantments' : a.metal ? 'metals' : a.power ? 'legends' : 'abilities') : page;
-  if (sec !== document.body.dataset.section && sec !== 'home') {
+  const sec = page === 'home' ? 'home' : a ? (a.feat ? a.sec : a.ench ? 'enchantments' : a.metal ? 'metals' : a.power ? 'legends' : 'abilities') : srvLink ? 'servers' : page;
+  const bare = sec === 'home' || sec === 'servers'; // no hotbar: the home page and the server pages
+  if (sec !== document.body.dataset.section && !bare) {
     hotbar(sec);
     $('#crumbs').innerHTML = `<a href="#addons">Addons</a><span aria-hidden="true">/</span><a href="#${sec}">${CRUMB[sec]}</a>`;
   }
   document.body.dataset.section = sec;
-  $('#subbar').hidden = sec === 'home';
+  $('#subbar').hidden = bare;
   $$('[data-nav]').forEach(n => n.classList.toggle('on', n.dataset.nav === (h === 'addons' ? 'addons' : sec)));
   $$('[data-foot]').forEach(f => { f.hidden = f.dataset.foot !== sec; });
   markHotbar(a);
@@ -8615,6 +8687,8 @@ function showHome() {
       <div class="addon soon" aria-label="More addons later"><span class="soon-slots"><i></i><i></i><i></i></span><b>More addons</b><span>They will be added here.</span></div>
     </div>
   </section>
+
+  <section class="srv-cta" aria-label="Servers"><div><b>Run a server with Smithborn?</b><span>Make a page that shows your players which addons you run and every setting you changed.</span></div><a class="btn ghost" href="#servers">Make a server page</a></section>
 
   <section aria-labelledby="h-know">
     <div class="sec-head"><h2 id="h-know">Good to know</h2></div>
@@ -11087,6 +11161,331 @@ function featInfoText(a) {
   L.push('', 'TEST COMMANDS'); a.cmds().forEach(([g, list]) => list.forEach(([l, c]) => L.push(`${g}${l ? ', ' + l.toLowerCase() : ''}:`, `  ${c}`)));
   L.push('', 'ANIMATION'); a.variants.forEach(v => { L.push('', `${v.label} (${slug(a, v)}.gif)`); v.events(scenarioFor(a, v, false)).forEach(e => L.push(`  ${e[0].toFixed(1)} s  ${e[1]}`)); });
   return L.join('\n') + '\n';
+}
+
+// ==== servers.js ====
+// Server pages. A server owner pastes their config/smithborn.json, ticks the addons the server runs, and gets a link that
+// holds the whole server page: its name, address, Discord, addons and the settings that differ from Smithborn's defaults,
+// packed into the part of the link after #server=. Nothing is uploaded and there is no database: the link is the page.
+// Everything in a link is somebody else's text, so it is checked and escaped before it is shown.
+
+const SITE_URL = 'https://snwaf929-cpu.github.io/smithborn/';
+const SRV_MAX = { n: 40, a: 60, t: 200 };
+
+// ---- the addons a server can run ----
+const SRV_ADDONS = [
+  { id: 'abilities', name: 'Smithborn: Abilities', ver: '1.0.0', c: 'var(--amethyst)', anim: true, pic: () => TEX.prism_shot.awake, line: 'Weapon abilities from sigils found in chests and vaults.' },
+  { id: 'legends', name: 'Smithborn: Legends', ver: '1.1.0', c: 'var(--legend)', pic: () => LEG.icon, line: 'Hidden stats, six forgings with powers, stat transfer.' },
+  { id: 'metals', name: 'Smithborn: Metals', ver: '1.0.0', c: 'var(--metals)', pic: () => MET.icon, line: 'Four new metals as strong as netherite, each better at one thing.' },
+  { id: 'enchantments', name: 'Smithborn: Enchantments', ver: '1.0.0', c: 'var(--ench)', pic: () => ENC.icon, line: '17 enchantments that take a vanilla enchantment\'s place.' },
+  { id: 'arena', name: 'Smithborn: Arena', ver: '1.0.0', c: 'var(--arena)', pic: () => ATX.arena.icon, line: 'PvP extras: inspect opponents, a gold glint, trim perks, bow and elytra stats.' },
+  { id: 'trades', name: 'Smithborn: Trades', ver: '1.0.0', c: 'var(--trades)', pic: () => ATX.trades.icon, line: 'Villager rerolls, rolled gear in chests and on mobs, grindstone salvage.' },
+];
+const SRV_IDS = SRV_ADDONS.map(x => x.id);
+const addonPic = x => `<span class="sig md${x.anim ? '' : ' still'}" style="background-image:url(data:image/png;base64,${x.pic()})" aria-hidden="true"></span>`;
+
+// ---- Smithborn's settings (config/smithborn.json, Smithborn 1.6.0): key, group, name, kind, default, clamp ----
+// kinds: bool (on/off), int, num (a multiplier), pct (a share shown as %). Clamps are the mod's own (SmithbornConfig.validated)
+const SET_DEFS = [
+  ['rolls.enabled', 'Rolling', 'Rolling', 'bool', true],
+  ['rolls.stats_per_item', 'Rolling', 'Stats per item', 'int', 2, 1, 10],
+  ['rolls.range_multiplier', 'Rolling', 'Stat ranges', 'num', 1, 0, 10],
+  ['rolls.pvp_mode', 'Rolling', 'PvP mode', 'bool', false],
+  ['rolls.pvp_range_multiplier', 'Rolling', 'PvP mode ranges', 'num', 0.5, 0, 10],
+  ['rolls.tools_enabled', 'Rolling', 'Tools roll', 'bool', true],
+  ['rolls.max_negative_stats', 'Rolling', 'Bad stats allowed', 'int', 1, 0, 10],
+  ['tiers.standard_min', 'Tiers', 'Standard tier', 'pct', 0.25, 0, 1],
+  ['tiers.fine_min', 'Tiers', 'Fine tier', 'pct', 0.6, 0, 1],
+  ['tiers.masterwork_min', 'Tiers', 'Masterwork tier', 'pct', 0.95, 0, 1],
+  ['reforging.base_material', 'Reforging', 'Material, nothing locked', 'int', 1, 0, 1e9],
+  ['reforging.material_per_lock', 'Reforging', 'Material per lock', 'int', 1, 0, 1e9],
+  ['reforging.material_per_reforge', 'Reforging', 'Material per earlier reforge', 'int', 1, 0, 1e9],
+  ['reforging.max_material', 'Reforging', 'Most material per press', 'int', 8, 1, 64],
+  ['reforging.base_xp', 'Reforging', 'Levels, nothing locked', 'int', 3, 0, 1e9],
+  ['reforging.xp_per_lock', 'Reforging', 'Levels per lock', 'int', 2, 0, 1e9],
+  ['reforging.rabbit_foot_luck', 'Reforging', 'Rabbit\'s Foot luck', 'bool', true],
+  ['reforging.upgrade_step', 'Reforging', 'Forge Ember upgrade', 'pct', 0.2, 0.01, 1],
+  ['masterwork_effects', 'Effects', 'Masterwork sound and sparkles', 'bool', true],
+].map(([key, group, name, kind, def, min, max]) => ({ key, group, name, kind, def, min, max, path: key.split('.') }));
+const SET_BY = Object.fromEntries(SET_DEFS.map(d => [d.key, d]));
+const SET_GROUPS = ['Rolling', 'Tiers', 'Reforging', 'Effects'];
+const SET_PARENTS = new Set(['rolls', 'tiers', 'reforging']);
+
+const fmtSet = (d, v) => d.kind === 'bool' ? (v ? 'On' : 'Off') : d.kind === 'pct' ? trim(v * 100, 1) + '%' : d.kind === 'num' ? '×' + trim(v, 2) : String(v);
+const defaults = () => Object.fromEntries(SET_DEFS.map(d => [d.key, d.def]));
+// the values the mod ends up using: the file's values clamped the way Smithborn clamps them, tiers kept in order
+function settle(vals) {
+  const V = Object.assign(defaults(), vals);
+  for (const d of SET_DEFS) if (d.kind !== 'bool') { V[d.key] = Math.min(d.max, Math.max(d.min, V[d.key])); if (d.kind === 'int') V[d.key] = Math.round(V[d.key]); }
+  V['tiers.fine_min'] = Math.min(1, Math.max(V['tiers.standard_min'], V['tiers.fine_min']));
+  V['tiers.masterwork_min'] = Math.min(1, Math.max(V['tiers.fine_min'], V['tiers.masterwork_min']));
+  return V;
+}
+const changedKeys = V => SET_DEFS.filter(d => V[d.key] !== d.def).map(d => d.key);
+
+// ---- what a changed setting means, in plain words ----
+function swordDamage(m) {
+  const r = POOLS.sword[0];
+  return m === 0 ? 'no bonus at all' : `${signed(r.w * m, 1)}% to ${signed(r.b * m, 1)}%`;
+}
+function effectText(key, V) {
+  const v = V[key], d = SET_BY[key], was = fmtSet(d, d.def), m = V['rolls.range_multiplier'] * (V['rolls.pvp_mode'] ? V['rolls.pvp_range_multiplier'] : 1);
+  switch (key) {
+    case 'rolls.enabled': return 'Rolling is off: new gear gets no stats and no tier.';
+    case 'rolls.stats_per_item': return `Each item rolls ${v} stat${v === 1 ? '' : 's'} (normally 2). A Masterwork gets ${v + 1}.`;
+    case 'rolls.range_multiplier': return `Every stat range is ×${trim(v, 2)} (normally ×1). A sword's Attack Damage rolls ${swordDamage(m)} (normally -12% to +24%).`;
+    case 'rolls.pvp_mode': return `PvP mode is on: every range is ×${trim(V['rolls.pvp_range_multiplier'], 2)} on top. A sword's Attack Damage rolls ${swordDamage(m)} (normally -12% to +24%).`;
+    case 'rolls.pvp_range_multiplier': return V['rolls.pvp_mode'] ? `In PvP mode ranges are ×${trim(v, 2)} (normally ×0.5).` : `Set to ×${trim(v, 2)}, but PvP mode is off, so it changes nothing.`;
+    case 'rolls.tools_enabled': return 'Pickaxes, shovels and hoes don\'t roll stats.';
+    case 'rolls.max_negative_stats': return v === 0 ? 'Gear never rolls a bad stat (normally up to 1).' : `Gear can roll up to ${v} bad stats (normally 1).`;
+    case 'tiers.standard_min': return `Standard needs ${fmtSet(d, v)} quality (normally ${was}).`;
+    case 'tiers.fine_min': return `Fine needs ${fmtSet(d, v)} quality (normally ${was}), so Fine gear is ${v < d.def ? 'more common' : 'rarer'}.`;
+    case 'tiers.masterwork_min': return `Masterwork needs ${fmtSet(d, v)} quality (normally ${was}), so Masterworks are ${v < d.def ? 'more common' : 'rarer'}.`;
+    case 'reforging.base_material': return `A reforge with nothing locked costs ${v} material (normally 1).`;
+    case 'reforging.material_per_lock': return `Each locked stat adds ${v} material (normally 1).`;
+    case 'reforging.material_per_reforge': return `Each earlier reforge of the item adds ${v} material (normally 1).`;
+    case 'reforging.max_material': return `One press never costs more than ${v} material (normally 8).`;
+    case 'reforging.base_xp': return `A reforge with nothing locked costs ${v} level${v === 1 ? '' : 's'} (normally 3).`;
+    case 'reforging.xp_per_lock': return `Each locked stat adds ${v} level${v === 1 ? '' : 's'} (normally 2).`;
+    case 'reforging.rabbit_foot_luck': return 'The Rabbit\'s Foot gives no luck at the Reforging Table.';
+    case 'reforging.upgrade_step': return `A Forge Ember raises a stat by ${fmtSet(d, v)} of its range (normally 20%).`;
+    case 'masterwork_effects': return 'Masterworks come without their sound and sparkles.';
+  }
+  return '';
+}
+
+// ---- reading a pasted config/smithborn.json ----
+function readPath(o, path) { return path.reduce((x, k) => x && typeof x === 'object' && !Array.isArray(x) ? x[k] : undefined, o); }
+function parseConfig(text) {
+  text = String(text || '').replace(/^﻿/, '').trim();
+  if (!text) return null;
+  let o;
+  try { o = JSON.parse(text); } catch (e) {
+    try { o = JSON.parse(text.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '').replace(/,(\s*[}\]])/g, '$1')); }
+    catch (e2) { return { error: 'This isn\'t a readable config file. Paste all of config/smithborn.json, from the first { to the last }.' }; }
+  }
+  if (!o || typeof o !== 'object' || Array.isArray(o)) return { error: 'Paste all of config/smithborn.json, from the first { to the last }.' };
+  const raw = {}, wrong = [], unknown = [];
+  for (const d of SET_DEFS) {
+    const v = readPath(o, d.path);
+    if (v === undefined) continue;
+    const ok = d.kind === 'bool' ? typeof v === 'boolean' : typeof v === 'number' && isFinite(v) && (d.kind !== 'int' || Number.isInteger(v));
+    if (ok) raw[d.key] = v; else wrong.push(d.key);
+  }
+  (function walk(x, pre) {
+    for (const k of Object.keys(x)) {
+      const key = pre ? pre + '.' + k : k;
+      if (!pre && k === 'installed') continue;
+      if (!pre && SET_PARENTS.has(k) && x[k] && typeof x[k] === 'object' && !Array.isArray(x[k])) walk(x[k], k);
+      else if (!SET_BY[key]) unknown.push(key);
+    }
+  })(o, '');
+  const V = settle(raw), clamped = Object.keys(raw).filter(k => raw[k] !== V[k]);
+  const installed = o.installed && typeof o.installed === 'object' ? Object.keys(o.installed).filter(k => SRV_IDS.includes(k)) : null;
+  return { V, read: Object.keys(raw).length, wrong, unknown, clamped, raw, installed };
+}
+
+// ---- the link: a small JSON, deflated, in base64url ----
+const b64u = bytes => { let s = ''; for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+const unb64u = s => { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const b = atob(s); return Uint8Array.from(b, c => c.charCodeAt(0)); };
+const pipeBytes = async (bytes, stream) => new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
+async function packServer(srv) {
+  const c = {}; for (const k of changedKeys(srv.V)) c[k] = srv.V[k];
+  const o = { v: 1, n: srv.n, a: srv.a || undefined, d: srv.d || undefined, t: srv.t || undefined, m: srv.m.length ? srv.m : undefined, c: Object.keys(c).length ? c : undefined };
+  const bytes = new TextEncoder().encode(JSON.stringify(o));
+  if (typeof CompressionStream === 'function') { try { return 'z' + b64u(await pipeBytes(bytes, new CompressionStream('deflate-raw'))); } catch (e) { /* plain below */ } }
+  return 'j' + b64u(bytes);
+}
+async function unpackServer(s) {
+  s = decodeURIComponent(s).trim();
+  const kind = s[0];
+  let bytes = unb64u(s.slice(1));
+  if (kind === 'z') {
+    if (typeof DecompressionStream !== 'function') throw Object.assign(new Error('old browser'), { old: true });
+    bytes = await pipeBytes(bytes, new DecompressionStream('deflate-raw'));
+  } else if (kind !== 'j') throw new Error('not a server link');
+  return cleanServer(JSON.parse(new TextDecoder().decode(bytes)));
+}
+// a Discord invite, or nothing: only discord.gg and discord.com/invite links are kept
+function cleanDiscord(u) {
+  u = String(u || '').trim(); if (!u) return '';
+  if (!/^https?:\/\//i.test(u)) u = 'https://' + u;
+  const m = u.match(/^https?:\/\/(?:www\.)?(discord\.gg|discord\.com\/invite)\/([A-Za-z0-9-]{2,40})\/?$/i);
+  return m ? `https://${m[1].toLowerCase()}/${m[2]}` : '';
+}
+const cleanText = (s, max) => String(s ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+function cleanServer(o) {
+  if (!o || typeof o !== 'object' || o.v !== 1) throw new Error('not a server link');
+  const n = cleanText(o.n, SRV_MAX.n); if (!n) throw new Error('no name');
+  const raw = {};
+  if (o.c && typeof o.c === 'object') for (const [k, v] of Object.entries(o.c)) {
+    const d = SET_BY[k]; if (!d) continue;
+    if (d.kind === 'bool' ? typeof v === 'boolean' : typeof v === 'number' && isFinite(v)) raw[k] = v;
+  }
+  return { n, a: cleanText(o.a, SRV_MAX.a), d: cleanDiscord(o.d), t: cleanText(o.t, SRV_MAX.t), m: Array.isArray(o.m) ? SRV_IDS.filter(id => o.m.includes(id)) : [], V: settle(raw) };
+}
+const serverUrl = packed => SITE_URL + '#server=' + packed;
+
+// ---- copying text (the clipboard can be blocked inside other pages: fall back to a selection copy) ----
+async function copyText(txt, btn) {
+  let ok = false;
+  try { await navigator.clipboard.writeText(txt); ok = true; } catch (e) {
+    const ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta); ta.select(); try { ok = document.execCommand('copy'); } catch (e2) { ok = false; } ta.remove();
+  }
+  if (!btn) return ok;
+  const old = btn.dataset.label || btn.textContent; btn.dataset.label = old;
+  btn.textContent = ok ? 'Copied' : 'Copy it by hand'; clearTimeout(btn._t); btn._t = setTimeout(() => { btn.textContent = old; }, 1800);
+  return ok;
+}
+
+// ---- the server page itself (also the live preview on the Servers page) ----
+function serverBody(srv, preview) {
+  const on = SRV_ADDONS.filter(x => srv.m.includes(x.id)), off = SRV_ADDONS.filter(x => !srv.m.includes(x.id));
+  const ch = changedKeys(srv.V);
+  const card = (href, pic, name, ver, line, c) => `<a class="srv-addon" href="${href}" style="--c:${c}">${pic}<span><b>${esc(name)}</b><small>${esc(line)}</small></span><span class="chip">${ver}</span></a>`;
+  return `
+  <section class="srv-hero" aria-labelledby="srv-name">
+    <p class="eyebrow"><span class="chip">Server</span>Runs Smithborn${on.length ? ' and ' + on.length + ' addon' + (on.length === 1 ? '' : 's') : ''}</p>
+    <h1 id="srv-name">${esc(srv.n)}</h1>
+    ${srv.t ? `<p class="lede">${esc(srv.t)}</p>` : ''}
+    ${srv.a || srv.d ? `<div class="srv-join">
+      ${srv.a ? `<span class="srv-addr"><small>Address</small><code>${esc(srv.a)}</code><button class="btn ghost" type="button" data-copy="${esc(srv.a)}">Copy</button></span>` : ''}
+      ${srv.d ? `<a class="btn" href="${esc(srv.d)}" target="_blank" rel="noopener noreferrer nofollow">Join the Discord</a>` : ''}
+    </div>` : ''}
+  </section>
+
+  <section aria-labelledby="srv-h-mods">
+    <div class="sec-head"><h2 id="srv-h-mods">On this server</h2><p>Open one to see what it adds.</p></div>
+    <div class="srv-addons">
+      ${card('#home', `<span class="sig md still" style="background-image:url(data:image/png;base64,${SB.icon})" aria-hidden="true"></span>`, 'Smithborn', '1.6.0', 'Random stats and quality tiers on vanilla gear, and the Reforging Table.', 'var(--ember)')}
+      ${on.map(x => card('#' + x.id, addonPic(x), x.name, x.ver, x.line, x.c)).join('')}
+    </div>
+    ${off.length ? `<p class="srv-off"><span>Not on this server:</span> ${off.map(x => `<span class="srv-off-name">${esc(x.name.replace('Smithborn: ', ''))}</span>`).join('')}</p>` : ''}
+  </section>
+
+  <section aria-labelledby="srv-h-changes">
+    <div class="sec-head"><h2 id="srv-h-changes">What's different here</h2><p>${ch.length ? `${ch.length} of ${SET_DEFS.length} settings changed from Smithborn's defaults.` : 'Compared with Smithborn\'s default settings.'}</p></div>
+    ${ch.length ? `<div class="srv-groups">${SET_GROUPS.filter(g => ch.some(k => SET_BY[k].group === g)).map(g => `
+      <div class="srv-group"><h3>${g}</h3><ul class="srv-changes">${ch.filter(k => SET_BY[k].group === g).map(k => { const d = SET_BY[k]; return `
+        <li><span class="srv-what"><b>${esc(d.name)}</b><span>${esc(effectText(k, srv.V))}</span></span><span class="srv-vals"><s>${fmtSet(d, d.def)}</s><i aria-hidden="true">›</i><em>${fmtSet(d, srv.V[k])}</em></span></li>`; }).join('')}</ul></div>`).join('')}</div>`
+      : `<p class="srv-same">Every setting is at Smithborn's default, so everything works the way this site shows it.</p>`}
+    <p class="fine">The addons have no settings of their own yet, so they work exactly as their pages here show.</p>
+    <details class="srv-all"><summary>All ${SET_DEFS.length} settings</summary>
+      <div class="scroll"><table class="grid"><thead><tr><th>Setting</th><th>Here</th><th>Default</th></tr></thead><tbody>
+        ${SET_DEFS.map(d => `<tr${srv.V[d.key] !== d.def ? ' class="srv-hot"' : ''}><td><b>${esc(d.name)}</b><code>${d.key}</code></td><td>${fmtSet(d, srv.V[d.key])}</td><td>${fmtSet(d, d.def)}</td></tr>`).join('')}
+      </tbody></table></div>
+    </details>
+  </section>
+  ${preview ? '' : `<section class="srv-cta"><div><b>Run a server with Smithborn?</b><span>Make a page like this for your players in a minute.</span></div><a class="btn ghost" href="#servers">Make a server page</a></section>`}`;
+}
+function bindCopies(root = document) { $$('[data-copy]', root).forEach(b => { b.onclick = () => copyText(b.dataset.copy, b); }); }
+
+async function showServer(packed) {
+  S.ab = null; S.sc = null; stage = null; HOVER = null;
+  document.documentElement.style.setProperty('--ab', 'var(--ember)');
+  let srv;
+  try { srv = await unpackServer(packed); }
+  catch (e) {
+    document.title = 'Server link not readable · Smithborn';
+    $('#view').innerHTML = `<section class="srv-hero"><p class="eyebrow"><span class="chip">Server</span></p><h1>This server link doesn't open</h1>
+      <p class="lede">${e.old ? 'This browser is too old to read server links. Try an up-to-date Chrome, Edge, Firefox or Safari.' : 'Part of the link may be missing. Ask the server owner to copy the whole link again.'}</p>
+      <div class="srv-join"><a class="btn" href="#servers">Make a server page</a><a class="btn ghost" href="#home">Smithborn's home</a></div></section>`;
+    return;
+  }
+  if (S.page !== 'server=' + packed) return; // another page was opened while this one was read
+  document.title = srv.n + ' · Smithborn server';
+  $('#view').innerHTML = serverBody(srv, false);
+  bindCopies($('#view'));
+}
+
+// ---- the Servers page: make a server page ----
+const SRV_EXAMPLE = { n: 'Smithborn SMP', a: 'play.smithborn-smp.net', d: '', t: 'A survival server with rolled gear, abilities and PvP.', m: ['abilities', 'arena', 'trades'],
+  V: settle({ 'rolls.stats_per_item': 3, 'tiers.masterwork_min': 0.9, 'reforging.max_material': 12 }) };
+const FORM = { n: '', a: '', d: '', t: '', m: [], cfg: null, text: '' };
+function showServersHome() {
+  S.ab = null; S.sc = null; stage = null; HOVER = null;
+  document.documentElement.style.setProperty('--ab', 'var(--ember)');
+  document.title = 'Servers · Smithborn';
+  $('#view').innerHTML = `
+  <section class="srv-hero" aria-labelledby="h-servers">
+    <p class="eyebrow"><span class="chip">Servers</span>For server owners</p>
+    <h1 id="h-servers">Make a page for your server</h1>
+    <p class="lede">Paste your <b>config/smithborn.json</b>, tick the addons you run, and share the link. Your players see every addon on the server and every setting you changed, in plain words.</p>
+    <div class="srv-join"><a class="btn ghost" id="srv-example" href="#servers">See an example</a></div>
+  </section>
+
+  <section class="srv-make" aria-labelledby="h-make">
+    <div class="sec-head"><h2 id="h-make">Your server</h2><p>Nothing is uploaded: the link itself holds the page.</p></div>
+    <form class="srv-form" id="srv-form" autocomplete="off" onsubmit="return false">
+      <label class="srv-field"><span>Server name</span><input id="f-n" maxlength="${SRV_MAX.n}" placeholder="Smithborn SMP" required></label>
+      <label class="srv-field"><span>Address <small>optional</small></span><input id="f-a" maxlength="${SRV_MAX.a}" placeholder="play.example.com" spellcheck="false"></label>
+      <label class="srv-field"><span>Discord invite <small>optional</small></span><input id="f-d" maxlength="80" placeholder="https://discord.gg/..." spellcheck="false"><em class="srv-err" id="f-d-err" hidden>Only discord.gg or discord.com/invite links.</em></label>
+      <label class="srv-field wide"><span>About <small>optional, ${SRV_MAX.t} letters</small></span><textarea id="f-t" maxlength="${SRV_MAX.t}" rows="2" placeholder="What kind of server it is"></textarea></label>
+      <fieldset class="srv-field wide"><legend>Addons on the server</legend>
+        <div class="srv-ticks">${SRV_ADDONS.map(x => `<label class="srv-tick" style="--c:${x.c}"><input type="checkbox" value="${x.id}">${addonPic(x)}<span>${esc(x.name.replace('Smithborn: ', ''))}</span></label>`).join('')}</div>
+      </fieldset>
+      <div class="srv-field wide"><span id="f-cfg-l">Your config/smithborn.json <small>it's in the server folder; the server writes it on first start</small></span>
+        <textarea id="f-cfg" rows="7" spellcheck="false" aria-labelledby="f-cfg-l" placeholder='Paste the whole file here, or drop it on this box. It starts with { "rolls": ...'></textarea>
+        <div class="srv-cfg-row"><label class="btn ghost srv-file">Choose the file<input type="file" id="f-file" accept=".json,application/json,text/plain"></label><span class="srv-status" id="f-status" role="status">No config yet: the page shows Smithborn's defaults.</span></div>
+      </div>
+    </form>
+    <div class="srv-out" id="srv-out">
+      <span class="srv-out-l">Your server link</span>
+      <div class="srv-link"><input id="f-link" readonly value="" aria-label="Your server link" placeholder="Give your server a name first"><button class="btn" type="button" id="f-copy" disabled>Copy link</button><a class="btn ghost" id="f-open" href="#servers" aria-disabled="true">Open</a></div>
+      <span class="fine" id="f-len"></span>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-preview">
+    <div class="sec-head"><h2 id="h-preview">Preview</h2><p>What your players will see.</p></div>
+    <div class="srv-preview" id="srv-preview"></div>
+  </section>`;
+  // the example link
+  packServer(SRV_EXAMPLE).then(p => { const a = $('#srv-example'); if (a) a.href = '#server=' + p; });
+  // the form, kept while the visitor looks at other pages
+  const f = id => $('#' + id);
+  f('f-n').value = FORM.n; f('f-a').value = FORM.a; f('f-d').value = FORM.d; f('f-t').value = FORM.t; f('f-cfg').value = FORM.text;
+  $$('.srv-tick input').forEach(c => { c.checked = FORM.m.includes(c.value); });
+  const update = () => {
+    FORM.n = f('f-n').value; FORM.a = f('f-a').value; FORM.d = f('f-d').value; FORM.t = f('f-t').value; FORM.text = f('f-cfg').value;
+    FORM.m = $$('.srv-tick input').filter(c => c.checked).map(c => c.value);
+    FORM.cfg = parseConfig(FORM.text);
+    const st = f('f-status'), c = FORM.cfg;
+    if (!c) { st.textContent = 'No config yet: the page shows Smithborn\'s defaults.'; st.className = 'srv-status'; }
+    else if (c.error) { st.textContent = c.error; st.className = 'srv-status bad'; }
+    else {
+      const ch = changedKeys(c.V).length, notes = [];
+      if (c.wrong.length) notes.push(`${c.wrong.length} with a value Smithborn can't read (${c.wrong.join(', ')}): it may use its defaults`);
+      if (c.clamped.length) notes.push(`${c.clamped.length} out of range, shown as the mod uses ${c.clamped.length === 1 ? 'it' : 'them'} (${c.clamped.join(', ')})`);
+      if (c.unknown.length) notes.push(`${c.unknown.length} not a Smithborn 1.6.0 setting, left out (${c.unknown.slice(0, 4).join(', ')}${c.unknown.length > 4 ? '…' : ''})`);
+      st.textContent = `Read ${c.read} of ${SET_DEFS.length} settings: ${ch} changed.` + (notes.length ? ' ' + notes.join('. ') + '.' : '');
+      st.className = 'srv-status ' + (c.wrong.length || c.clamped.length ? 'warn' : 'good');
+      if (c.installed && !FORM.m.length) { FORM.m = c.installed; $$('.srv-tick input').forEach(x => { x.checked = FORM.m.includes(x.value); }); }
+    }
+    const disc = cleanDiscord(FORM.d); f('f-d-err').hidden = !FORM.d.trim() || !!disc;
+    const srv = { n: cleanText(FORM.n, SRV_MAX.n), a: cleanText(FORM.a, SRV_MAX.a), d: disc, t: cleanText(FORM.t, SRV_MAX.t), m: SRV_IDS.filter(id => FORM.m.includes(id)), V: c && !c.error ? c.V : settle({}) };
+    f('srv-preview').innerHTML = serverBody(Object.assign({}, srv, { n: srv.n || 'Your server' }), true);
+    bindCopies(f('srv-preview'));
+    const seq = (update.seq = (update.seq || 0) + 1);
+    if (!srv.n) { f('f-link').value = ''; f('f-copy').disabled = true; f('f-open').setAttribute('aria-disabled', 'true'); f('f-open').href = '#servers'; f('f-len').textContent = ''; return; }
+    packServer(srv).then(p => {
+      if (seq !== update.seq || !f('f-link')) return;
+      const url = serverUrl(p);
+      f('f-link').value = url; f('f-copy').disabled = false; f('f-open').removeAttribute('aria-disabled'); f('f-open').href = '#server=' + p;
+      f('f-len').textContent = `${url.length} characters. Share it in your Discord or wherever your players are.`;
+    });
+  };
+  $$('#srv-form input, #srv-form textarea').forEach(el => el.addEventListener('input', update));
+  f('f-copy').onclick = () => copyText(f('f-link').value, f('f-copy'));
+  f('f-link').onfocus = e => e.target.select();
+  const readFile = file => { if (!file) return; if (file.size > 200000) { f('f-status').textContent = 'That file is too big to be config/smithborn.json.'; f('f-status').className = 'srv-status bad'; return; } file.text().then(t => { f('f-cfg').value = t; update(); }); };
+  f('f-file').onchange = e => readFile(e.target.files[0]);
+  const box = f('f-cfg');
+  box.addEventListener('dragover', e => { e.preventDefault(); box.classList.add('drop'); });
+  box.addEventListener('dragleave', () => box.classList.remove('drop'));
+  box.addEventListener('drop', e => { e.preventDefault(); box.classList.remove('drop'); readFile(e.dataTransfer.files[0]); });
+  update();
 }
 
 // start: every file is loaded now
