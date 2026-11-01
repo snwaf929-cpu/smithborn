@@ -12066,9 +12066,9 @@ function seSections(id) {
       : id === 'enchantments' ? ENCHANTS.find(y => y.key === p[1]) : listOf(id).find(y => y.id === p[1].replace(/_/g, '-'));
     const y = x || (d.feat && listOf(id).find(z => z.name === d.feat));
     if (!y) { const m = SRV_BY[id]; add('f-' + (d.feat || 'other'), { name: d.feat || 'Other', sub: '', pic: 'data:image/png;base64,' + m.pic(), cls: ' still', c: m.c }, d); continue; }
-    if (!x) { add(y.id || y.key, { name: y.name, sub: id === 'metals' ? 'Full set bonus' : slotWhat(y), pic: picUrl(y), cls: picCls(y), c: y.color }, d); continue; }
+    if (!x) { add(y.id || y.key, { name: y.name, sub: id === 'metals' ? 'Tools, armor and set bonus' : slotWhat(y), pic: picUrl(y), cls: picCls(y), c: y.color }, d); continue; }
     const note = id === 'metals' ? cap(d.bonus || 'its set bonus') + '.' : '';
-    add(x.id || x.key, { name: x.name, sub: id === 'metals' ? 'Full set bonus' : slotWhat(x), pic: picUrl(x), cls: picCls(x), c: x.color, note, wide: id === 'trades' && p[1] === 'loot_gear' }, d);
+    add(x.id || x.key, { name: x.name, sub: id === 'metals' ? 'Tools, armor and set bonus' : slotWhat(x), pic: picUrl(x), cls: picCls(x), c: x.color, note, wide: id === 'trades' && p[1] === 'loot_gear' }, d);
   }
   return out;
 }
