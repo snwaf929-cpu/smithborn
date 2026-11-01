@@ -316,18 +316,12 @@ kbd { font: 600 11px/1 var(--f-display); background: var(--raise); padding: 2px 
 :root { --ember: #ffb13d; --forge: #ff6a1f; }
 #view > section { scroll-margin-top: 84px; }
 .brand-mark { width: 32px; height: 32px; background-size: 100% 100%; image-rendering: pixelated; flex: none; }
-.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
-.nav a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; text-decoration: none; font: 600 var(--t-sm)/1 var(--f-display); color: var(--muted); clip-path: var(--notch); transition: background .15s, color .15s; }
-.nav a:hover { color: var(--ink); background: var(--raise); }
-.nav a.on { color: var(--ink); background: color-mix(in srgb, var(--ab) 18%, var(--raise)); }
-.nav .sig.xs { width: 18px; height: 18px; }
 /* on the Abilities pages the site bar scrolls away and the sigil hotbar stays */
 .subbar { border-bottom: 1px solid var(--line); background: color-mix(in srgb, #0a0910 90%, transparent); z-index: 5; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .subbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 8px 10px; }
 @media (min-width: 760px) { body:is([data-section="abilities"], [data-section="legends"], [data-section="metals"]) .top { position: static; } .subbar { position: sticky; top: env(safe-area-inset-top, 0px); } }
 .crumbs { display: flex; align-items: center; gap: 8px; font: 500 var(--t-sm)/1 var(--f-display); color: var(--faint); }
 .crumbs a { text-decoration: none; color: var(--muted); } .crumbs a:hover { color: var(--ink); } .crumbs a:last-child { color: var(--amethyst); } body[data-section="legends"] .crumbs a:last-child { color: var(--legend); } body[data-section="metals"] .crumbs a:last-child { color: var(--metals); } body[data-section="enchantments"] .crumbs a:last-child { color: var(--ench); } body[data-section="arena"] .crumbs a:last-child { color: var(--arena); } body[data-section="trades"] .crumbs a:last-child { color: var(--trades); }
-@media (max-width: 520px) { .brand small { display: none; } .nav a { padding: 8px 8px; } .nav .nav-addon .sig { display: none; } }
 
 .pic { display: inline-block; flex: none; width: 32px; height: 32px; background-size: 100% 100%; background-repeat: no-repeat; image-rendering: pixelated; vertical-align: middle; }
 .pic.lg { width: 48px; height: 48px; }
@@ -1001,13 +995,10 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .acc-shared a { color: var(--ink); }
 
 /* ==== setup steps ==== the Servers page as four steps, a Save bar that stays on screen, the players' page in a panel, My servers */
-.nav a[hidden] { display: none; }
 .wz-hero { padding-bottom: 8px; }
 .wz { display: grid; gap: 28px; }
 #my { display: grid; gap: 56px; }
 .my-hero .acc { margin-top: 12px; justify-self: stretch; }
-.nav:has(#nav-my:not([hidden])) { gap: 2px; }
-.nav:has(#nav-my:not([hidden])) a { padding-inline: 6px; }
 .wz-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 4px; }
 .wz-step { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; background: var(--raise); color: var(--muted); border: 0; clip-path: var(--notch); cursor: pointer; text-align: left; font: inherit; }
 .wz-step:hover { color: var(--ink); }
@@ -1264,25 +1255,109 @@ body.pv-open { overflow: hidden; }
   .dif-n > span:first-child { display: none; }
   .srv-v .rc-gui { --u: 1.25px; }
 }
+/* ==== site header ==== Home, the Addons menu and Servers in the middle, Sign in or your account on the right; on phones, the logo and a menu panel */
+.top { position: relative; z-index: 20; }
+@media (min-width: 760px) { .top { position: sticky; } body:is([data-section="abilities"], [data-section="legends"], [data-section="metals"]) .top { position: relative; } }
+.top .wrap.top-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px; padding-block: 10px; }
+.top-row .brand { justify-self: start; min-width: 0; }
+.nav { display: flex; align-items: center; gap: 2px; }
+.nav > a, .nav .dd-b { display: inline-flex; align-items: center; gap: 7px; padding: 10px 14px; border: 0; background: none; text-decoration: none; font: 600 var(--t-sm)/1 var(--f-body); color: var(--muted); clip-path: var(--notch); cursor: pointer; transition: background .15s, color .15s; }
+.nav > a:hover, .nav .dd-b:hover, .nav .dd-b[aria-expanded="true"] { color: var(--ink); background: var(--raise); }
+.nav > a.on, .nav .dd-b.on { color: var(--ink); background: color-mix(in srgb, var(--ab) 18%, var(--raise)); }
+.chev { flex: none; width: 10px; height: 6px; transition: transform .15s; }
+[aria-expanded="true"] > .chev { transform: rotate(180deg); }
+.dd { position: relative; }
+.dd-m { position: absolute; top: calc(100% + 10px); z-index: 40; padding: 8px; background: var(--panel); border: 1px solid var(--line); box-shadow: 0 20px 50px -14px rgb(0 0 0 / .75); }
+.dd-m[hidden] { display: none; }
+.dd-addons { left: 50%; transform: translateX(-50%); width: min(620px, calc(100vw - 32px)); }
+.dd-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
+.dd-it { display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; text-decoration: none; clip-path: var(--notch); }
+.dd-it:hover, .dd-it:focus-visible { background: color-mix(in srgb, var(--c) 10%, var(--raise)); }
+.dd-it.on { background: color-mix(in srgb, var(--c) 15%, var(--raise)); }
+.dd-it .pic { margin-top: 1px; }
+.dd-it b { display: block; font: 600 var(--t-md)/1.2 var(--f-display); color: var(--c); }
+.dd-it small { display: block; margin-top: 3px; font: 400 var(--t-xs)/1.45 var(--f-body); color: var(--muted); }
+.dd-all { display: block; margin-top: 6px; padding: 12px 12px 6px; border-top: 1px solid var(--line); font: 600 var(--t-sm)/1 var(--f-body); color: var(--muted); text-decoration: none; }
+.dd-all:hover, .dd-all:focus-visible { color: var(--ink); }
+.top-acc { justify-self: end; display: flex; align-items: center; min-width: 0; }
+.top-acc[hidden] { display: none; }
+.top-in { padding: 10px 18px; }
+.top-acc .acc-b { display: inline-flex; align-items: center; gap: 9px; max-width: 100%; padding: 5px 12px 5px 5px; border: 0; background: var(--raise); color: var(--ink); font: 600 var(--t-sm)/1 var(--f-body); clip-path: var(--notch); cursor: pointer; }
+.top-acc .acc-b:hover, .top-acc .acc-b[aria-expanded="true"], .top-acc .acc-b.on { background: color-mix(in srgb, var(--ab) 16%, var(--raise)); }
+.acc-b-n { min-width: 0; max-width: 16ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.av { position: relative; display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; overflow: hidden; background: color-mix(in srgb, var(--ember) 32%, var(--raise)); color: var(--ink); font: 700 13px/1 var(--f-body); clip-path: var(--notch); }
+.av img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.av.lg { width: 40px; height: 40px; font-size: 17px; }
+.dd-acc { right: 0; width: 270px; display: grid; gap: 2px; }
+.dd-who { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 8px 10px 12px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+.dd-who > span:last-child { min-width: 0; }
+.dd-who b { display: block; font: 600 var(--t-md)/1.2 var(--f-display); overflow-wrap: anywhere; }
+.dd-who small { display: block; margin-top: 3px; font: 400 var(--t-xs)/1.35 var(--f-body); color: var(--muted); overflow-wrap: anywhere; }
+.dd-acc > a, .dd-acc > button, .mnav-acc > a:not(.btn), .mnav-acc > button { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 40px; padding: 10px; border: 0; background: none; text-align: left; text-decoration: none; font: 500 var(--t-sm)/1.2 var(--f-body); color: var(--ink); cursor: pointer; clip-path: var(--notch); }
+.dd-acc > a:hover, .dd-acc > button:hover, .dd-acc > a:focus-visible, .dd-acc > button:focus-visible, .mnav-acc > a:not(.btn):hover, .mnav-acc > button:hover { background: var(--raise); }
+.dd-acc > a.on, .mnav-acc > a.on { background: color-mix(in srgb, var(--ab) 14%, var(--raise)); }
+.dd-acc > button, .mnav-acc > button { color: var(--muted); }
+.dd-n { min-width: 24px; padding: 4px 7px; background: var(--line); color: var(--ink); font: 600 var(--t-xs)/1 var(--f-body); text-align: center; font-variant-numeric: tabular-nums; }
+.menu-b { display: none; place-items: center; width: 44px; height: 40px; padding: 0; border: 0; background: var(--raise); clip-path: var(--notch); cursor: pointer; }
+.menu-b i { display: block; width: 18px; height: 2px; background: var(--ink); box-shadow: 0 -6px 0 var(--ink), 0 6px 0 var(--ink); }
+.menu-b:hover { background: color-mix(in srgb, var(--ab) 16%, var(--raise)); }
+@media (max-width: 759px) {
+  .top .wrap.top-row { grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding-block: 8px; }
+  .top .nav, .top .top-acc { display: none; }
+  .menu-b { display: grid; }
+}
+@media (max-width: 380px) { .brand small { display: none; } }
+/* the phone menu: a panel from the right, the full height of the screen */
+.mnav { position: fixed; inset: 0 0 0 auto; width: min(340px, 88vw); height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; overflow: hidden; border: 0; border-left: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.mnav::backdrop { background: rgb(5 4 8 / .62); }
+.mnav[open] { animation: mnav-in .18s ease-out; }
+@keyframes mnav-in { from { transform: translateX(28px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mnav[open] { animation: none; } }
+html:has(.mnav[open]) { overflow: hidden; }
+.mnav-in { display: grid; align-content: start; gap: 14px; height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: max(12px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) 16px; }
+.mnav-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mnav-x { display: grid; place-items: center; width: 44px; height: 40px; padding: 0; border: 0; background: var(--raise); color: var(--ink); font: 500 26px/1 var(--f-body); clip-path: var(--notch); cursor: pointer; }
+.mnav-acc { display: grid; gap: 2px; padding: 10px; background: color-mix(in srgb, var(--night) 55%, var(--panel)); }
+.mnav-acc[hidden] { display: none; }
+.mnav-acc .dd-who { padding: 4px 6px 12px; }
+.mnav-acc > .btn { width: 100%; padding: 13px 16px; }
+.mnav-acc > .fine { padding: 8px 2px 0; }
+.mnav-links { display: grid; gap: 2px; }
+.mnav-links a { display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 10px 12px; text-decoration: none; font: 600 var(--t-md)/1.2 var(--f-body); color: var(--ink); clip-path: var(--notch); }
+.mnav-links a:hover, .mnav-links a:focus-visible { background: var(--raise); }
+.mnav-links a.on { background: color-mix(in srgb, var(--c, var(--ab)) 16%, var(--raise)); }
+.mnav-links .mnav-h { min-height: 36px; margin-top: 6px; padding-block: 8px; font: 600 var(--t-xs)/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.mnav-links .mnav-addon { padding-left: 14px; font-weight: 500; }
+.mnav-addon .pic { width: 28px; height: 28px; }
+
+/* ==== easy-to-read text ==== the pixel font stays for the logo, titles, headings and names; labels, tags, buttons and small text use the plain font */
+.eyebrow, .chip, .brand small, .card-shot .play-hint, .grid thead th, .ab-sig .dormant, .stat dt, .chapters h3, .dl-row .lbl, .wp-stop small,
+.cmd-group h3, .pager a small, .forge-k, .addon-top small, .reqs small, .advs li small, .srv-addr small, .srv-group h3, .srv-what .srv-tag, .se-what .srv-tag,
+.srv-v small, .srv-all tr.srv-sub th, .settings tr.srv-sub th, .ft-off, .sd-mod, .sd-sub, .se-rs, .dif-mod h3 { font-family: var(--f-body); letter-spacing: .07em; }
+.brand small, .ab-sig .dormant, .wp-stop small, .pager a small, .addon-top small, .reqs small, .advs li small, .srv-addr small, .srv-what .srv-tag, .se-what .srv-tag, .ft-off, .sd-mod, .se-rs { font-size: 11px; }
+.chip { font-weight: 700; padding: 5px 9px; }
+.crumbs, .show-go, .pager .all, kbd, .qnames, .stepper button, .stepper output, .hs, .pk, .srv-addon .srv-n, .srv-all summary, .srv-field > span, .srv-field legend, .srv-tick,
+.srv-out-l, .se-only, .se-count, .se-scount, .se-name label, .se-sw, .srv-cfg-view summary, .acc-new, .acc-access legend, .acc-sync-h, .ft-st, .sd-count, .sd-x, .it-pick-t b,
+.ls-chip, .ls-chip button, .iw-head, .iw-it b, .iw-pct, .iw-chip, .iw-x, .ip-tab, .dif-n, .settings summary, .acc-who b, .wz-sl b, .met-flow .badge-n { font-family: var(--f-body); }
+.crumbs, .crumbs a { font-weight: 600; }
+.qnames, .iw-head { letter-spacing: .02em; }
 </style>
 
 <header class="top">
   <div class="wrap top-row">
     <a class="brand" href="#home"><span class="brand-mark" id="brand-mark" aria-hidden="true"></span><span><b>Smithborn</b><small>Fabric · Minecraft <span class="ver">26.1.2</span></small></span></a>
-    <nav class="nav" aria-label="Site">
-      <a href="#home" data-nav="home">Smithborn</a>
-      <a href="#addons" data-nav="addons">Addons</a>
-      <a href="#servers" data-nav="servers">Servers</a>
-      <a href="#my" data-nav="my" id="nav-my" hidden>My servers</a>
-      <a href="#abilities" data-nav="abilities" class="nav-addon"><span class="sig xs still" id="nav-sig" aria-hidden="true"></span>Abilities</a>
-      <a href="#legends" data-nav="legends" class="nav-addon"><span class="sig xs still" id="nav-leg" aria-hidden="true"></span>Legends</a>
-      <a href="#metals" data-nav="metals" class="nav-addon"><span class="sig xs still" id="nav-met" aria-hidden="true"></span>Metals</a>
-      <a href="#enchantments" data-nav="enchantments" class="nav-addon"><span class="sig xs still" id="nav-ench" aria-hidden="true"></span>Enchantments</a>
-      <a href="#arena" data-nav="arena" class="nav-addon"><span class="sig xs still" id="nav-arena" aria-hidden="true"></span>Arena</a>
-      <a href="#trades" data-nav="trades" class="nav-addon"><span class="sig xs still" id="nav-trades" aria-hidden="true"></span>Trades</a>
-    </nav>
+    <nav class="nav" id="nav" aria-label="Site"></nav>
+    <div class="top-acc" id="top-acc" hidden></div>
+    <button class="menu-b" id="menu-b" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><i aria-hidden="true"></i></button>
   </div>
 </header>
+<dialog class="mnav" id="mnav" aria-label="Menu">
+  <div class="mnav-in">
+    <div class="mnav-top"><a class="brand" href="#home"><span class="brand-mark" id="mnav-brand" aria-hidden="true"></span><b>Smithborn</b></a><button class="mnav-x" type="button" data-mclose aria-label="Close the menu">×</button></div>
+    <div class="mnav-acc" id="mnav-acc" hidden></div>
+    <nav class="mnav-links" id="mnav-links" aria-label="Site"></nav>
+  </div>
+</dialog>
 <div class="subbar" id="subbar" hidden>
   <div class="wrap">
     <nav class="crumbs" id="crumbs" aria-label="You are here"><a href="#addons">Addons</a><span aria-hidden="true">/</span><a href="#abilities">Smithborn: Abilities</a></nav>
@@ -8672,7 +8747,7 @@ function route() {
   }
   document.body.dataset.section = sec;
   $('#subbar').hidden = bare;
-  $$('[data-nav]').forEach(n => n.classList.toggle('on', n.dataset.nav === (h === 'addons' ? 'addons' : sec)));
+  navMark(h, sec);
   $$('[data-foot]').forEach(f => { f.hidden = f.dataset.foot !== (sec === 'my' ? 'servers' : sec); });
   markHotbar(a);
   if (h === 'addons') requestAnimationFrame(() => $('#addons').scrollIntoView({ behavior: was === 'home' && !REDUCED ? 'smooth' : 'auto', block: 'start' }));
@@ -13074,6 +13149,7 @@ const accountsHere = () => storageOk && /^https?:$/.test(location.protocol) && !
 
 function accStart() {
   ACC.on = accountsHere();
+  drawTopAcc();
   if (!ACC.on) return;
   const c = supa();
   c.auth.onAuthStateChange((ev, session) => {
@@ -13114,7 +13190,7 @@ async function accLists() {
 }
 // whatever shows account things redraws itself
 function accRefresh() {
-  const nm = $('#nav-my'); if (nm) nm.hidden = !(ACC.on && ACC.user);
+  drawTopAcc();
   $$('[data-acc-only]').forEach(e => { e.hidden = !(ACC.on && ACC.user); });
   if (S.page === 'servers') { const el = $('#acc'); if (el) { el.innerHTML = accLine(); accBind(el); } srvAccountBits(); srvRefreshOutputs && srvRefreshOutputs(); }
   else if (S.page === 'my') drawMy();
@@ -13477,9 +13553,117 @@ async function showSaved(code) {
   const eb = $('#srv-edit'); if (eb) eb.onclick = () => editSaved(data.id);
 }
 
+// ==== site.js ====
+// ---- the site's frame: the header (Home, the Addons menu, Servers, Sign in or the account menu) and, on phones, one menu panel ----
+// a small pixel chevron
+const CHEV = '<svg class="chev" viewBox="0 0 5 3" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 0h1v1h1v1h1V1h1V0h1v1H4v1H3v1H2V2H1V1H0z" fill="currentColor"/></svg>';
+const navPic = x => `<span class="pic" style="background-image:url(data:image/png;base64,${x.pic()})" aria-hidden="true"></span>`;
+const navAddon = x => `<a class="dd-it" href="#${x.id}" data-nav="${x.id}" style="--c:${x.c}">${navPic(x)}<span><b>${esc(shortName(x.id))}</b><small>${esc(x.line)}</small></span></a>`;
+function siteStart() {
+  $('#brand-mark').style.backgroundImage = sbUrl(SB.icon);
+  $('#nav').innerHTML = `
+    <a href="#home" data-nav="home">Home</a>
+    <div class="dd" data-dd>
+      <button class="dd-b" type="button" aria-expanded="false" aria-controls="dd-addons" data-nav="addons">Addons${CHEV}</button>
+      <div class="dd-m dd-addons" id="dd-addons" hidden>
+        <div class="dd-grid">${SRV_ADDONS.map(navAddon).join('')}</div>
+        <a class="dd-all" href="#addons">All addons on the home page</a>
+      </div>
+    </div>
+    <a href="#servers" data-nav="servers">Servers</a>`;
+  $('#mnav-links').innerHTML = `
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#addons" data-nav="addons" class="mnav-h">Addons</a>
+    ${SRV_ADDONS.map(x => `<a class="mnav-addon" href="#${x.id}" data-nav="${x.id}" style="--c:${x.c}">${navPic(x)}${esc(shortName(x.id))}</a>`).join('')}
+    <a href="#servers" data-nav="servers">Servers</a>`;
+  $('#mnav-brand').style.backgroundImage = sbUrl(SB.icon);
+  const mb = $('#menu-b'), dlg = $('#mnav');
+  mb.onclick = () => { if (dlg.open) mnavClose(); else { ddClose(); dlg.showModal(); mb.setAttribute('aria-expanded', 'true'); } };
+  dlg.addEventListener('close', () => { mb.setAttribute('aria-expanded', 'false'); });
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-mclose], [data-acc="out"]')) mnavClose(); });
+  // a wide screen has no menu panel
+  matchMedia('(min-width: 760px)').addEventListener('change', e => { if (e.matches) mnavClose(); });
+  drawTopAcc();
+}
+function mnavClose() { const d = $('#mnav'); if (d && d.open) d.close(); }
+
+// ---- drop-down menus: [data-dd] holds a .dd-b button and its .dd-m menu ----
+function ddShut(d) { const b = $('.dd-b', d), m = $('.dd-m', d); if (m && !m.hidden) { m.hidden = true; b.setAttribute('aria-expanded', 'false'); } }
+function ddClose(except) { $$('[data-dd]').forEach(d => { if (d !== except) ddShut(d); }); }
+document.addEventListener('click', e => {
+  const b = e.target.closest('.dd-b'), dd = b && b.closest('[data-dd]');
+  if (dd) { const m = $('.dd-m', dd), open = m.hidden; ddClose(dd); m.hidden = !open; b.setAttribute('aria-expanded', String(open)); return; }
+  if (!e.target.closest('.dd-m') || e.target.closest('a, button')) ddClose();
+});
+document.addEventListener('keydown', e => {
+  const dd = e.target.closest && e.target.closest('[data-dd]'); if (!dd) return;
+  const b = $('.dd-b', dd), m = $('.dd-m', dd), items = $$('a, button', m);
+  if (e.key === 'Escape' && !m.hidden) { ddClose(); b.focus(); e.preventDefault(); e.stopPropagation(); return; }
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    if (m.hidden) { if (e.target !== b) return; ddClose(dd); m.hidden = false; b.setAttribute('aria-expanded', 'true'); }
+    const i = items.indexOf(e.target), n = e.key === 'ArrowDown' ? (i + 1) % items.length : i <= 0 ? items.length - 1 : i - 1;
+    items[n].focus(); e.preventDefault();
+  }
+});
+// tabbing out of a menu closes it
+document.addEventListener('focusin', e => { $$('[data-dd]').forEach(d => { if (!d.contains(e.target)) ddShut(d); }); });
+
+// which page you're on: its link in the header and the menu panel lights up, and open menus close
+function navOn(h, sec) {
+  const cur = h === 'addons' ? 'addons' : sec;
+  $$('[data-nav]').forEach(n => {
+    const v = n.dataset.nav, on = v === cur || (v === 'addons' && n.classList.contains('dd-b') && SECTIONS.includes(sec));
+    n.classList.toggle('on', on);
+    if (n.tagName === 'A') { if (v === cur) n.setAttribute('aria-current', 'page'); else n.removeAttribute('aria-current'); }
+  });
+}
+function navMark(h, sec) { navOn(h, sec); ddClose(); mnavClose(); }
+
+// ---- the account corner: Sign in, or your name and picture with a menu ----
+function accPicUrl() {
+  const m = (ACC.user && ACC.user.user_metadata) || {}, u = m.avatar_url || m.picture || '';
+  return /^https:\/\/[^\s"'<>]+$/.test(u) ? u : '';
+}
+const accProvider = () => { const a = (ACC.user && ACC.user.app_metadata) || {}; return a.provider || (a.providers || [])[0] || 'email'; };
+const accHow = () => accProvider() === 'discord' ? 'Signed in with Discord' : ACC.user && ACC.user.email ? esc(ACC.user.email) : 'Signed in with email';
+const accDisplayName = () => ACC.profile ? ACC.profile.name : ACC.profile === null ? 'Pick a name' : 'Signing in…';
+function accAvatar(cls) {
+  const nm = ACC.profile ? ACC.profile.name : (ACC.user && ACC.user.email) || '?', u = accPicUrl();
+  return `<span class="av ${cls || ''}" aria-hidden="true"><span>${esc(nm.charAt(0).toUpperCase())}</span>${u ? `<img src="${esc(u)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.remove()">` : ''}</span>`;
+}
+// where Sign in goes
+const signInHref = () => '#my';
+function drawTopAcc() {
+  const el = $('#top-acc'), ma = $('#mnav-acc');
+  if (!el) return;
+  if (!ACC.on) { el.hidden = true; el.innerHTML = ''; if (ma) { ma.hidden = true; ma.innerHTML = ''; } return; }
+  el.hidden = false; if (ma) ma.hidden = false;
+  const was = $('#dd-acc'), open = was && !was.hidden;
+  if (!ACC.user) {
+    el.innerHTML = `<a class="btn sm top-in" href="${signInHref()}">Sign in</a>`;
+    if (ma) ma.innerHTML = `<a class="btn mnav-in-b" href="${signInHref()}">Sign in</a><p class="fine">Save your servers, get short links and choose who can open them.</p>`;
+    return;
+  }
+  const n = (ACC.mine || []).length, nm = esc(accDisplayName());
+  el.innerHTML = `<div class="dd" data-dd>
+      <button class="dd-b acc-b" type="button" aria-expanded="${open ? 'true' : 'false'}" aria-controls="dd-acc" data-nav="my">${accAvatar()}<span class="acc-b-n">${nm}</span>${CHEV}</button>
+      <div class="dd-m dd-acc" id="dd-acc"${open ? '' : ' hidden'}>
+        <div class="dd-who">${accAvatar('lg')}<span><b>${nm}</b><small>${accHow()}</small></span></div>
+        <a href="#my" data-nav="my">My servers${n ? `<span class="dd-n">${n}</span>` : ''}</a>
+        <button type="button" data-acc="out">Sign out</button>
+      </div>
+    </div>`;
+  if (ma) ma.innerHTML = `<div class="dd-who">${accAvatar('lg')}<span><b>${nm}</b><small>${accHow()}</small></span></div>
+    <a href="#my" data-nav="my">My servers${n ? `<span class="dd-n">${n}</span>` : ''}</a>
+    <button type="button" class="mnav-out" data-acc="out">Sign out</button>`;
+  accBind(el); if (ma) accBind(ma);
+  if (S.page) navOn(location.hash.slice(1), document.body.dataset.section);
+}
+
 // start: every file is loaded now
 addEventListener('hashchange', route);
 $$('[data-ver]').forEach(s => { s.textContent = s.dataset.ver === 'sb' ? SB_VER : SRV_BY[s.dataset.ver].ver; });
+siteStart();
 accStart();
 route();
 requestAnimationFrame(loop);
@@ -13492,13 +13676,6 @@ else { // outside claude.ai (the site on its own address): an ordinary browser d
   } };
   dlVisibility();
 }
-$('#brand-mark').style.backgroundImage = sbUrl(SB.icon);
-$('#nav-sig').style.backgroundImage = 'url(data:image/png;base64,' + LOGO.abilities + ')';
-$('#nav-leg').style.backgroundImage = 'url(data:image/png;base64,' + LEG.icon + ')';
-$('#nav-met').style.backgroundImage = 'url(data:image/png;base64,' + MET.icon + ')';
-$('#nav-ench').style.backgroundImage = 'url(data:image/png;base64,' + ENC.icon + ')';
-$('#nav-arena').style.backgroundImage = 'url(data:image/png;base64,' + ATX.arena.icon + ')';
-$('#nav-trades').style.backgroundImage = 'url(data:image/png;base64,' + ATX.trades.icon + ')';
 // a link to the page you are already on still goes there (scrolls to it)
 document.addEventListener('click', e => { const l = e.target.closest('a[href^="#"]'); if (l && l.getAttribute('href') === location.hash && !e.defaultPrevented) { e.preventDefault(); route(); } });
 </script>
