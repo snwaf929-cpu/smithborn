@@ -959,14 +959,9 @@ table.cmp td.hot { color: #ffd86b; font-weight: 600; }
 .acc-head { display: grid; gap: 4px; }
 .acc-head b { font: 600 var(--t-lg)/1.2 var(--f-display); }
 .acc-head span { color: var(--muted); font-size: var(--t-sm); max-width: 68ch; }
-.acc-in { display: grid; gap: 12px; }
-.acc-why { color: var(--muted); font-size: var(--t-sm); }
 .acc-btns { display: flex; flex-wrap: wrap; gap: 8px; }
 .btn.acc-discord { background: #5865f2; color: #fff; }
 .acc-dc { width: 18px; height: 18px; flex: none; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.029zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.956-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.955-2.418 2.157-2.418 1.21 0 2.175 1.095 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.029zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.956-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.955-2.418 2.157-2.418 1.21 0 2.175 1.095 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z'/%3E%3C/svg%3E") center / contain no-repeat; }
-.acc-email { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); align-items: end; max-width: 720px; }
-.acc-email[hidden] { display: none; }
-.acc-email .acc-btns { grid-column: 1 / -1; }
 .acc-msg { font-size: var(--t-sm); color: var(--legend); }
 .acc-name { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
 .acc-name .srv-field { flex: 1 1 240px; max-width: 360px; }
@@ -1341,6 +1336,82 @@ html:has(.mnav[open]) { overflow: hidden; }
 .ls-chip, .ls-chip button, .iw-head, .iw-it b, .iw-pct, .iw-chip, .iw-x, .ip-tab, .dif-n, .settings summary, .acc-who b, .wz-sl b, .met-flow .badge-n { font-family: var(--f-body); }
 .crumbs, .crumbs a { font-weight: 600; }
 .qnames, .iw-head { letter-spacing: .02em; }
+/* ==== sign-in screen and Account page ==== */
+.si-wrap { display: grid; place-items: center; min-height: min(78vh, 760px); padding-block: 8px; }
+.si-card { display: grid; gap: 16px; width: min(440px, 100%); padding: 28px 28px 22px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line), 0 30px 80px -40px color-mix(in srgb, var(--ember) 40%, transparent); clip-path: var(--notch); }
+.si-logo { display: inline-flex; align-items: center; gap: 10px; justify-self: start; text-decoration: none; font: 600 var(--t-md)/1 var(--f-display); color: var(--muted); }
+.si-logo .brand-mark { width: 28px; height: 28px; }
+.si-card h1 { font-size: var(--t-2xl); line-height: 1.1; margin-top: 4px; }
+.si-sub { color: var(--muted); font-size: var(--t-sm); line-height: 1.55; margin-top: -6px; }
+.si-sub b { color: var(--ink); font-weight: 600; }
+.si-discord { width: 100%; padding: 14px 16px; font-size: var(--t-md); }
+.si-or { display: flex; align-items: center; gap: 12px; color: var(--faint); font-size: var(--t-xs); }
+.si-or::before, .si-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.si-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: color-mix(in srgb, var(--night) 60%, var(--panel)); }
+.si-tabs button { padding: 10px; border: 0; background: none; color: var(--muted); font: 600 var(--t-sm)/1 var(--f-body); cursor: pointer; clip-path: var(--notch); }
+.si-tabs button:hover { color: var(--ink); }
+.si-tabs button[aria-selected="true"] { background: var(--raise); color: var(--ink); }
+.si-form { display: grid; gap: 14px; }
+.si-f { display: grid; gap: 6px; }
+.si-f label { font: 600 var(--t-sm)/1.2 var(--f-body); color: var(--ink); }
+.si-f label small { font-weight: 400; color: var(--muted); margin-left: 4px; }
+.si-f input { width: 100%; min-width: 0; padding: 12px 12px; background: var(--night); border: 1px solid var(--line); color: var(--ink); font: 400 var(--t-md)/1.2 var(--f-body); outline: 0; }
+.si-f input:focus { border-color: var(--ember); box-shadow: 0 0 0 1px var(--ember); }
+.si-f.bad input { border-color: #ff6b6b; }
+.si-f.bad input:focus { box-shadow: 0 0 0 1px #ff6b6b; }
+.si-err { font-size: var(--t-sm); line-height: 1.4; color: #ff8a8a; }
+.si-err[hidden] { display: none; }
+.si-pw { position: relative; display: flex; }
+.si-pw input { padding-right: 72px; }
+.si-eye { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); padding: 7px 10px; border: 0; background: var(--raise); color: var(--muted); font: 600 var(--t-xs)/1 var(--f-body); cursor: pointer; clip-path: var(--notch); }
+.si-eye:hover { color: var(--ink); }
+.si-forgot { justify-self: start; margin-top: -6px; padding: 2px 0; }
+.si-go { width: 100%; padding: 13px 16px; font-size: var(--t-md); }
+.si-alt { justify-self: center; }
+.si-msg { padding: 10px 12px; font-size: var(--t-sm); line-height: 1.45; color: var(--ink); background: color-mix(in srgb, var(--legend) 10%, var(--raise)); box-shadow: inset 3px 0 0 var(--legend); }
+.si-msg.good { background: color-mix(in srgb, var(--trades) 10%, var(--raise)); box-shadow: inset 3px 0 0 var(--trades); }
+.si-msg.bad { background: color-mix(in srgb, #ff6b6b 10%, var(--raise)); box-shadow: inset 3px 0 0 #ff6b6b; }
+.si-note { padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--t-xs); line-height: 1.5; color: var(--faint); text-align: center; }
+@media (max-width: 480px) { .si-wrap { place-items: start stretch; min-height: 0; } .si-card { padding: 22px 18px 18px; } }
+/* the slim sign-in bar on the Servers and My servers pages */
+.acc-slim { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px 24px; }
+.acc-slim .acc-head b { font-size: var(--t-md); }
+@media (max-width: 720px) { .acc-slim { grid-template-columns: 1fr; } }
+/* the Account page */
+#account { display: grid; gap: 40px; max-width: 880px; }
+.acct-hero { display: grid; gap: 18px; }
+.acct-who { display: flex; align-items: center; gap: 18px; min-width: 0; }
+.acct-who > div { min-width: 0; }
+.acct-who h1 { font-size: clamp(32px, 5vw, 48px); overflow-wrap: anywhere; }
+.acct-who p { margin-top: 6px; color: var(--muted); overflow-wrap: anywhere; }
+.av.xl { width: 72px; height: 72px; font-size: 30px; }
+.acct { display: grid; gap: 0; background: var(--panel); clip-path: var(--notch); }
+.acct-row { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 12px 32px; padding: 22px 24px; border-top: 1px solid var(--line); }
+.acct-row:first-child { border-top: 0; }
+.acct-k h2 { font-size: var(--t-md); }
+.acct-k p { margin-top: 6px; font-size: var(--t-sm); line-height: 1.5; color: var(--muted); }
+.acct-v { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.acct-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.acct-name { font: 600 var(--t-lg)/1.2 var(--f-display); overflow-wrap: anywhere; }
+.acct-ids { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.acct-ids li { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.acct-ids li > span:last-child { min-width: 0; }
+.acct-ids b { display: block; font: 600 var(--t-sm)/1.3 var(--f-body); }
+.acct-ids small { display: block; font-size: var(--t-sm); color: var(--muted); overflow-wrap: anywhere; }
+.acct-ic { display: grid; place-items: center; flex: none; width: 36px; height: 36px; background: var(--raise); color: var(--ink); font: 700 var(--t-md)/1 var(--f-body); clip-path: var(--notch); }
+.acct-ic.dc { background: #5865f2; color: #fff; }
+.acct-pass { display: grid; gap: 12px; max-width: 420px; }
+.acct-pass .btn { justify-self: start; }
+.acct .acc-name { max-width: 480px; }
+@media (max-width: 720px) { .acct-row { grid-template-columns: 1fr; padding: 18px 16px; } .acct-who { gap: 14px; } .av.xl { width: 56px; height: 56px; font-size: 24px; } }
+/* toasts: one small message in the corner */
+.toasts { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 60; display: grid; gap: 8px; justify-items: end; pointer-events: none; }
+body[data-section="servers"]:has(#wz-bar:not([hidden])) .toasts { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 68px); }
+.toast { max-width: min(360px, calc(100vw - 32px)); padding: 12px 16px; background: var(--raise); color: var(--ink); font: 500 var(--t-sm)/1.4 var(--f-body); box-shadow: inset 3px 0 0 var(--ember), 0 14px 40px -12px rgb(0 0 0 / .8); clip-path: var(--notch); animation: toast-in .2s ease-out; transition: opacity .25s, transform .25s; }
+.toast.out { opacity: 0; transform: translateY(6px); }
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { .toast { animation: none; transition: none; } }
+@media (max-width: 520px) { .toasts { left: 16px; right: 16px; justify-items: center; } }
 </style>
 
 <header class="top">
@@ -8732,15 +8803,15 @@ document.addEventListener('keydown', e => {
 const CRUMB = { abilities: 'Smithborn: Abilities', legends: 'Smithborn: Legends', metals: 'Smithborn: Metals', enchantments: 'Smithborn: Enchantments', arena: 'Smithborn: Arena', trades: 'Smithborn: Trades' };
 function route() {
   const h = location.hash.slice(1), a = entryById(h), srvLink = h.startsWith('server=') || h.startsWith('s=');
-  const page = a ? a.id : SECTIONS.includes(h) || h === 'servers' || h === 'my' || srvLink ? h : 'home', was = S.page;
+  const page = a ? a.id : SECTIONS.includes(h) || ['servers', 'my', 'signin', 'account'].includes(h) || srvLink ? h : 'home', was = S.page;
   if (page !== was) {
     S.page = page; SHOWS.length = 0; HOVER = null;
     if (a) (a.feat ? showFeature : a.ench ? showEnchant : a.metal ? showMetal : a.power ? showPower : showAbility)(a);
-    else if (srvLink) (h.startsWith('s=') ? showSaved(h.slice(2)) : showServer(h.slice(7))); else if (page === 'servers') showServersHome(); else if (page === 'my') showMyServers();
+    else if (srvLink) (h.startsWith('s=') ? showSaved(h.slice(2)) : showServer(h.slice(7))); else if (page === 'servers') showServersHome(); else if (page === 'my') showMyServers(); else if (page === 'signin') showSignIn(was); else if (page === 'account') showAccount();
     else if (page === 'abilities') showAbilitiesHome(); else if (page === 'legends') showLegendsHome(); else if (page === 'metals') showMetalsHome(); else if (page === 'enchantments') showEnchantsHome(); else if (page === 'arena' || page === 'trades') showFeatHome(page); else showHome();
   }
   const sec = page === 'home' ? 'home' : a ? (a.feat ? a.sec : a.ench ? 'enchantments' : a.metal ? 'metals' : a.power ? 'legends' : 'abilities') : srvLink ? 'servers' : page;
-  const bare = sec === 'home' || sec === 'servers' || sec === 'my'; // no hotbar: the home page, the server pages and My servers
+  const bare = ['home', 'servers', 'my', 'signin', 'account'].includes(sec); // no hotbar: the home page, the server pages, My servers, sign-in and Account
   if (sec !== document.body.dataset.section && !bare) {
     hotbar(sec);
     $('#crumbs').innerHTML = `<a href="#addons">Addons</a><span aria-hidden="true">/</span><a href="#${sec}">${CRUMB[sec]}</a>`;
@@ -8748,7 +8819,7 @@ function route() {
   document.body.dataset.section = sec;
   $('#subbar').hidden = bare;
   navMark(h, sec);
-  $$('[data-foot]').forEach(f => { f.hidden = f.dataset.foot !== (sec === 'my' ? 'servers' : sec); });
+  $$('[data-foot]').forEach(f => { f.hidden = f.dataset.foot !== (['my', 'signin', 'account'].includes(sec) ? 'servers' : sec); });
   markHotbar(a);
   if (h === 'addons') requestAnimationFrame(() => $('#addons').scrollIntoView({ behavior: was === 'home' && !REDUCED ? 'smooth' : 'auto', block: 'start' }));
   else if (page !== was || h === 'home') window.scrollTo(0, 0);
@@ -13148,6 +13219,7 @@ function supa() {
 const accountsHere = () => storageOk && /^https?:$/.test(location.protocol) && !/claude|anthropic/.test(location.hostname) && !!supa();
 
 function accStart() {
+  ACC.link = /[?&]code=/.test(location.search); // came back from Discord or an email link (supabase-js tidies the address itself)
   ACC.on = accountsHere();
   drawTopAcc();
   if (!ACC.on) return;
@@ -13157,26 +13229,32 @@ function accStart() {
     ACC.user = now;
     if ((now && now.id) !== was) { ACC.profile = undefined; ACC.mine = null; ACC.shared = null; setTimeout(accLoad, 0); }
     if (ev === 'PASSWORD_RECOVERY') { ACC.recovery = true; ACC.msg = ''; }
-    if ((ev === 'SIGNED_IN' || ev === 'PASSWORD_RECOVERY') && /[?&]code=/.test(location.search)) backFromLink();
+    if ((ev === 'SIGNED_IN' || ev === 'PASSWORD_RECOVERY') && ACC.link) { ACC.link = false; backFromLink(); }
   });
   // a link from Discord or an email that didn't work here (for example, an email link opened in another browser)
   // (a link that worked tidies the address first, when its sign-in event comes)
   if (/[?&](code|error)=/.test(location.search)) c.auth.initialize().then(() => setTimeout(() => {
     if (!/[?&](code|error)=/.test(location.search)) return;
-    ACC.msg = 'That link didn\'t work. A link from an email only works in the browser you asked for it in, and only once: ask for a new one.';
+    ACC.link = false;
+    ACC.msg = /[?&]error=/.test(location.search) ? 'Signing in didn\'t finish. Try again.' : 'That link didn\'t work. A link from an email only works in the browser you asked for it in, and only once: ask for a new one.';
+    SI.msgKind = 'bad';
     backFromLink(); accRefresh();
   }, 300));
 }
-// back from Discord or an email link: tidy the address and go back to the page it started from
+// back from Discord or an email link: tidy the address and land on the sign-in screen, which finishes the job (a new password,
+// a first name) and then goes back to the page it started from
 function backFromLink() {
-  let back = '#servers'; try { back = sessionStorage.getItem('sb-back') || back; sessionStorage.removeItem('sb-back'); } catch (e) {}
-  history.replaceState(null, '', location.pathname + back); route();
+  let back = '#my'; try { back = sessionStorage.getItem('sb-back') || back; sessionStorage.removeItem('sb-back'); } catch (e) {}
+  SI.back = back; SI.keep = true; SI.mode = 'in';
+  if (ACC.user && !ACC.recovery) ACC.justIn = true;
+  history.replaceState(null, '', location.pathname + '#signin'); route();
 }
 async function accLoad() {
   const c = supa(); if (!c || !ACC.user) { accRefresh(); return; }
   const { data } = await c.from('profiles').select('name').eq('id', ACC.user.id).maybeSingle();
   ACC.profile = data || null;
   if (ACC.profile) await accLists();
+  if (ACC.justIn && ACC.profile) { ACC.justIn = false; toast(`Signed in as ${ACC.profile.name}`); }
   accRefresh();
 }
 async function accLists() {
@@ -13194,41 +13272,23 @@ function accRefresh() {
   $$('[data-acc-only]').forEach(e => { e.hidden = !(ACC.on && ACC.user); });
   if (S.page === 'servers') { const el = $('#acc'); if (el) { el.innerHTML = accLine(); accBind(el); } srvAccountBits(); srvRefreshOutputs && srvRefreshOutputs(); }
   else if (S.page === 'my') drawMy();
+  else if (S.page === 'signin') drawSignIn();
+  else if (S.page === 'account') drawAccount();
   else if (S.page.startsWith('s=')) { S.page = ''; route(); }
 }
 
 // ---- signing in ----
 async function signInDiscord() {
-  try { sessionStorage.setItem('sb-back', location.hash || '#servers'); } catch (e) {}
+  try { sessionStorage.setItem('sb-back', (S.page === 'signin' ? SI.back : location.hash) || '#my'); } catch (e) {}
   const { error } = await supa().auth.signInWithOAuth({ provider: 'discord', options: { redirectTo: SITE_URL } });
-  if (error) { ACC.msg = 'Discord sign-in isn\'t available yet: ' + error.message; accRefresh(); }
+  if (error) { ACC.msg = 'Discord sign-in isn\'t available right now: ' + error.message; accRefresh(); }
 }
-async function signInEmail(email, pass, create) {
-  const c = supa(); ACC.busy = true; ACC.msg = ''; accRefresh();
-  const r = create ? await c.auth.signUp({ email, password: pass, options: { emailRedirectTo: SITE_URL } }) : await c.auth.signInWithPassword({ email, password: pass });
-  ACC.busy = false;
-  if (r.error) ACC.msg = /invalid login/i.test(r.error.message) ? 'Wrong email or password.' : /already registered/i.test(r.error.message) ? 'That email already has an account: sign in instead.' : r.error.message;
-  else if (create && !r.data.session) ACC.msg = 'Check your email and open the link in it to finish making your account.';
-  accRefresh();
-}
-async function signOut() { await supa().auth.signOut({ scope: 'local' }); ACC.recovery = false; ACC.renaming = false; ACC.user = null; ACC.profile = undefined; ACC.mine = null; ACC.shared = null; FORM.sync = null; accRefresh(); srvRefreshOutputs && S.page === 'servers' && srvRefreshOutputs(); }
-// forgot password: Supabase emails a link that comes back here and lets them pick a new one
-async function forgotPassword(email) {
-  try { sessionStorage.setItem('sb-back', location.hash || '#servers'); } catch (e) {}
-  ACC.busy = true; ACC.msg = ''; accRefresh();
-  const { error } = await supa().auth.resetPasswordForEmail(email, { redirectTo: SITE_URL });
-  ACC.busy = false;
-  ACC.msg = !error ? `If ${email} has an account, an email with a link to pick a new password is on its way. Open it in this browser.`
-    : /not authori[sz]ed/i.test(error.message) ? 'Password emails can\'t be sent from this site yet. Sign in with Discord for now.'
-    : /rate limit|too many/i.test(error.message) ? 'Too many emails were sent just now. Try again in an hour.' : error.message;
-  accRefresh();
-}
-async function newPassword(pass) {
-  ACC.busy = true; ACC.msg = ''; accRefresh();
-  const { error } = await supa().auth.updateUser({ password: pass });
-  ACC.busy = false;
-  if (error) { ACC.msg = error.code === 'same_password' || /different from the old/i.test(error.message) ? 'That is your old password: pick a new one.' : error.message; accRefresh(); return; }
-  ACC.recovery = false; ACC.msg = 'Your new password is saved.'; accRefresh();
+async function signOut() {
+  await supa().auth.signOut({ scope: 'local' });
+  ACC.recovery = false; ACC.renaming = false; ACC.user = null; ACC.profile = undefined; ACC.mine = null; ACC.shared = null; ACC.msg = ''; FORM.sync = null;
+  toast('Signed out');
+  if (S.page === 'account') { location.hash = '#home'; return; }
+  accRefresh(); srvRefreshOutputs && S.page === 'servers' && srvRefreshOutputs();
 }
 async function renameTo(name) {
   name = name.trim();
@@ -13250,33 +13310,20 @@ async function pickName(name) {
   if (!/^[A-Za-z0-9_]{3,20}$/.test(name)) { ACC.msg = 'Use 3 to 20 letters, numbers or _.'; accRefresh(); return; }
   const { error } = await supa().from('profiles').insert({ id: ACC.user.id, name });
   if (error) { ACC.msg = error.code === '23505' ? 'That name is taken: try another.' : error.message; accRefresh(); return; }
-  ACC.msg = ''; ACC.profile = { name }; await accLists(); accRefresh();
+  ACC.msg = ''; ACC.profile = { name }; ACC.justIn = false; await accLists();
+  // first time: on to My servers, unless they came from a page that needs the account (a private server page, the setup steps)
+  if (!/^#(s=|servers|my|account)/.test(SI.back || '')) SI.back = '#my';
+  toast(`Welcome to Smithborn, ${name}`); accRefresh();
 }
 
-// the sign-in box (also on private server pages)
-const accSignIn = (why) => `
-    <div class="acc-in">
-      ${why ? `<p class="acc-why">${why}</p>` : ''}
-      <div class="acc-btns"><button class="btn acc-discord" type="button" data-acc="discord"><span class="acc-dc" aria-hidden="true"></span>Continue with Discord</button><button class="btn ghost" type="button" data-acc="email-open">Use email instead</button></div>
-      <form class="acc-email" data-acc-form hidden onsubmit="return false">
-        <label class="srv-field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
-        <label class="srv-field"><span>Password <small>at least 8 characters</small></span><input type="password" name="pass" autocomplete="current-password" minlength="8" required></label>
-        <div class="acc-btns"><button class="btn" type="submit" data-acc="email-in">Sign in</button><button class="btn ghost" type="submit" data-acc="email-new">Make an account</button><button class="acc-link" type="button" data-acc="forgot">Forgot password?</button></div>
-      </form>
-      ${ACC.msg ? `<p class="acc-msg" role="status">${esc(ACC.msg)}</p>` : ''}
-    </div>`;
 const accMsg = () => ACC.msg ? `<p class="acc-msg" role="status">${esc(ACC.msg)}</p>` : '';
 // what shows before an account is ready to save servers (null once it is)
 function accGate(where) {
   if (!ACC.on) return `<div class="acc-bar"><p class="fine">Saving servers to an account works on <a href="${SITE_URL}#servers" target="_blank" rel="noopener">the site's own address</a>. Here, your server is kept in this browser.</p></div>`;
-  if (!ACC.user) return `<div class="acc-bar"><div class="acc-head"><b>${where === 'my' ? 'Sign in to see your servers' : 'Save your servers'}</b><span>${where === 'my' ? 'Your saved servers, their short links and who can open them live in your account.' : 'Sign in to keep your servers in your account, edit them any time, get a short link and choose who can open the page. You can also set one up without an account.'}</span></div>${accSignIn('')}</div>`;
-  if (ACC.recovery) return `<div class="acc-bar"><div class="acc-head"><b>Pick a new password</b><span>You opened the link from the email${ACC.user.email ? ` for ${esc(ACC.user.email)}` : ''}. You're signed in: type the new password to keep using it.</span></div>
-    <form class="acc-name" data-acc-pass onsubmit="return false"><label class="srv-field"><span>New password <small>at least 8 characters</small></span><input type="password" name="pass" minlength="8" autocomplete="new-password" required></label><button class="btn" type="submit"${ACC.busy ? ' disabled' : ''}>Save the new password</button><button class="btn ghost" type="button" data-acc="norecover">Not now</button></form>
-    ${accMsg()}</div>`;
+  if (!ACC.user) return `<div class="acc-bar acc-slim"><div class="acc-head"><b>${where === 'my' ? 'Sign in to see your servers' : 'Sign in to save your servers'}</b><span>${where === 'my' ? 'Your saved servers, their short links and who can open them live in your account.' : 'Keep your servers in your account, get a short link and choose who can open the page. You can also set one up without an account.'}</span></div><div class="acc-btns"><a class="btn" href="#signin">Sign in</a><a class="btn ghost" href="#signin" data-mode="new">Create an account</a></div></div>`;
+  if (ACC.recovery) return `<div class="acc-bar acc-slim"><div class="acc-head"><b>Pick a new password</b><span>You opened the link from the email. Pick the new password to keep using your account.</span></div><div class="acc-btns"><a class="btn" href="#signin">Pick a new password</a></div></div>`;
   if (ACC.profile === undefined) return `<div class="acc-bar"><p class="fine">Signing in…</p></div>`;
-  if (!ACC.profile) return `<div class="acc-bar"><div class="acc-head"><b>Pick your Smithborn name</b><span>Server owners type this name to let you open their private server pages. You can change it later.</span></div>
-    <form class="acc-name" data-acc-name onsubmit="return false"><label class="srv-field"><span>Name <small>3 to 20 letters, numbers or _</small></span><input name="name" maxlength="20" value="${esc(nameGuess())}" autocomplete="nickname" spellcheck="false"></label><button class="btn" type="submit">Save my name</button><button class="btn ghost" type="button" data-acc="out">Sign out</button></form>
-    ${accMsg()}</div>`;
+  if (!ACC.profile) return `<div class="acc-bar acc-slim"><div class="acc-head"><b>Pick your Smithborn name</b><span>One more step: the name server owners type to let you open their private server pages.</span></div><div class="acc-btns"><a class="btn" href="#signin">Pick my name</a><button class="btn ghost" type="button" data-acc="out">Sign out</button></div></div>`;
   return null;
 }
 // the Servers page: one line about the account and the server being edited
@@ -13358,18 +13405,12 @@ function accBind(root) {
   $$('[data-acc]', root).forEach(b => {
     const what = b.dataset.acc;
     if (what === 'discord') b.onclick = signInDiscord;
-    if (what === 'email-open') b.onclick = () => { const f = $('[data-acc-form]', root); f.hidden = !f.hidden; if (!f.hidden) $('input', f).focus(); };
-    if (what === 'email-in' || what === 'email-new') b.onclick = () => { const f = $('[data-acc-form]', root); if (!f.reportValidity()) return; signInEmail(f.email.value.trim(), f.pass.value, what === 'email-new'); };
     if (what === 'out') b.onclick = signOut;
-    if (what === 'forgot') b.onclick = () => { const f = $('[data-acc-form]', root); if (!f.email.reportValidity()) return; forgotPassword(f.email.value.trim()); };
-    if (what === 'norecover') b.onclick = () => { ACC.recovery = false; ACC.msg = ''; accRefresh(); };
     if (what === 'rename') b.onclick = () => { ACC.renaming = true; ACC.msg = ''; accRefresh(); const i = $('[data-acc-rename] input'); if (i) { i.focus(); i.select(); } };
     if (what === 'rename-no') b.onclick = () => { ACC.renaming = false; ACC.msg = ''; accRefresh(); };
     if (what === 'new') b.onclick = () => { newServer(); };
   });
-  const nf = $('[data-acc-name]', root); if (nf) nf.onsubmit = e => { e.preventDefault(); pickName(nf.name.value); };
   const rf = $('[data-acc-rename]', root); if (rf) rf.onsubmit = e => { e.preventDefault(); renameTo(rf.name.value); };
-  const pf = $('[data-acc-pass]', root); if (pf) pf.onsubmit = e => { e.preventDefault(); if (pf.reportValidity()) newPassword(pf.pass.value); };
   $$('[data-edit]', root).forEach(b => { b.onclick = () => editSaved(b.dataset.edit); });
   $$('[data-dup]', root).forEach(b => { b.onclick = () => duplicateServer(b.dataset.dup, b); });
   $$('[data-del]', root).forEach(b => {
@@ -13531,8 +13572,7 @@ async function showSaved(code) {
   const fail = (title, text, signIn) => {
     document.title = title + ' · Smithborn';
     $('#view').innerHTML = `<section class="srv-hero"><p class="eyebrow"><span class="chip">Server</span></p><h1>${esc(title)}</h1><p class="lede">${text}</p>
-      ${signIn ? accSignIn('') : `<div class="srv-join"><a class="btn ghost" href="#servers">Set up a server</a><a class="btn ghost" href="#home">Smithborn's home</a></div>`}</section>`;
-    if (signIn) accBind($('#view'));
+      ${signIn ? '<div class="srv-join"><a class="btn" href="#signin">Sign in</a><a class="btn ghost" href="#signin" data-mode="new">Create an account</a></div>' : `<div class="srv-join"><a class="btn ghost" href="#servers">Set up a server</a><a class="btn ghost" href="#home">Smithborn's home</a></div>`}</section>`;
   };
   if (!c) return fail('This server page can\'t open here', `Open it on <a href="${SITE_URL}#s=${esc(code)}">the site's own address</a>.`);
   $('#view').innerHTML = '<section class="srv-hero"><p class="lede">Opening the server page…</p></section>';
@@ -13543,7 +13583,7 @@ async function showSaved(code) {
   if (data.error === 'private') {
     if (!ACC.on) return fail('This server page is private', `Only people its owner allowed can open it. Sign in on <a href="${SITE_URL}#s=${esc(code)}">the site's own address</a>.`);
     if (!ACC.user) return fail('This server page is private', 'Only people its owner allowed can open it. Sign in to check.', true);
-    return fail('This server page is private', ACC.profile ? `Your account, <b>${esc(ACC.profile.name)}</b>, isn't on its list. Ask the owner to allow ${esc(ACC.profile.name)}.` : 'Pick your Smithborn name on the <a href="#servers">Servers page</a>, then ask the owner to allow it.');
+    return fail('This server page is private', ACC.profile ? `Your account, <b>${esc(ACC.profile.name)}</b>, isn't on its list. Ask the owner to allow ${esc(ACC.profile.name)}.` : '<a href="#signin">Pick your Smithborn name</a>, then ask the owner to allow it.');
   }
   let srv; try { srv = cleanServer({ v: 1, n: data.name || 'Server', a: data.address, d: data.discord ? 'https://discord.gg/' + data.discord : '', t: data.about, m: data.mods, c: data.settings, w: data.versions }); }
   catch (e) { return fail('This server page didn\'t open', 'Something in it couldn\'t be read.'); }
@@ -13551,6 +13591,206 @@ async function showSaved(code) {
   $('#view').innerHTML = serverBody(srv, false, data.mine ? 'mine' : 'saved');
   bindCopies($('#view'));
   const eb = $('#srv-edit'); if (eb) eb.onclick = () => editSaved(data.id);
+}
+
+// ---- the sign-in screen: #signin ----
+// One card: Discord, or email with Sign in / Create account tabs; Forgot password; then, the first time, the Smithborn name.
+// A link from an email or Discord lands here too (backFromLink). Once you're in, it goes back to the page you came from.
+const SI = { mode: 'in', err: {}, email: '', name: null, back: null, keep: false, msgKind: '' };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const signedReady = () => !!(ACC.user && ACC.profile && !ACC.recovery);
+function showSignIn(was) {
+  S.ab = null; S.sc = null; stage = null; HOVER = null;
+  document.documentElement.style.setProperty('--ab', 'var(--ember)');
+  if (SI.keep) SI.keep = false; else { if (was && was !== 'signin') SI.back = '#' + was; ACC.msg = ''; SI.err = {}; SI.msgKind = ''; }
+  $('#view').innerHTML = '<section class="si-wrap" aria-labelledby="si-h"><div class="si-card" id="signin"></div></section>';
+  drawSignIn();
+}
+function siGoBack() {
+  const b = SI.back && SI.back !== '#signin' ? SI.back : '#my';
+  SI.back = null; SI.mode = 'in'; SI.err = {}; SI.name = null; ACC.msg = '';
+  if (S.page !== 'signin') return;
+  history.replaceState(null, '', location.pathname + location.search + b); route();
+}
+// a field with its error right under it
+const siField = (id, label, input, err) => `<div class="si-f${err ? ' bad' : ''}"><label for="${id}">${label}</label>${input}<p class="si-err" id="${id}-err"${err ? '' : ' hidden'}>${esc(err || '')}</p></div>`;
+const siAttrs = (id, err) => ` id="${id}" aria-describedby="${id}-err"${err ? ' aria-invalid="true"' : ''}`;
+const siPass = (id, label, ac, err) => siField(id, label, `<div class="si-pw"><input${siAttrs(id, err)} name="pass" type="password" autocomplete="${ac}"><button class="si-eye" type="button" aria-controls="${id}" aria-pressed="false">Show</button></div>`, err);
+function drawSignIn() {
+  const el = $('#signin'); if (!el) return;
+  const head = (t, sub) => { document.title = t + ' · Smithborn'; return `<a class="si-logo" href="#home"><span class="brand-mark" style="background-image:${sbUrl(SB.icon)}" aria-hidden="true"></span>Smithborn</a><h1 id="si-h">${t}</h1>${sub ? `<p class="si-sub">${sub}</p>` : ''}`; };
+  const msg = ACC.msg ? `<p class="si-msg ${SI.msgKind || ''}" role="status">${esc(ACC.msg)}</p>` : '';
+  if (!ACC.on) { el.innerHTML = head('Sign in', `Accounts work on <a href="${SITE_URL}#signin">the site's own address</a>. Here, your server is kept in this browser.`); return; }
+  if (signedReady()) { el.innerHTML = head('Signed in', 'Taking you back…'); setTimeout(siGoBack, 0); return; }
+  if (ACC.user && ACC.recovery) {
+    el.innerHTML = head('Pick a new password', `You opened the link from the email${ACC.user.email ? ` for <b>${esc(ACC.user.email)}</b>` : ''}. Pick a new password to keep using your account.`) + `
+      <form class="si-form" id="si-form" novalidate>${siPass('si-pass', 'New password <small>at least 8 characters</small>', 'new-password', SI.err.pass)}<button class="btn si-go" type="submit">Save the new password</button></form>
+      ${msg}<button class="acc-link si-alt" type="button" data-si="norecover">Not now</button>`;
+  } else if (ACC.user && ACC.profile === undefined) {
+    el.innerHTML = head('Signing in…', 'One moment.');
+  } else if (ACC.user) {
+    el.innerHTML = head('Pick your Smithborn name', 'Server owners type this name to let you open their private server pages. You can change it later.') + `
+      <form class="si-form" id="si-form" novalidate>${siField('si-name', 'Smithborn name <small>3 to 20 letters, numbers or _</small>', `<input${siAttrs('si-name', ACC.msg)} name="name" maxlength="20" value="${esc(SI.name !== null ? SI.name : nameGuess())}" autocomplete="nickname" spellcheck="false">`, ACC.msg)}<button class="btn si-go" type="submit">Save my name</button></form>
+      <button class="acc-link si-alt" type="button" data-acc="out">Not you? Sign out</button>`;
+  } else if (SI.mode === 'forgot') {
+    el.innerHTML = head('Reset your password', 'Type the email you signed up with. We\'ll send you a link to pick a new password.') + `
+      <form class="si-form" id="si-form" novalidate>${siField('si-email', 'Email', `<input${siAttrs('si-email', SI.err.email)} name="email" type="email" autocomplete="email" value="${esc(SI.email)}">`, SI.err.email)}<button class="btn si-go" type="submit">Send me a link</button></form>
+      ${msg}<button class="acc-link si-alt" type="button" data-si-mode="in">Back to sign in</button>`;
+  } else {
+    const nw = SI.mode === 'new';
+    el.innerHTML = head(nw ? 'Create your account' : 'Sign in', nw ? 'Save your servers, get short links and choose who can open your server pages.' : 'Welcome back. Your servers are where you left them.') + `
+      <button class="btn acc-discord si-discord" type="button" data-acc="discord"><span class="acc-dc" aria-hidden="true"></span>Continue with Discord</button>
+      <div class="si-or"><span>or use email</span></div>
+      <div class="si-tabs" role="tablist" aria-label="Email">
+        <button type="button" role="tab" id="si-tab-in" aria-controls="si-form" aria-selected="${!nw}" tabindex="${nw ? -1 : 0}" data-si-mode="in">Sign in</button>
+        <button type="button" role="tab" id="si-tab-new" aria-controls="si-form" aria-selected="${nw}" tabindex="${nw ? 0 : -1}" data-si-mode="new">Create account</button>
+      </div>
+      <form class="si-form" id="si-form" role="tabpanel" aria-labelledby="${nw ? 'si-tab-new' : 'si-tab-in'}" novalidate>
+        ${siField('si-email', 'Email', `<input${siAttrs('si-email', SI.err.email)} name="email" type="email" autocomplete="email" value="${esc(SI.email)}">`, SI.err.email)}
+        ${siPass('si-pass', nw ? 'Password <small>at least 8 characters</small>' : 'Password', nw ? 'new-password' : 'current-password', SI.err.pass)}
+        ${nw ? '' : '<button class="acc-link si-forgot" type="button" data-si-mode="forgot">Forgot password?</button>'}
+        <button class="btn si-go" type="submit">${nw ? 'Create account' : 'Sign in'}</button>
+      </form>
+      ${msg}`;
+  }
+  el.insertAdjacentHTML('beforeend', '<p class="si-note">You only need an account to save servers. Everything else on the site works without one.</p>');
+  bindSignIn(el);
+}
+function bindSignIn(el) {
+  accBind(el);
+  $$('[data-si-mode]', el).forEach(b => { b.onclick = () => { const e = $('#si-email'); if (e) SI.email = e.value.trim(); SI.mode = b.dataset.siMode; SI.err = {}; ACC.msg = ''; drawSignIn(); const f = $('#signin input'); if (f) f.focus(); }; });
+  const tabs = $$('[role="tab"]', el);
+  tabs.forEach((t, i) => { t.onkeydown = e => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; e.preventDefault(); const n = tabs[(i + 1) % tabs.length]; n.click(); const nt = $('[role="tab"][aria-selected="true"]'); if (nt) nt.focus(); }; });
+  $$('[data-si="norecover"]', el).forEach(b => { b.onclick = () => { ACC.recovery = false; ACC.msg = ''; SI.err = {}; drawSignIn(); }; });
+  $$('.si-eye', el).forEach(b => { b.onclick = () => { const i = $('#' + b.getAttribute('aria-controls')), on = i.type === 'password'; i.type = on ? 'text' : 'password'; b.textContent = on ? 'Hide' : 'Show'; b.setAttribute('aria-pressed', String(on)); i.focus(); }; });
+  // typing in a field clears its error
+  $$('.si-f input', el).forEach(i => { i.addEventListener('input', () => { const f = i.closest('.si-f'), er = $('.si-err', f); if (!f.classList.contains('bad')) return; f.classList.remove('bad'); er.hidden = true; i.removeAttribute('aria-invalid'); }); });
+  const f = $('#si-form', el); if (f) f.onsubmit = e => { e.preventDefault(); siSubmit(f); };
+}
+// draw again with the errors, keeping the password that was typed, and put the cursor in the first wrong field
+function siRedraw(keepPass) {
+  const p = $('#si-pass'), v = p && keepPass ? p.value : '';
+  drawSignIn();
+  const q = $('#si-pass'); if (q && v) q.value = v;
+  const bad = $('#signin [aria-invalid="true"]'); if (bad) bad.focus();
+}
+function siBusy(text) { const b = $('#signin .si-go'); if (!b) return; b.dataset.label = b.dataset.label || b.textContent; b.disabled = !!text; b.textContent = text || b.dataset.label; }
+async function siSubmit(f) {
+  if (ACC.user && ACC.recovery) return siNewPassword(f);
+  if (ACC.user && ACC.profile === null) { SI.name = f.name.value; siBusy('Saving…'); await pickName(f.name.value); siBusy(''); const i = $('#si-name'); if (i && i.getAttribute('aria-invalid')) i.focus(); return; }
+  const email = f.email.value.trim(); SI.email = email; SI.err = {}; ACC.msg = ''; SI.msgKind = '';
+  if (!email) SI.err.email = 'Type your email.'; else if (!EMAIL_RE.test(email)) SI.err.email = 'That doesn\'t look like an email address.';
+  if (SI.mode === 'forgot') return SI.err.email ? siRedraw(false) : siForgot(email);
+  const pass = f.pass.value, nw = SI.mode === 'new';
+  if (!pass) SI.err.pass = nw ? 'Pick a password.' : 'Type your password.'; else if (nw && pass.length < 8) SI.err.pass = 'Use at least 8 characters.';
+  if (SI.err.email || SI.err.pass) return siRedraw(true);
+  siBusy(nw ? 'Making your account…' : 'Signing in…'); ACC.justIn = true;
+  const c = supa();
+  const r = nw ? await c.auth.signUp({ email, password: pass, options: { emailRedirectTo: SITE_URL } }) : await c.auth.signInWithPassword({ email, password: pass });
+  if (r.error) {
+    ACC.justIn = false;
+    const m = r.error.message || '';
+    if (/invalid login/i.test(m)) SI.err.pass = 'Wrong email or password.';
+    else if (/already (been )?registered|already exists/i.test(m)) SI.err.email = 'That email already has an account. Use the Sign in tab.';
+    else if (/password/i.test(m)) SI.err.pass = m;
+    else { ACC.msg = /rate limit|too many/i.test(m) ? 'Too many tries just now. Wait a minute, then try again.' : /not confirmed/i.test(m) ? 'Open the link in the email we sent you to finish making your account.' : m; SI.msgKind = 'bad'; }
+    return siRedraw(false);
+  }
+  if (nw && !r.data.session) { ACC.justIn = false; ACC.msg = 'Check your email and open the link in it to finish making your account.'; SI.msgKind = 'good'; drawSignIn(); return; }
+  // signed in: the sign-in event loads the account, and the card moves on (the name step, or back to where you were)
+  if (S.page === 'signin' && $('#signin .si-go')) siBusy('Signing in…');
+}
+async function siForgot(email) {
+  try { sessionStorage.setItem('sb-back', SI.back || '#my'); } catch (e) {}
+  siBusy('Sending…');
+  const { error } = await supa().auth.resetPasswordForEmail(email, { redirectTo: SITE_URL });
+  SI.msgKind = error ? 'bad' : 'good';
+  ACC.msg = !error ? `If ${email} has an account, an email with a link to pick a new password is on its way. Open it in this browser.`
+    : /not authori[sz]ed/i.test(error.message) ? 'Password emails can\'t be sent from this site yet. Sign in with Discord for now.'
+    : /rate limit|too many/i.test(error.message) ? 'Too many emails were sent just now. Try again in an hour.' : error.message;
+  drawSignIn();
+}
+async function siNewPassword(f) {
+  const pass = f.pass.value; SI.err = {};
+  if (pass.length < 8) { SI.err.pass = 'Use at least 8 characters.'; return siRedraw(true); }
+  siBusy('Saving…');
+  const { error } = await supa().auth.updateUser({ password: pass });
+  if (error) { SI.err.pass = error.code === 'same_password' || /different from the old/i.test(error.message) ? 'That is your old password: pick a new one.' : error.message; return siRedraw(false); }
+  ACC.recovery = false; ACC.msg = ''; toast('Your new password is saved'); drawSignIn();
+}
+
+// ---- the Account page: #account ----
+function showAccount() {
+  S.ab = null; S.sc = null; stage = null; HOVER = null;
+  document.documentElement.style.setProperty('--ab', 'var(--ember)');
+  document.title = 'Account · Smithborn';
+  ACC.msg = ''; ACC.renaming = false;
+  $('#view').innerHTML = '<div id="account"></div>';
+  drawAccount();
+}
+// how this account signs in: discord, email, or both
+function accIdentities() {
+  const u = ACC.user || {}, ap = u.app_metadata || {}, ids = (u.identities || []).map(i => i.provider);
+  return [...new Set(ids.length ? ids : ap.providers && ap.providers.length ? ap.providers : [ap.provider || 'email'])];
+}
+function discordName() {
+  const u = ACC.user || {}, i = (u.identities || []).find(x => x.provider === 'discord'), d = (i && i.identity_data) || u.user_metadata || {};
+  return (d.custom_claims && d.custom_claims.global_name) || d.full_name || d.name || d.user_name || '';
+}
+function drawAccount() {
+  const el = $('#account'); if (!el) return;
+  const gate = (t, sub, btns) => `<section class="srv-hero acct-gate"><p class="eyebrow"><span class="chip">Account</span></p><h1>${t}</h1><p class="lede">${sub}</p>${btns ? `<div class="srv-join">${btns}</div>` : ''}</section>`;
+  if (!ACC.on) { el.innerHTML = gate('Your account', `Accounts work on <a href="${SITE_URL}#account">the site's own address</a>.`); return; }
+  if (!ACC.user) { el.innerHTML = gate('Your account', 'Sign in to see your account.', '<a class="btn" href="#signin">Sign in</a>'); return; }
+  if (ACC.profile === undefined) { el.innerHTML = gate('Your account', 'Loading…'); return; }
+  if (!ACC.profile) { el.innerHTML = gate('One more step', 'Pick your Smithborn name to finish making your account.', '<a class="btn" href="#signin">Pick my name</a>'); return; }
+  const ids = accIdentities(), hasPass = ids.includes('email'), n = (ACC.mine || []).length;
+  const idRow = p => p === 'discord' ? `<li><span class="acct-ic dc"><span class="acc-dc"></span></span><span><b>Discord</b><small>${esc(discordName() || 'Connected')}</small></span></li>`
+    : p === 'email' ? `<li><span class="acct-ic">@</span><span><b>Email and password</b><small>${esc(ACC.user.email || '')}</small></span></li>`
+    : `<li><span class="acct-ic">?</span><span><b>${esc(p)}</b></span></li>`;
+  el.innerHTML = `
+  <section class="acct-hero" aria-labelledby="h-acct">
+    <p class="eyebrow"><span class="chip">Account</span>Your Smithborn account</p>
+    <div class="acct-who">${accAvatar('xl')}<div><h1 id="h-acct">${esc(ACC.profile.name)}</h1><p>${accHow()}</p></div></div>
+  </section>
+  <section class="acct" aria-label="Account settings">
+    <div class="acct-row">
+      <div class="acct-k"><h2>Smithborn name</h2><p>Server owners type this name to let you open their private server pages.</p></div>
+      <div class="acct-v">${ACC.renaming ? `<form class="acc-name" data-acc-rename onsubmit="return false"><label class="srv-field"><span>New name <small>3 to 20 letters, numbers or _</small></span><input name="name" maxlength="20" value="${esc(ACC.profile.name)}" autocomplete="nickname" spellcheck="false"></label><button class="btn sm" type="submit">Save</button><button class="btn ghost sm" type="button" data-acc="rename-no">Cancel</button></form>`
+        : `<div class="acct-line"><b class="acct-name">${esc(ACC.profile.name)}</b><button class="btn ghost sm" type="button" data-acc="rename">Change</button></div>`}${accMsg()}</div>
+    </div>
+    <div class="acct-row">
+      <div class="acct-k"><h2>How you sign in</h2><p>${ids.length > 1 ? 'Either of these opens this account.' : 'The way you open this account.'}</p></div>
+      <div class="acct-v"><ul class="acct-ids">${ids.map(idRow).join('')}</ul></div>
+    </div>
+    <div class="acct-row">
+      <div class="acct-k"><h2>Password</h2><p>${hasPass ? 'For signing in with your email.' : 'Only for accounts that sign in with an email.'}</p></div>
+      <div class="acct-v">${hasPass ? `<form class="acct-pass" id="acct-pass" novalidate>${siPass('acct-np', 'New password <small>at least 8 characters</small>', 'new-password', '')}<button class="btn" type="submit">Change password</button></form>`
+        : '<p class="fine">You sign in with Discord, so there\'s no password to change here.</p>'}</div>
+    </div>
+    <div class="acct-row">
+      <div class="acct-k"><h2>Your servers</h2><p>The servers you saved, their short links and who can open them.</p></div>
+      <div class="acct-v"><div class="acct-line"><span>${n ? `${n} of 25 saved` : 'None saved yet'}</span><a class="btn ghost sm" href="#my">My servers</a></div></div>
+    </div>
+    <div class="acct-row">
+      <div class="acct-k"><h2>Sign out</h2><p>Signs you out in this browser. Your servers stay saved.</p></div>
+      <div class="acct-v"><div class="acct-line"><button class="btn ghost" type="button" data-acc="out">Sign out</button></div></div>
+    </div>
+  </section>`;
+  accBind(el);
+  $$('.si-eye', el).forEach(b => { b.onclick = () => { const i = $('#' + b.getAttribute('aria-controls')), on = i.type === 'password'; i.type = on ? 'text' : 'password'; b.textContent = on ? 'Hide' : 'Show'; b.setAttribute('aria-pressed', String(on)); i.focus(); }; });
+  const pf = $('#acct-pass', el); if (pf) pf.onsubmit = e => { e.preventDefault(); changePassword(pf); };
+}
+async function changePassword(f) {
+  const i = f.pass, err = $('#acct-np-err'), b = $('button[type="submit"]', f), pass = i.value;
+  const say = t => { err.textContent = t; err.hidden = !t; i.closest('.si-f').classList.toggle('bad', !!t); if (t) { i.setAttribute('aria-invalid', 'true'); i.focus(); } else i.removeAttribute('aria-invalid'); };
+  if (pass.length < 8) return say('Use at least 8 characters.');
+  b.disabled = true; b.textContent = 'Saving…';
+  const { error } = await supa().auth.updateUser({ password: pass });
+  b.disabled = false; b.textContent = 'Change password';
+  if (error) return say(error.code === 'same_password' || /different from the old/i.test(error.message) ? 'That is your current password: pick a new one.'
+    : error.code === 'reauthentication_needed' || /reauthenticat/i.test(error.message) ? 'For safety, sign out, sign in again, then change it.' : error.message);
+  say(''); i.value = ''; toast('Your new password is saved');
 }
 
 // ==== site.js ====
@@ -13612,7 +13852,7 @@ document.addEventListener('focusin', e => { $$('[data-dd]').forEach(d => { if (!
 function navOn(h, sec) {
   const cur = h === 'addons' ? 'addons' : sec;
   $$('[data-nav]').forEach(n => {
-    const v = n.dataset.nav, on = v === cur || (v === 'addons' && n.classList.contains('dd-b') && SECTIONS.includes(sec));
+    const v = n.dataset.nav, on = v === cur || (v === 'addons' && n.classList.contains('dd-b') && SECTIONS.includes(sec)) || (n.classList.contains('acc-b') && cur === 'account');
     n.classList.toggle('on', on);
     if (n.tagName === 'A') { if (v === cur) n.setAttribute('aria-current', 'page'); else n.removeAttribute('aria-current'); }
   });
@@ -13632,7 +13872,9 @@ function accAvatar(cls) {
   return `<span class="av ${cls || ''}" aria-hidden="true"><span>${esc(nm.charAt(0).toUpperCase())}</span>${u ? `<img src="${esc(u)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.remove()">` : ''}</span>`;
 }
 // where Sign in goes
-const signInHref = () => '#my';
+const signInHref = () => '#signin';
+// a Sign in link opens the sign-in screen on the tab it names (Create account for data-mode="new")
+document.addEventListener('click', e => { const a = e.target.closest('a[href="#signin"]'); if (a) SI.mode = a.dataset.mode || 'in'; }, true);
 function drawTopAcc() {
   const el = $('#top-acc'), ma = $('#mnav-acc');
   if (!el) return;
@@ -13650,14 +13892,26 @@ function drawTopAcc() {
       <div class="dd-m dd-acc" id="dd-acc"${open ? '' : ' hidden'}>
         <div class="dd-who">${accAvatar('lg')}<span><b>${nm}</b><small>${accHow()}</small></span></div>
         <a href="#my" data-nav="my">My servers${n ? `<span class="dd-n">${n}</span>` : ''}</a>
+        <a href="#account" data-nav="account">Account</a>
         <button type="button" data-acc="out">Sign out</button>
       </div>
     </div>`;
   if (ma) ma.innerHTML = `<div class="dd-who">${accAvatar('lg')}<span><b>${nm}</b><small>${accHow()}</small></span></div>
     <a href="#my" data-nav="my">My servers${n ? `<span class="dd-n">${n}</span>` : ''}</a>
+    <a href="#account" data-nav="account">Account</a>
     <button type="button" class="mnav-out" data-acc="out">Sign out</button>`;
   accBind(el); if (ma) accBind(ma);
   if (S.page) navOn(location.hash.slice(1), document.body.dataset.section);
+}
+
+// ---- one small message in the corner: Copied, Saved, Signed in, Signed out ----
+function toast(text, kind) {
+  let box = $('#toasts');
+  if (!box) { box = document.createElement('div'); box.id = 'toasts'; box.className = 'toasts'; box.setAttribute('role', 'status'); box.setAttribute('aria-live', 'polite'); document.body.appendChild(box); }
+  const t = document.createElement('div'); t.className = 'toast' + (kind ? ' ' + kind : ''); t.textContent = text;
+  box.appendChild(t);
+  while (box.children.length > 3) box.firstChild.remove();
+  setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 250); }, 2800);
 }
 
 // start: every file is loaded now
